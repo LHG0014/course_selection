@@ -98,9 +98,6 @@
                     <a href="homepage" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>主页[Home]</a>
                 </li>
                 <li>
-                    <a href="#" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>个人主页[Personal Page]</a>
-                </li>
-                <li>
                     <a href="experiments" class="waves-effect"><i class="fa fa-table fa-fw" aria-hidden="true"></i>实验预约<br/>[Experiment Appointment]</a>
                 </li>
                 <li>

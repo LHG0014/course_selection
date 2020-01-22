@@ -9,6 +9,7 @@
 <html lang="en">
 
 <head>
+
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,6 +17,7 @@
 	<meta name="author" content="">
 	<link rel="icon" type="image/png" sizes="16x16" href="/plugins/images/favicon.png">
 	<title>大学物理实验系统</title>
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
 	<!-- Bootstrap Core CSS -->
 	<link href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Menu CSS -->
@@ -29,9 +31,13 @@
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
+
 	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
 	<![endif]-->
+
+
 </head>
 
 <body class="fix-header">
@@ -94,9 +100,6 @@
 					<a href="homepage" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>主页[Home]</a>
 				</li>
 				<li>
-					<a href="#" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>个人主页[Personal Page]</a>
-				</li>
-				<li>
 					<a href="experiments" class="waves-effect"><i class="fa fa-table fa-fw" aria-hidden="true"></i>实验预约<br/>[Experiment Appointment]</a>
 				</li>
 				<li>
@@ -144,37 +147,58 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="white-box">
-						<div style="text-align: center; font-size: 150%;">
+						<div style="text-align: left; font-size: 150%;width: 500px;margin: 2% auto">
 							<form>
 								实验：
-								<select>
-									<option value ="volvo">Volvo</option>
-									<option value ="saab">Saab</option>
-									<option value="opel">Opel</option>
-									<option value="audi">Audi</option>
+								<select id="eid" name="eid">
+									<option value ="0">--请选择--</option>
+									<option value="1">落球法测量液体的黏滞系数</option>
 								</select>
 								<br/>
 								周次：
-								<select>
-									<option value ="volvo">Volvo</option>
-									<option value ="saab">Saab</option>
-									<option value="opel">Opel</option>
-									<option value="audi">Audi</option>
+								<select id="week" name="week">
+									<option value ="1">1</option>
+									<option value ="2">2</option>
+									<option value ="3">3</option>
+									<option value ="4">4</option>
+									<option value ="5">5</option>
+									<option value ="6">6</option>
+									<option value ="7">7</option>
+									<option value ="8">8</option>
+									<option value ="9">9</option>
+									<option value ="10">10</option>
+									<option value ="11">11</option>
+									<option value ="12">12</option>
+									<option value ="13">13</option>
+									<option value ="14">14</option>
+									<option value ="15">15</option>
+									<option value ="16">16</option>
+									<option value ="17">17</option>
+									<option value ="18">18</option>
+								</select>
+								<br/>
+								星期：
+								<select id="day" name="day">
+									<option value ="7">日</option>
+									<option value ="1">一</option>
+									<option value ="2">二</option>
+									<option value ="3">三</option>
+									<option value ="4">四</option>
+									<option value ="5">五</option>
+									<option value ="6">六</option>
 								</select>
 								<br/>
 								节次：
-								<select>
-									<option value ="volvo">Volvo</option>
-									<option value ="saab">Saab</option>
-									<option value="opel">Opel</option>
-									<option value="audi">Audi</option>
+								<select id="section" name="section">
+									<option value ="1">1-4</option>
+									<option value ="2">5-8</option>
 								</select>
 								<br/>
-								任课教师：
+								任课教师：<span id="tname" style="width: 150px"></span>
+								<br/>
+								<button type="button" id="c" onclick="f()">提交</button>
 							</form>
 						</div>
-
-
 					</div>
 				</div>
 			</div>
@@ -198,6 +222,31 @@
 <script src="/js/waves.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="/js/custom.min.js"></script>
+<script type="text/javascript">
+    function f(){
+        var eid=$("#eid").val();
+        var week=$("#week").val();
+        var day=$("#day").val();
+        var section=$("#section").val();
+        $.ajax({
+            type: "post",
+            url: "/findT",
+            data: {
+                "eid":eid,
+                "week":week,
+                "day":day,
+                "section":section
+            },
+            success: function(data,status) {
+                console.log(data);
+                console.log(status);
+                var t="";
+                t+="<b>"+data+"</b>";
+                $("#tname").html(t);
+            }
+        });
+    }
+</script>
 </body>
 
 </html>
