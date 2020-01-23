@@ -1,7 +1,9 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+<%@ page isELIgnored="false" %>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -127,115 +129,66 @@
                 <div class="col-md-12">
                     <div class="white-box">
                         <h2 class="box-title">寻物启事</h2>
+                        <c:forEach items="${page.list}" var="c">
                         <div style="border:3px solid RGB(237,241,245)">
                             <table class="table">
-                                <thead>
                                 <tr>
-                                    <th>el表达式id</th>
-                                    <th>el表达式主题</th>
+                                    <th>${c.id}</th>
+                                    <th>${c.type}</th>
                                     <th></th>
                                 </tr>
-                                </thead>
-                                <tbody>
                                 <tr>
                                     <td></td>
-                                    <td>el表达式详细内容</td>
+                                    <td>${c.title}</td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <td></td>
                                     <td></td>
-                                    <td>el表达式 谁发布的+时间</td>
+                                    <td>${c.place}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${c.time}</td>
                                 </tr>
-                                </tbody>
+
+                                <br>
                             </table>
+                        </div>
+                            <br><br><br>
+                        </c:forEach>
+                        <div>
+                            <a href="?start=1">[首  页]</a>
+                            <a href="?start=${page.pageNum-1}">[上一页]</a>
+                            <a href="?start=${page.pageNum+1}">[下一页]</a>
+                            <a href="?start=${page.pages}">[末  页]</a>
                         </div>
                     </div>
                 </div>
                 <div class="white-box" style="float:left;width:46%;margin:2%;">
                     <p>发布启事</p>
-                    <form class="form-horizontal form-material">
+                    <form method="post" action="/asd">
                         <div class="form-group">
                             <label class="col-md-12">信息主题：</label>
                             <div class="col-md-12">
-                                <input type="text"
+                                <input type="text" name="title" required="required"
                                        class="form-control form-control-line"> </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-12">详细信息：</label>
                             <div class="col-md-12">
-                                <textarea rows="5" class="form-control form-control-line" style="resize: none" ></textarea>
+                                <textarea rows="5" class="form-control form-control-line" required="required"
+                                          name="content" style="resize: none" ></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-12">选择类型：</label>
                             <div class="col-sm-12">
-                                <select class="form-control form-control-line">
-                                    <option>招领</option>
-                                    <option>遗失</option>
+                                <select class="form-control form-control-line" name="type">
+                                    <option value="招领">招领</option>
+                                    <option value="遗失">遗失</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-12">学号</label>
-                            <div class="col-md-12">
-                                <input type="text"
-                                       class="form-control form-control-line">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-12">密码</label>
-                            <div class="col-md-12">
-                                <input type="password" value="password" class="form-control form-control-line">
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <div class="col-sm-12">
-                                <submit class="btn btn-success">提交</submit>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="white-box" style="float:left;width:46%;margin:2%;">
-                    <p>信息回复</p>
-                    <form class="form-horizontal form-material">
-                        <div class="form-group">
-                            <label class="col-md-12">回复主题号：</label>
-                            <div class="col-md-12">
-                                <input type="text"
-                                       class="form-control form-control-line"> </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-12">回复内容：</label>
-                            <div class="col-md-12">
-                                <textarea rows="5" class="form-control form-control-line" style="resize: none"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-12">选择类型：</label>
-                            <div class="col-sm-12">
-                                <select class="form-control form-control-line">
-                                    <option>招领</option>
-                                    <option>遗失</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-12">学号</label>
-                            <div class="col-md-12">
-                                <input type="text"
-                                       class="form-control form-control-line">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-12">密码</label>
-                            <div class="col-md-12">
-                                <input type="password" value="password" class="form-control form-control-line">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-12">
-                                <submit class="btn btn-success">提交</submit>
+                                <input type="submit" class="btn btn-success" value="提交"/>
                             </div>
                         </div>
                     </form>
