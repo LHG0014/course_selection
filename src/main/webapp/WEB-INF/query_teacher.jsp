@@ -196,7 +196,7 @@
 								<br/>
 								任课教师：<span id="tname" style="width: 150px"></span>
 								<br/>
-								<button type="button" id="c" class="btn btn-success" onclick="f()">提交</button>
+								<button type="button" id="c" class="btn btn-success" onclick="f()" style="width: 50%;margin: 0 0 0 25%;">提交</button>
 							</form>
 						</div>
 					</div>

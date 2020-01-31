@@ -19,30 +19,20 @@ import java.util.List;
 import java.util.TimeZone;
 
 @Controller
-@RequestMapping("/student")
 public class MailboxController {
 
     @Autowired
     MailboxMapper mailboxMapper;
-
-    @RequestMapping("/mailbox")
-    public String mailbox(HttpServletRequest request, HttpServletResponse response,
-                          Model model,
-                          @Param("sid") Integer sid
-    ) throws  Exception{
-        HttpSession session = request.getSession();//获取session内容
-        sid=((Student)session.getAttribute("student")).getSid();
-        List<Mailbox> mail= mailboxMapper.findMail(sid);
-        request.getSession(false).setAttribute("mail",mail);
-//        model.addAttribute("mes",messages);//-》request...的替代者
-        return "mailbox";
-    }
 
     @RequestMapping("/addMail")
     public String addMail(HttpServletRequest request, HttpServletResponse response, Mailbox c,
                           @Param("sid") Integer sid, @Param("sname") String sname, @Param("title") String title,
                           @Param("content") String content, @Param("time") String time
     ) throws Exception {
+        Student student = (Student) request.getSession().getAttribute("student");
+        if (null == student) {
+            return "login";
+        }
         HttpSession session = request.getSession();//获取session内容
         sid=((Student)session.getAttribute("student")).getSid();
         sname=((Student)session.getAttribute("student")).getSname();
