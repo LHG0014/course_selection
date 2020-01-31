@@ -20,14 +20,14 @@ public class CategoryController {
     public String lostfound(){
     	return "lostfound";
     }
-    @RequestMapping("/mailbox")
-    public String mailbox(){
-        return "mailbox";
-    }
-    @RequestMapping("/message")
-    public String message(){
-        return "message";
-    }
+//    @RequestMapping("/mailbox")
+//    public String mailbox(){
+//        return "mailbox";
+//    }
+//    @RequestMapping("/message")
+//    public String message(){
+//        return "message";
+//    }
     @RequestMapping("/experiments")
     public String experiments(){
         return "schedule_experiments";

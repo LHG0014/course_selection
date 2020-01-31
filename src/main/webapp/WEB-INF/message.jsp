@@ -134,7 +134,7 @@
 			<div class="row">
 				<div class="white-box" style="width:46%;margin: 2% auto;">
 					<p>我要留言</p>
-					<form class="form-horizontal form-material" action="student/addMessage" method="post">
+					<form class="form-horizontal form-material" action="addMessage" method="post">
 						<div class="form-group">
 							<label class="col-md-12">姓名：</label>
 							<div class="col-md-12">

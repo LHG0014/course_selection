@@ -123,28 +123,7 @@
 		            </ol>
 	            </div>
             </div>
-            <div class="row">
-	            <div class="white-box" style="width:50%;margin: 2% auto;">
-		            <form class="form-horizontal form-material" action="student/addMail">
-			            <div class="form-group">
-				            <label class="col-md-12">投诉主题：</label>
-				            <div class="col-md-12">
-					            <input type="text" class="form-control form-control-line"  name="title"> </div>
-			            </div>
-			            <div class="form-group">
-				            <label class="col-md-12">投诉内容：</label>
-				            <div class="col-md-12">
-					            <textarea rows="5" class="form-control form-control-line" style="resize: none" name="content"></textarea>
-				            </div>
-			            </div>
-			            <div class="form-group">
-				            <div class="col-sm-12" >
-					            <button class="btn btn-success" style="width: 50%;margin:0 10% 0 25%;">提交</button>
-				            </div>
-			            </div>
-		            </form>
-	            </div>
-            </div>
+
             <div class="col-md-12">
                 <div class="white-box">
                     <h3 class="box-title">我的历史投诉</h3>
@@ -171,6 +150,28 @@
                                 </tr>
                             </table>
                         </c:forEach>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="white-box" style="width:50%;margin: 2% auto;">
+                        <form class="form-horizontal form-material" action="addMail">
+                            <div class="form-group">
+                                <label class="col-md-12">投诉主题：</label>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control form-control-line"  name="title"> </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">投诉内容：</label>
+                                <div class="col-md-12">
+                                    <textarea rows="5" class="form-control form-control-line" style="resize: none" name="content"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12" >
+                                    <button class="btn btn-success" style="width: 50%;margin:0 10% 0 25%;">提交</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
