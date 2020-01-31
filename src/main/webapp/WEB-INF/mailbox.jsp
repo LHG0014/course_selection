@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
-    <title>Ample Admin Template - The Ultimate Multipurpose admin template</title>
+    <title>大学物理实验系统</title>
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
@@ -34,40 +34,41 @@
 <!-- Wrapper -->
 <!-- ============================================================== -->
 <div id="wrapper">
-    <nav class="navbar navbar-default navbar-static-top m-b-0">
-        <div class="navbar-header" style="height: 68px;">
-            <div class="top-left-part">
-                <!-- Logo -->
-                <a class="logo">
+	<nav class="navbar navbar-default navbar-static-top m-b-0">
+		<div class="navbar-header" style="height: 68px;">
+			<div class="top-left-part">
+				<!-- Logo -->
+				<a class="logo">
 
                     <span class="hidden-xs">
                         <img src="../img/headlogo.png" alt="home" class="light-logo" width="100%" height="100%"/>
                         </span>
-                </a>
-            </div>
-            <!-- /Logo -->
-            <ul class="nav navbar-top-links navbar-right pull-right">
-                <li>
-                    <a class="nav-toggler open-close waves-effect waves-light hidden-md hidden-lg" href="javascript:void(0)"><i class="fa fa-bars"></i></a>
-                </li>
-                <li>
-                    <form role="search" class="app-search hidden-sm hidden-xs m-r-10">
-                        <input type="text" placeholder="Search..." class="form-control">
-                        <a href="">
-                            <i class="fa fa-search"></i>
-                        </a>
-                    </form>
-                </li>
-                <li>
-                    <c:if test="${!empty student}">
-                        <a class="profile-pic" href="#">用户：${student.sname}</a>
-                    </c:if>
-                    <c:if test="${empty student}">
-                        请先<a class="profile-pic" href="../login"> 登录 </a>
-                    </c:if>
-                </li>
-            </ul>
-        </div>
+				</a>
+			</div>
+			<!-- /Logo -->
+			<ul class="nav navbar-top-links navbar-right pull-right">
+				<li>
+					<a class="nav-toggler open-close waves-effect waves-light hidden-md hidden-lg"
+					   href="javascript:void(0)"><i class="fa fa-bars"></i></a>
+				</li>
+				<li>
+					<form role="search" class="app-search hidden-sm hidden-xs m-r-10">
+						<input type="text" placeholder="Search..." class="form-control">
+						<a href="">
+							<i class="fa fa-search"></i>
+						</a>
+					</form>
+				</li>
+				<li>
+					<c:if test="${!empty student}">
+						<a class="profile-pic" href="#">用户：${student.sname}</a>
+					</c:if>
+					<c:if test="${empty student}">
+						请先<a class="profile-pic" href="../login"> 登录 </a>
+					</c:if>
+				</li>
+			</ul>
+		</div>
 
     </nav>
     <div class="navbar-default sidebar" role="navigation">
@@ -123,43 +124,59 @@
 		            </ol>
 	            </div>
             </div>
-            <div class="row">
-	            <div class="white-box" style="width:50%;margin: 0 auto;">
-		            <form class="form-horizontal form-material">
-			            <div class="form-group">
-				            <label class="col-md-12">投诉主题：</label>
-				            <div class="col-md-12">
-					            <input type="text" class="form-control form-control-line"> </div>
-			            </div>
-			            <div class="form-group">
-				            <label class="col-md-12">投诉内容：</label>
-				            <div class="col-md-12">
-					            <textarea rows="5" class="form-control form-control-line" style="resize: none"></textarea>
-				            </div>
-			            </div>
-			            <div class="form-group">
-				            <label class="col-md-12">学号</label>
-				            <div class="col-md-12">
-					            <input type="text" class="form-control form-control-line" style="width:100px">
-				            </div>
-			            </div>
-			            <div class="form-group">
-				            <label class="col-md-12">密码</label>
-				            <div class="col-md-12">
-					            <input type="password" value="password" class="form-control form-control-line" style="width: 100px">
-				            </div>
-			            </div>
-			            <div class="form-group">
-				            <div class="col-sm-12" style="width: 150px;float: left">
-					            <submit class="btn btn-success">提交</submit>
-				            </div>
-				            <div class="col-sm-12" style="width: 150px;float: right">
-				            <a href="#" class="btn btn-danger btn-block waves-effect waves-light" aria-hidden="true">查看投诉</a>
-				            </div>
-			            </div>
-		            </form>
-	            </div>
+
+            <div class="col-md-12">
+                <div class="white-box">
+                    <h3 class="box-title">我的历史投诉</h3>
+                    <div style="border:3px solid RGB(237,241,245)">
+                        <c:forEach items="${mail}" var="c" varStatus="st">
+
+                            <table class="table">
+                                <tr>
+                                    <td style="background-color:RGB(237,241,245);color: black;text-align: center">投诉主题</td>
+                                    <td>${c.title}</td>
+                                </tr>
+                                <tr>
+                                    <td style="background-color:RGB(237,241,245);color: black;text-align: center">投诉内容</td>
+                                      <td>${c.content}</td>
+
+                                </tr>
+                                <tr>
+                                    <td style="background-color:RGB(237,241,245);color: black;text-align: center">投诉时间</td>
+                                    <td colspan="3"> ${c.time}</td>
+                                </tr>
+                                <tr>
+                                    <td style="background-color:RGB(237,241,245);color: black;text-align: center">回复：</td>
+                                    <td colspan="3">${c.reply}</td>
+                                </tr>
+                            </table>
+                        </c:forEach>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="white-box" style="width:50%;margin: 2% auto;">
+                        <form class="form-horizontal form-material" action="student/addMail">
+                            <div class="form-group">
+                                <label class="col-md-12">投诉主题：</label>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control form-control-line"  name="title"> </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">投诉内容：</label>
+                                <div class="col-md-12">
+                                    <textarea rows="5" class="form-control form-control-line" style="resize: none" name="content"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12" >
+                                    <button class="btn btn-success" style="width: 50%;margin:0 10% 0 25%;">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
     <!-- /.container-fluid -->

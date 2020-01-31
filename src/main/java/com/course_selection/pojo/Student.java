@@ -4,7 +4,7 @@ public class Student {
     private int id;
     private Integer sid;
     private String sname;
-    private String  password;
+    private String password;
     private String initial_password;
     private int total_num;
     private int selected_num;
@@ -76,6 +76,14 @@ public class Student {
 
     public void setSelected_num(int selected_num) {
         this.selected_num = selected_num;
+    }
+
+    public void selectCourse() {
+        selected_num++;
+    }
+
+    public void cancelCourse() {
+        selected_num--;
     }
 
     public Student(int id, Integer sid, String sname, String password, String initial_password, int total_num, int selected_num) {

@@ -17,17 +17,19 @@ public interface StudentMapper {
     @Select("select * from student")
     public List<Student> findAll();
 
-
     @Select("select * from student where sid=#{sid} and password=#{password} ")
     public Student login(@Param("sid") Integer sid, @Param("password") String password);
 
     @Update("update student set password=#{password_new} where sid = #{sid} and password=#{password}")
-    public void UpdateStudent(@Param("sid") Integer sid, @Param("password") String password, @Param("password_new") String password_new, @Param("sname") String sname);
+    public void changePassword(@Param("sid") Integer sid, @Param("password") String password, @Param("password_new") String password_new, @Param("sname") String sname);
 
     @Select("select * from student where sid=#{sid} and password=#{password}")
     public Student findOne(@Param("sid") Integer sid, @Param("password") String password, @Param("sname") String sname);
 
     @Select("select * from student where id=#{id}")
     public Student findById(@Param("id") Integer id);
+
+    @Update("update student set selected_num=#{selected_num} where sid = #{sid}")
+    public void changeCourse(@Param("sid") Integer sid, @Param("selected_num") Integer selected_num);
 
 }

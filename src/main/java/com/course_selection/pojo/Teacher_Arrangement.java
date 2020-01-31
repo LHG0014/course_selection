@@ -1,6 +1,6 @@
 package com.course_selection.pojo;
 
-public class teacher_arrangement {
+public class Teacher_Arrangement {
     private int id;
     private int eid;
     private String ename;

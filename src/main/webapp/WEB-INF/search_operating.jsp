@@ -146,39 +146,25 @@
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th>实验序号</th>
+                                    <th>序号</th>
                                     <th>实验名称</th>
                                     <th>周次</th>
-                                    <th>节次</th>
                                     <th>实验室号</th>
                                     <th>座位号</th>
                                     <th></th>
-
                                 </tr>
                                 </thead>
                                 <tbody>
+                                <c:forEach items="${sis}" var="si" varStatus="st">
                                 <tr>
-                                    <td>001</td>
-                                    <td>力热实验</td>
-                                    <td>2</td>
-                                    <td>1-4节</td>
-                                    <td>实验楼111</td>
-                                    <td>05</td>
-                                    <form>
-                                        <td><button class="btn btn-danger btn-block waves-effect waves-light"   >取消预约</button></td>
-                                    </form>
+                                    <td>${st.count}</td>
+                                    <td>${si.ename}</td>
+                                    <td>${si.weeknum}</td>
+                                    <td>${si.lab}</td>
+                                    <td>${si.seat}</td>
+                                    <td><button class="btn btn-danger btn-block waves-effect waves-light" eid="${si.eid}" onclick="a(this)">取消预约</button></td>
                                 </tr>
-                                <tr>
-                                    <td>002</td>
-                                    <td>光学实验</td>
-                                    <td>3</td>
-                                    <td>1-4节</td>
-                                    <td>实验楼222</td>
-                                    <td>05</td>
-                                    <form>
-                                        <td><button class="btn btn-danger btn-block waves-effect waves-light"   >取消预约</button></td>
-                                    </form>
-                                </tr>
+                                </c:forEach>
                                 </tbody>
                             </table>
                         </div>
@@ -205,6 +191,25 @@
 <script src="/js/waves.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="/js/custom.min.js"></script>
+<script type="text/javascript">
+    function a(e){
+        var eid = $(e).attr("eid");
+        console.log(eid);
+        $.ajax({
+            type: "post",
+            url: "/cancel",
+            data: {
+                "eid":eid
+            },
+            success: function(result,status) {
+                console.log(result);
+                console.log(status);
+                alert(result);
+                window.location.reload();
+            }
+        });
+    }
+</script>
 </body>
 
 </html>
