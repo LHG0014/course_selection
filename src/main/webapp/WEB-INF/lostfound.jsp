@@ -172,7 +172,7 @@
 				</div>
 				<div class="white-box" style="float:left;width:46%;margin:2%;">
 					<p>发布启事</p>
-					<form method="post" action="/asd">
+					<form method="post" action="/laf">
 						<div class="form-group">
 							<label class="col-md-12">信息主题：</label>
 							<div class="col-md-12">

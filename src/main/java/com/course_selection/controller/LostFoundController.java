@@ -17,7 +17,7 @@ public class LostFoundController {
     @Autowired
     LostFoundMapper lostfoundMapper;
 
-    @RequestMapping("/asd")
+    @RequestMapping("/laf")
     public String lost(HttpServletRequest request, HttpServletResponse response,
                        @Param("type") String type, @Param("title") String title,
                        @Param("content") String content, @Param("place") String place,
