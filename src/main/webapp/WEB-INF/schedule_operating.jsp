@@ -143,56 +143,85 @@
                         <p class="text-muted"></p>
                         <div class="table-responsive">
                             <table class="table">
-                                <thead>
-                                </thead>
-                                <tbody>
-                                <tr>
+                                    <thead>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
 
-                                    <td>&nbsp;</td><!--  格式需要，勿删-->
-                                    <td>实验名称:
-                                        <select  class="form-control form-control-line" style="width:40%">
-                                            <option>力热实验</option>
-                                            <option>光学实验</option>
-                                            <option>电学实验</option>
-                                        </select>
-                                    </td>
-
-                                    <td>&nbsp;</td><!--  格式需要，勿删-->
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;</td><!--  格式需要，勿删-->
-                                    <td>实验周次:
-                                        <select  class="form-control form-control-line" style="width:40%">
-                                            <option>01</option>
-                                            <option>02</option>
-                                            <option>03</option>
-                                        </select>
-                                    </td>
-                                    <td>&nbsp;</td><!--  格式需要，勿删-->
-                                </tr>
-                                <tr>
-	                                <td>&nbsp;</td><!--  格式需要，勿删-->
-	                                <td>实验节次:
-		                                <select  class="form-control form-control-line" style="width:40%">
-			                                <option>01</option>
-			                                <option>02</option>
-			                                <option>03</option>
-		                                </select>
-	                                </td>
-	                                <td>&nbsp;</td><!--  格式需要，勿删-->
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;</td><!--  格式需要，勿删-->
-                                    <form>
-                                        <td>
-	                                        <button class="btn btn-danger btn-block waves-effect waves-light" style="width:20%">查询剩余座位</button>
-	                                        <submit class="btn btn-success" style="width:20%">预约实验</submit>
+                                        <td>&nbsp;</td><!--  格式需要，勿删-->
+                                        <td>实验名称:
+                                            <select  class="form-control form-control-line" id="eid" name="eid" style="width:40%">
+                                                <option value="0">---------力热实验---------</option>
+                                                <option value="1">落球法测量液体的黏滞系数</option>
+                                                <option value="2">拉伸法测量金属丝杨氏模量</option>
+                                                <option value="0">---------光学实验---------</option>
+                                                <option value="0">---------电学实验---------</option>
+                                            </select>
                                         </td>
-                                    </form>
-                                    <td>&nbsp;</td><!--  格式需要，勿删-->
-                                </tr>
-                                </tbody>
-                            </table>
+
+                                        <td>&nbsp;</td><!--  格式需要，勿删-->
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td><!--  格式需要，勿删-->
+                                        <td>实验周次:
+                                            <select  class="form-control form-control-line" id="week" name="week" style="width:40%">
+                                                <option value ="1">1</option>
+                                                <option value ="2">2</option>
+                                                <option value ="3">3</option>
+                                                <option value ="4">4</option>
+                                                <option value ="5">5</option>
+                                                <option value ="6">6</option>
+                                                <option value ="7">7</option>
+                                                <option value ="8">8</option>
+                                                <option value ="9">9</option>
+                                                <option value ="10">10</option>
+                                                <option value ="11">11</option>
+                                                <option value ="12">12</option>
+                                                <option value ="13">13</option>
+                                                <option value ="14">14</option>
+                                                <option value ="15">15</option>
+                                                <option value ="16">16</option>
+                                                <option value ="17">17</option>
+                                                <option value ="18">18</option>
+                                            </select>
+                                        </td>
+                                        <td>&nbsp;</td><!--  格式需要，勿删-->
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td><!--  格式需要，勿删-->
+                                        <td>星期:
+                                            <select  class="form-control form-control-line" id="day" name="day" style="width:40%">
+                                                <option value ="7">日</option>
+                                                <option value ="1">一</option>
+                                                <option value ="2">二</option>
+                                                <option value ="3">三</option>
+                                                <option value ="4">四</option>
+                                                <option value ="5">五</option>
+                                                <option value ="6">六</option>
+                                            </select>
+                                        </td>
+                                        <td>&nbsp;</td><!--  格式需要，勿删-->
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td><!--  格式需要，勿删-->
+                                        <td>实验节次:
+                                            <select  class="form-control form-control-line" id="section" name="section" style="width:40%">
+                                                <option value ="1">1-4</option>
+                                                <option value ="2">5-8</option>
+                                            </select>
+                                        </td>
+                                        <td>&nbsp;</td><!--  格式需要，勿删-->
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td><!--  格式需要，勿删-->
+                                        <td>
+                                            <button class="btn btn-danger btn-block waves-effect waves-light" style="width:20%" onclick="a()">查询剩余座位</button>
+                                            <button class="btn btn-success" style="width:20%" onclick="b()">预约实验</button>
+                                        </td>
+                                        <td>&nbsp;</td><!--  格式需要，勿删-->
+                                    </tr>
+                                    </tbody>
+                                </table>
                         </div>
                     </div>
                 </div>
@@ -217,6 +246,51 @@
 <script src="/js/waves.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="/js/custom.min.js"></script>
+
+<script type="text/javascript">
+    function a(){
+        var eid=$("#eid").val();
+        var week=$("#week").val();
+        var day=$("#day").val();
+        var section=$("#section").val();
+        $.ajax({
+            type: "post",
+            url: "/count",
+            data: {
+                "eid":eid,
+                "week":week,
+                "day":day,
+                "section":section
+            },
+            success: function(result,status) {
+                console.log(result);
+                console.log(status);
+               alert(result);
+            }
+        });
+    }
+    function b(){
+        var eid=$("#eid").val();
+        var week=$("#week").val();
+        var day=$("#day").val();
+        var section=$("#section").val();
+        $.ajax({
+            type: "post",
+            url: "/select",
+            data: {
+                "eid":eid,
+                "week":week,
+                "day":day,
+                "section":section
+            },
+            success: function(result,status) {
+                console.log(result);
+                console.log(status);
+                alert(result);
+            }
+        });
+    }
+</script>
 </body>
 
 </html>

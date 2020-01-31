@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,7 +55,8 @@
 			<!-- /Logo -->
 			<ul class="nav navbar-top-links navbar-right pull-right">
 				<li>
-					<a class="nav-toggler open-close waves-effect waves-light hidden-md hidden-lg" href="javascript:void(0)"><i class="fa fa-bars"></i></a>
+					<a class="nav-toggler open-close waves-effect waves-light hidden-md hidden-lg"
+					   href="javascript:void(0)"><i class="fa fa-bars"></i></a>
 				</li>
 				<li>
 					<form role="search" class="app-search hidden-sm hidden-xs m-r-10">
@@ -88,22 +89,30 @@
 					<a href="homepage" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>主页[Home]</a>
 				</li>
 				<li>
-					<a href="experiments" class="waves-effect"><i class="fa fa-table fa-fw" aria-hidden="true"></i>实验预约<br/>[Experiment Appointment]</a>
+					<a href="experiments" class="waves-effect"><i class="fa fa-table fa-fw"
+					                                              aria-hidden="true"></i>实验预约<br/>[Experiment
+						Appointment]</a>
 				</li>
 				<li>
-					<a href="query_teacher" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>任课教师查询<br/>[Query Teacher]</a>
+					<a href="query_teacher" class="waves-effect"><i class="fa fa-info-circle fa-fw"
+					                                                aria-hidden="true"></i>任课教师查询<br/>[Query
+						Teacher]</a>
 				</li>
 				<li>
-					<a href="message" class="waves-effect"><i class="fa fa-font fa-fw" aria-hidden="true"></i>留言板<br/>[Message Board]</a>
+					<a href="message" class="waves-effect"><i class="fa fa-font fa-fw" aria-hidden="true"></i>留言板<br/>[Message
+						Board]</a>
 				</li>
 				<li>
-					<a href="lostfound" class="waves-effect"><i class="fa fa-globe fa-fw" aria-hidden="true"></i>失物招领<br/>[Lost and Found]</a>
+					<a href="lostfound" class="waves-effect"><i class="fa fa-globe fa-fw"
+					                                            aria-hidden="true"></i>失物招领<br/>[Lost and Found]</a>
 				</li>
 				<li>
-					<a href="mailbox" class="waves-effect"><i class="fa fa-columns fa-fw" aria-hidden="true"></i>投诉信箱<br/>[Complaint Mailbox]</a>
+					<a href="mailbox" class="waves-effect"><i class="fa fa-columns fa-fw"
+					                                          aria-hidden="true"></i>投诉信箱<br/>[Complaint Mailbox]</a>
 				</li>
 				<li>
-					<a href="#" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>教师通道<br/>[Teacher Channel]</a>
+					<a href="#" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>教师通道<br/>[Teacher
+						Channel]</a>
 				</li>
 			</ul>
 			<div class="center p-20">
@@ -139,23 +148,30 @@
 						<div style="border:3px solid RGB(237,241,245)">
 							<table class="table">
 								<tr>
-									<td style="background-color:RGB(237,241,245);color: black;text-align: center">编号：</td>
+									<td style="background-color:RGB(237,241,245);color: black;text-align: center">编号：
+									</td>
 									<td>el表达式id</td>
-									<td style="background-color:RGB(237,241,245);color: black;text-align: center">留言时间：</td>
+									<td style="background-color:RGB(237,241,245);color: black;text-align: center">
+										留言时间：
+									</td>
 									<td>获取当前时间</td>
 								</tr>
 								<tr>
-									<td style="background-color:RGB(237,241,245);color: black;text-align: center">姓名：</td>
+									<td style="background-color:RGB(237,241,245);color: black;text-align: center">姓名：
+									</td>
 									<td>el表达式姓名</td>
-									<td style="background-color:RGB(237,241,245);color: black;text-align: center">留言给：</td>
+									<td style="background-color:RGB(237,241,245);color: black;text-align: center">留言给：
+									</td>
 									<td>el表达式留言给</td>
 								</tr>
 								<tr>
-									<td style="background-color:RGB(237,241,245);color: black;text-align: center">留言：</td>
+									<td style="background-color:RGB(237,241,245);color: black;text-align: center">留言：
+									</td>
 									<td colspan="3">el表达式 谁发布的+时间</td>
 								</tr>
 								<tr>
-									<td style="background-color:RGB(237,241,245);color: black;text-align: center">回复：</td>
+									<td style="background-color:RGB(237,241,245);color: black;text-align: center">回复：
+									</td>
 									<td colspan="3">el表达式回复内容</td>
 								</tr>
 							</table>
@@ -170,12 +186,13 @@
 							<label class="col-md-12">姓名：</label>
 							<div class="col-md-12">
 								<input type="text"
-								       class="form-control form-control-line"> </div>
+								       class="form-control form-control-line"></div>
 						</div>
 						<div class="form-group">
 							<label class="col-md-12">留言：</label>
 							<div class="col-md-12">
-								<textarea rows="5" class="form-control form-control-line" style="resize: none"></textarea>
+								<textarea rows="5" class="form-control form-control-line"
+								          style="resize: none"></textarea>
 							</div>
 						</div>
 						<div class="form-group">

@@ -6,14 +6,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>大物选课登陆</title>
-    <link rel="stylesheet" href="css/auth.css">
-    <script src="js/auth.js"></script>
+    <link rel="stylesheet" href="/css/auth.css">
+    <script src="/js/auth.js"></script>
 </head>
 
 <body>
 <div class="lowin lowin-blue">
     <div class="lowin-brand">
-        <img src="img/kodinger.jpg" alt="logo">
+        <img src="/img/kodinger.jpg" alt="logo">
     </div>
 
     <div class="lowin-wrapper">

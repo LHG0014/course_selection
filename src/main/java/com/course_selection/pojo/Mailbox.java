@@ -1,6 +1,6 @@
 package com.course_selection.pojo;
 
-public class mailbox {
+public class Mailbox {
     private int id;
     private int sid;
     private String sname;

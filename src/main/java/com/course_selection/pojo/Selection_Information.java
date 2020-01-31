@@ -1,6 +1,6 @@
 package com.course_selection.pojo;
 
-public class selection_information {
+public class Selection_Information {
     private int id;
     private int sid;
     private int eid;
@@ -12,7 +12,7 @@ public class selection_information {
 
     @Override
     public String toString() {
-        return "selection_information{" +
+        return "Selection_Information{" +
                 "id=" + id +
                 ", sid=" + sid +
                 ", eid=" + eid +
