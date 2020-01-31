@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.TimeZone;
 
 @Controller
+@RequestMapping("/student")
 public class MessageController {
 
     @Autowired

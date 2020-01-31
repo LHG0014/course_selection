@@ -154,7 +154,7 @@
                 </div>
                 <div class="row">
                     <div class="white-box" style="width:50%;margin: 2% auto;">
-                        <form class="form-horizontal form-material" action="addMail">
+                        <form class="form-horizontal form-material" action="student/addMail">
                             <div class="form-group">
                                 <label class="col-md-12">投诉主题：</label>
                                 <div class="col-md-12">
