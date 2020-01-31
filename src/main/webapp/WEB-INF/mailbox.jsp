@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,40 +34,41 @@
 <!-- Wrapper -->
 <!-- ============================================================== -->
 <div id="wrapper">
-    <nav class="navbar navbar-default navbar-static-top m-b-0">
-        <div class="navbar-header" style="height: 68px;">
-            <div class="top-left-part">
-                <!-- Logo -->
-                <a class="logo">
+	<nav class="navbar navbar-default navbar-static-top m-b-0">
+		<div class="navbar-header" style="height: 68px;">
+			<div class="top-left-part">
+				<!-- Logo -->
+				<a class="logo">
 
                     <span class="hidden-xs">
                         <img src="../img/headlogo.png" alt="home" class="light-logo" width="100%" height="100%"/>
                         </span>
-                </a>
-            </div>
-            <!-- /Logo -->
-            <ul class="nav navbar-top-links navbar-right pull-right">
-                <li>
-                    <a class="nav-toggler open-close waves-effect waves-light hidden-md hidden-lg" href="javascript:void(0)"><i class="fa fa-bars"></i></a>
-                </li>
-                <li>
-                    <form role="search" class="app-search hidden-sm hidden-xs m-r-10">
-                        <input type="text" placeholder="Search..." class="form-control">
-                        <a href="">
-                            <i class="fa fa-search"></i>
-                        </a>
-                    </form>
-                </li>
-                <li>
-                    <c:if test="${!empty student}">
-                        <a class="profile-pic" href="#">用户：${student.sname}</a>
-                    </c:if>
-                    <c:if test="${empty student}">
-                        请先<a class="profile-pic" href="../login"> 登录 </a>
-                    </c:if>
-                </li>
-            </ul>
-        </div>
+				</a>
+			</div>
+			<!-- /Logo -->
+			<ul class="nav navbar-top-links navbar-right pull-right">
+				<li>
+					<a class="nav-toggler open-close waves-effect waves-light hidden-md hidden-lg"
+					   href="javascript:void(0)"><i class="fa fa-bars"></i></a>
+				</li>
+				<li>
+					<form role="search" class="app-search hidden-sm hidden-xs m-r-10">
+						<input type="text" placeholder="Search..." class="form-control">
+						<a href="">
+							<i class="fa fa-search"></i>
+						</a>
+					</form>
+				</li>
+				<li>
+					<c:if test="${!empty student}">
+						<a class="profile-pic" href="#">用户：${student.sname}</a>
+					</c:if>
+					<c:if test="${empty student}">
+						请先<a class="profile-pic" href="../login"> 登录 </a>
+					</c:if>
+				</li>
+			</ul>
+		</div>
 
     </nav>
     <div class="navbar-default sidebar" role="navigation">

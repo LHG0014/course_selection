@@ -150,13 +150,13 @@
 						<div style="text-align: left; font-size: 150%;width: 500px;margin: 2% auto">
 							<form>
 								实验：
-								<select id="eid" name="eid">
+								<select id="eid" name="eid" class="form-control form-control-line">
 									<option value ="0">--请选择--</option>
 									<option value="1">落球法测量液体的黏滞系数</option>
 								</select>
 								<br/>
 								周次：
-								<select id="week" name="week">
+								<select id="week" name="week" class="form-control form-control-line">
 									<option value ="1">1</option>
 									<option value ="2">2</option>
 									<option value ="3">3</option>
@@ -178,7 +178,7 @@
 								</select>
 								<br/>
 								星期：
-								<select id="day" name="day">
+								<select id="day" name="day" class="form-control form-control-line">
 									<option value ="7">日</option>
 									<option value ="1">一</option>
 									<option value ="2">二</option>
@@ -189,14 +189,14 @@
 								</select>
 								<br/>
 								节次：
-								<select id="section" name="section">
+								<select id="section" name="section" class="form-control form-control-line">
 									<option value ="1">1-4</option>
 									<option value ="2">5-8</option>
 								</select>
 								<br/>
 								任课教师：<span id="tname" style="width: 150px"></span>
 								<br/>
-								<button type="button" id="c" onclick="f()">提交</button>
+								<button type="button" id="c" class="btn btn-success" onclick="f()">提交</button>
 							</form>
 						</div>
 					</div>
@@ -230,7 +230,7 @@
         var section=$("#section").val();
         $.ajax({
             type: "post",
-            url: "/findT",
+            url: "/queryT",
             data: {
                 "eid":eid,
                 "week":week,
