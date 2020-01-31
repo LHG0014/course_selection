@@ -1,22 +1,14 @@
 package com.course_selection.controller;
 
 
-import com.course_selection.mapper.ExperimentMapper;
 import com.course_selection.mapper.MailboxMapper;
-import com.course_selection.mapper.MessageMapper;
-import com.course_selection.mapper.StudentMapper;
-import com.course_selection.pojo.Experiment;
 import com.course_selection.pojo.Mailbox;
-import com.course_selection.pojo.Message;
 import com.course_selection.pojo.Student;
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -61,7 +53,7 @@ public class MailboxController {
         time=sdf.format(d);
         sdf.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
         mailboxMapper.save(sid,sname,title,content,time);
-        return "redirect:mailbox";
+        return "redirect:/mailbox";
     }
 
 }
