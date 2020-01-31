@@ -42,6 +42,6 @@ public class MessageController {
         content=c.getContent();
         sdf.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
         messageMapper.save(sid,sname,time,to,content);
-        return "redirect:message";
+        return "redirect:/message";
     }
 }

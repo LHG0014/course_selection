@@ -142,13 +142,13 @@
 							<div style="border:3px solid RGB(237,241,245)">
 								<table class="table">
 									<tr>
-										<th>${c.id}</th>
-										<th>${c.type}</th>
+										<th>${c.id}&nbsp;&nbsp;&nbsp;${c.type}</th>
+										<th>${c.title}</th>
 										<th></th>
 									</tr>
 									<tr>
 										<td></td>
-										<td>${c.title}</td>
+										<td>${c.content}</td>
 										<td></td>
 									</tr>
 									<tr>
