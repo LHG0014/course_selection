@@ -1,6 +1,6 @@
 package com.course_selection.pojo;
 
-public class message {
+public class Message {
     private int id;
     private int sid;
     private String sname;

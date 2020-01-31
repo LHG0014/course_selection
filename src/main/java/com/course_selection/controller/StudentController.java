@@ -2,8 +2,12 @@ package com.course_selection.controller;
 
 
 import com.course_selection.mapper.ExperimentMapper;
+import com.course_selection.mapper.MailboxMapper;
+import com.course_selection.mapper.MessageMapper;
 import com.course_selection.mapper.StudentMapper;
 import com.course_selection.pojo.Experiment;
+import com.course_selection.pojo.Mailbox;
+import com.course_selection.pojo.Message;
 import com.course_selection.pojo.Student;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -16,7 +20,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 @Controller
 @RequestMapping("/student")
@@ -27,6 +35,12 @@ public class StudentController {
 
     @Autowired
     ExperimentMapper experimentMapper;
+
+    @Autowired
+    MessageMapper messageMapper;
+
+    @Autowired
+    MailboxMapper mailboxMapper;
 
 
     @RequestMapping("/loginStudent")
@@ -48,7 +62,6 @@ public class StudentController {
 
     @RequestMapping("/schedule_experiments")
     public String Appointment(HttpServletRequest request, HttpServletResponse response,@Param("id") Integer id){
-        //System.out.println(id);
         Student student=studentMapper.findById(id);
         //System.out.println(student.toString());
         request.getSession(false).setAttribute("student",student);
@@ -87,5 +100,67 @@ public class StudentController {
         return "homePage";
     }
 
+
+    //cx-edit
+    @RequestMapping("/message")
+    public String message(  HttpServletRequest request, HttpServletResponse response,
+                            Model model,
+                            @Param("sid") Integer sid
+                            ) throws  Exception{
+        HttpSession session = request.getSession();//获取session内容
+        sid=((Student)session.getAttribute("student")).getSid();
+        List<Message> messages= messageMapper.findMessage(sid);
+        request.getSession(false).setAttribute("mes",messages);
+//        model.addAttribute("mes",messages);//-》request...的替代者
+        return "message";
+    }
+    @RequestMapping("/addMessage")
+    public String addDiary(HttpServletRequest request, HttpServletResponse response,Message c,
+                             @Param("sid") Integer sid, @Param("sname") String sname,@Param("time") String time,
+                           @Param("to") String to,@Param("content") String content
+                           ) throws Exception {
+        HttpSession session = request.getSession();//获取session内容
+        sid=((Student)session.getAttribute("student")).getSid();
+        sname=((Student)session.getAttribute("student")).getSname();
+        Date d = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss ");
+        time=sdf.format(d);
+        to=c.getTo();
+        content=c.getContent();
+        sdf.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
+        messageMapper.save(sid,sname,time,to,content);
+        return "redirect:homePage";
+    }
+
+    @RequestMapping("/mailbox")
+    public String mailbox(HttpServletRequest request, HttpServletResponse response,
+                          Model model,
+                          @Param("sid") Integer sid
+    ) throws  Exception{
+        HttpSession session = request.getSession();//获取session内容
+        sid=((Student)session.getAttribute("student")).getSid();
+        List<Mailbox> mail= mailboxMapper.findMail(sid);
+        request.getSession(false).setAttribute("mail",mail);
+//        model.addAttribute("mes",messages);//-》request...的替代者
+        return "mailbox";
+    }
+
+    @RequestMapping("/addMail")
+    public String addMail(HttpServletRequest request, HttpServletResponse response, Mailbox c,
+                          @Param("sid") Integer sid, @Param("sname") String sname, @Param("title") String title,
+                          @Param("content") String content, @Param("time") String time
+    ) throws Exception {
+        HttpSession session = request.getSession();//获取session内容
+        sid=((Student)session.getAttribute("student")).getSid();
+        sname=((Student)session.getAttribute("student")).getSname();
+        title=c.getTitle();
+        content=c.getContent();
+        Date d = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss ");
+        time=sdf.format(d);
+        sdf.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
+        mailboxMapper.save(sid,sname,title,content,time);
+        return "redirect:homePage";
+    }
 
 }
