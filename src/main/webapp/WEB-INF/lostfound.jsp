@@ -12,7 +12,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
-	<title>Ample Admin Template - The Ultimate Multipurpose admin template</title>
+	<title>大学物理实验系统</title>
 	<!-- Bootstrap Core CSS -->
 	<link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Menu CSS -->
@@ -197,7 +197,7 @@
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12">
-								<input type="submit" class="btn btn-success" value="提交"/>
+								<input type="submit" class="btn btn-success" value="提交" style="width:50%; margin:0 0 0 25%"/>
 							</div>
 						</div>
 					</form>

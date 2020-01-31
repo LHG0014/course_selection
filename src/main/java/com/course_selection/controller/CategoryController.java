@@ -2,13 +2,13 @@ package com.course_selection.controller;
 
 import com.course_selection.mapper.ExperimentMapper;
 import com.course_selection.mapper.LostFoundMapper;
-import com.course_selection.pojo.Experiment;
-import com.course_selection.pojo.Lost_Found;
-import com.course_selection.pojo.Selection_Information;
-import com.course_selection.pojo.Student;
+import com.course_selection.mapper.MailboxMapper;
+import com.course_selection.mapper.MessageMapper;
+import com.course_selection.pojo.*;
 import com.course_selection.service.CourseService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -27,7 +28,10 @@ public class CategoryController {
     private ExperimentMapper experimentMapper;
     @Autowired
     private CourseService courseService;
-
+    @Autowired
+    MailboxMapper mailboxMapper;
+    @Autowired
+    MessageMapper messageMapper;
 
     @RequestMapping("/lostfound")
     public String lostfound(Model m,
@@ -45,12 +49,25 @@ public class CategoryController {
     }
 
     @RequestMapping("/mailbox")
-    public String mailbox() {
+    public String mailbox(HttpServletRequest request, HttpServletResponse response
+    ) throws  Exception{
+        Student student = (Student) request.getSession().getAttribute("student");
+        if (null == student) {
+            return "login";
+        }
+        HttpSession session = request.getSession();//获取session内容
+        Integer sid=((Student)session.getAttribute("student")).getSid();
+        List<Mailbox> mail= mailboxMapper.findMail(sid);
+        request.getSession(false).setAttribute("mail",mail);
         return "mailbox";
     }
 
     @RequestMapping("/message")
-    public String message() {
+    public String message(  HttpServletRequest request, HttpServletResponse response
+//                            @Param("sid") Integer sid
+    ) throws  Exception{
+        List<Message> messages= messageMapper.findMessage();
+        request.getSession(false).setAttribute("mes",messages);
         return "message";
     }
 

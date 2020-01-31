@@ -17,29 +17,21 @@ import java.util.List;
 import java.util.TimeZone;
 
 @Controller
-@RequestMapping("/student")
 public class MessageController {
 
     @Autowired
     MessageMapper messageMapper;
     //cx-edit
-    @RequestMapping("/message")
-    public String message(  HttpServletRequest request, HttpServletResponse response,
-                            Model model,
-                            @Param("sid") Integer sid
-    ) throws  Exception{
-        HttpSession session = request.getSession();//获取session内容
-        sid=((Student)session.getAttribute("student")).getSid();
-        List<Message> messages= messageMapper.findMessage(sid);
-        request.getSession(false).setAttribute("mes",messages);
-//        model.addAttribute("mes",messages);//-》request...的替代者
-        return "message";
-    }
     @RequestMapping("/addMessage")
     public String addDiary(HttpServletRequest request, HttpServletResponse response,Message c,
                            @Param("sid") Integer sid, @Param("sname") String sname,@Param("time") String time,
                            @Param("to") String to,@Param("content") String content
     ) throws Exception {
+        Student student = (Student) request.getSession().getAttribute("student");
+        if (null == student) {
+            return "login";
+        }
+
         HttpSession session = request.getSession();//获取session内容
         sid=((Student)session.getAttribute("student")).getSid();
         sname=((Student)session.getAttribute("student")).getSname();

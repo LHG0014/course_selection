@@ -143,7 +143,7 @@
 			<div class="row">
 				<div class="white-box" style="width:46%;margin: 2% auto;">
 					<p>我要留言</p>
-					<form class="form-horizontal form-material" action="student/addMessage" method="post">
+					<form class="form-horizontal form-material" action="addMessage" method="post">
 						<div class="form-group">
 							<label class="col-md-12">姓名：</label>
 							<div class="col-md-12">
@@ -172,7 +172,7 @@
 				</div>
 				<div class="col-md-12">
 					<div class="white-box">
-						<h3 class="box-title">我的历史留言</h3>
+						<h3 class="box-title">留言板</h3>
 						<div style="border:3px solid RGB(237,241,245)">
 							<c:forEach items="${mes}" var="c" varStatus="st">
 
