@@ -17,7 +17,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
-	<title>Ample Admin Template - The Ultimate Multipurpose admin template</title>
+	<title>大学物理实验系统</title>
 	<!-- Bootstrap Core CSS -->
 	<link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Menu CSS -->
@@ -141,73 +141,68 @@
 			</div>
 
 			<div class="row">
-
-				<div class="col-md-12">
-					<div class="white-box">
-						<h3 class="box-title">留言</h3>
-						<div style="border:3px solid RGB(237,241,245)">
-							<table class="table">
-								<tr>
-									<td style="background-color:RGB(237,241,245);color: black;text-align: center">编号：
-									</td>
-									<td>el表达式id</td>
-									<td style="background-color:RGB(237,241,245);color: black;text-align: center">
-										留言时间：
-									</td>
-									<td>获取当前时间</td>
-								</tr>
-								<tr>
-									<td style="background-color:RGB(237,241,245);color: black;text-align: center">姓名：
-									</td>
-									<td>el表达式姓名</td>
-									<td style="background-color:RGB(237,241,245);color: black;text-align: center">留言给：
-									</td>
-									<td>el表达式留言给</td>
-								</tr>
-								<tr>
-									<td style="background-color:RGB(237,241,245);color: black;text-align: center">留言：
-									</td>
-									<td colspan="3">el表达式 谁发布的+时间</td>
-								</tr>
-								<tr>
-									<td style="background-color:RGB(237,241,245);color: black;text-align: center">回复：
-									</td>
-									<td colspan="3">el表达式回复内容</td>
-								</tr>
-							</table>
-						</div>
-					</div>
-				</div>
-
-				<div class="white-box" style="float:left;width:46%;margin:2%;">
+				<div class="white-box" style="width:46%;margin: 2% auto;">
 					<p>我要留言</p>
-					<form class="form-horizontal form-material">
+					<form class="form-horizontal form-material" action="student/addMessage" method="post">
 						<div class="form-group">
 							<label class="col-md-12">姓名：</label>
 							<div class="col-md-12">
-								<input type="text"
-								       class="form-control form-control-line"></div>
+								<input type="text" class="form-control form-control-line" id="sname" name="sname" value="${student.sname}">
+							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-md-12">留言：</label>
 							<div class="col-md-12">
-								<textarea rows="5" class="form-control form-control-line"
-								          style="resize: none"></textarea>
+								<textarea rows="5" class="form-control form-control-line" style="resize: none" name="content"></textarea>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-md-12">留言给：</label>
 							<div class="col-md-12">
 								<input type="text"
-								       class="form-control form-control-line">
+									   class="form-control form-control-line" name="to">
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12">
-								<submit class="btn btn-success">提交</submit>
+								<button class="btn btn-success" type="submit" style="width: 50%;margin:0 10% 0 25%">提交</button>
 							</div>
 						</div>
 					</form>
+				</div>
+				<div class="col-md-12">
+					<div class="white-box">
+						<h3 class="box-title">我的历史留言</h3>
+						<div style="border:3px solid RGB(237,241,245)">
+							<c:forEach items="${mes}" var="c" varStatus="st">
+
+							<table class="table">
+								<tr>
+
+									<td style="background-color:RGB(237,241,245);color: black;text-align: center">编号：</td>
+									<td>${c.id}</td>
+									<td style="background-color:RGB(237,241,245);color: black;text-align: center">留言时间：</td>
+									<td>${c.time}</td>
+								</tr>
+								<tr>
+									<td style="background-color:RGB(237,241,245);color: black;text-align: center">姓名：</td>
+									<td>${c.sname}</td>
+									<td style="background-color:RGB(237,241,245);color: black;text-align: center">留言给：</td>
+									<td> ${c.to}</td>
+								</tr>
+								<tr>
+									<td style="background-color:RGB(237,241,245);color: black;text-align: center">留言：</td>
+									<td colspan="3"> ${c.content}</td>
+								</tr>
+								<tr>
+									<td style="background-color:RGB(237,241,245);color: black;text-align: center">回复：</td>
+									<td colspan="3">${c.reply}</td>
+
+								</tr>
+							</table>
+							</c:forEach>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
