@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 
 @Mapper
@@ -17,6 +18,6 @@ public interface MailboxMapper {
     @Select("select * from mailbox where sid=#{sid} order by id desc")
     public List<Mailbox> findMail(Integer sid);
     @Insert("insert into mailbox (sid,sname,title,content,time) values( #{sid}, #{sname}, #{title}, #{content}, #{time})")
-    public void save(@Param("sid") Integer sid, @Param("sname") String sname, @Param("title") String title, @Param("content") String content, @Param("time")String time);
+    public void save(@Param("sid") Integer sid, @Param("sname") String sname, @Param("title") String title, @Param("content") String content, @Param("time") Date time);
 
 }

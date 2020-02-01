@@ -36,12 +36,6 @@ public class StudentController {
     @Autowired
     ExperimentMapper experimentMapper;
 
-    @Autowired
-    MessageMapper messageMapper;
-
-    @Autowired
-    MailboxMapper mailboxMapper;
-
 
     @RequestMapping("/loginStudent")
     public String login(Model m,
@@ -101,68 +95,5 @@ public class StudentController {
         m.addAttribute("page", page);
         return "homePage";
     }
-
-
-    //cx-edit
-//    @RequestMapping("/message")
-//    public String message(  HttpServletRequest request, HttpServletResponse response,
-//                            Model model,
-//                            @Param("sid") Integer sid
-//                            ) throws  Exception{
-//        HttpSession session = request.getSession();//获取session内容
-//        sid=((Student)session.getAttribute("student")).getSid();
-//        List<Message> messages= messageMapper.findMessage(sid);
-//        request.getSession(false).setAttribute("mes",messages);
-////        model.addAttribute("mes",messages);//-》request...的替代者
-//        return "message";
-//    }
-//    @RequestMapping("/addMessage")
-//    public String addDiary(HttpServletRequest request, HttpServletResponse response,Message c,
-//                             @Param("sid") Integer sid, @Param("sname") String sname,@Param("time") String time,
-//                           @Param("to") String to,@Param("content") String content
-//                           ) throws Exception {
-//        HttpSession session = request.getSession();//获取session内容
-//        sid=((Student)session.getAttribute("student")).getSid();
-//        sname=((Student)session.getAttribute("student")).getSname();
-//        Date d = new Date();
-//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss ");
-//        time=sdf.format(d);
-//        to=c.getTo();
-//        content=c.getContent();
-//        sdf.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
-//        messageMapper.save(sid,sname,time,to,content);
-//        return "redirect:homePage";
-//    }
-//
-//    @RequestMapping("/mailbox")
-//    public String mailbox(HttpServletRequest request, HttpServletResponse response,
-//                          Model model,
-//                          @Param("sid") Integer sid
-//    ) throws  Exception{
-//        HttpSession session = request.getSession();//获取session内容
-//        sid=((Student)session.getAttribute("student")).getSid();
-//        List<Mailbox> mail= mailboxMapper.findMail(sid);
-//        request.getSession(false).setAttribute("mail",mail);
-////        model.addAttribute("mes",messages);//-》request...的替代者
-//        return "mailbox";
-//    }
-//
-//    @RequestMapping("/addMail")
-//    public String addMail(HttpServletRequest request, HttpServletResponse response, Mailbox c,
-//                          @Param("sid") Integer sid, @Param("sname") String sname, @Param("title") String title,
-//                          @Param("content") String content, @Param("time") String time
-//    ) throws Exception {
-//        HttpSession session = request.getSession();//获取session内容
-//        sid=((Student)session.getAttribute("student")).getSid();
-//        sname=((Student)session.getAttribute("student")).getSname();
-//        title=c.getTitle();
-//        content=c.getContent();
-//        Date d = new Date();
-//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss ");
-//        time=sdf.format(d);
-//        sdf.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
-//        mailboxMapper.save(sid,sname,title,content,time);
-//        return "redirect:homePage";
-//    }
 
 }

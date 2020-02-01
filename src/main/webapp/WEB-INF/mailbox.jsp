@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix='fmt'  %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -143,7 +144,7 @@
                                 </tr>
                                 <tr>
                                     <td style="background-color:RGB(237,241,245);color: black;text-align: center">投诉时间</td>
-                                    <td colspan="3"> ${c.time}</td>
+                                <td><fmt:formatDate value="${c.time}" pattern="yyyy-MM-dd HH:mm"/></td>
                                 </tr>
                                 <tr>
                                     <td style="background-color:RGB(237,241,245);color: black;text-align: center">回复：</td>
