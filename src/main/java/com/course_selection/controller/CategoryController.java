@@ -2,10 +2,7 @@ package com.course_selection.controller;
 
 import com.course_selection.mapper.ExperimentMapper;
 import com.course_selection.mapper.LostFoundMapper;
-import com.course_selection.pojo.Experiment;
-import com.course_selection.pojo.Lost_Found;
-import com.course_selection.pojo.Selection_Information;
-import com.course_selection.pojo.Student;
+import com.course_selection.pojo.*;
 import com.course_selection.service.CourseService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -61,7 +58,8 @@ public class CategoryController {
 
     @RequestMapping("/operating")
     public String operating(HttpServletResponse response, HttpServletRequest request) {
-        Student student = (Student) request.getSession().getAttribute("student");
+        ShowExperiment showExperiment=(ShowExperiment) request.getSession().getAttribute("showExperiment");
+        Student student = showExperiment.getStudent();
         if (null == student) {
             return "login";
         }
@@ -70,7 +68,8 @@ public class CategoryController {
 
     @RequestMapping("/search")
     public String search(HttpServletResponse response, HttpServletRequest request) {
-        Student student = (Student) request.getSession().getAttribute("student");
+        ShowExperiment showExperiment=(ShowExperiment) request.getSession().getAttribute("showExperiment");
+        Student student = showExperiment.getStudent();
         if (null == student) {
             return "login";
         }

@@ -95,4 +95,6 @@ public class Student {
         this.total_num = total_num;
         this.selected_num = selected_num;
     }
+
+
 }

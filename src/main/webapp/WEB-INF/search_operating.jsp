@@ -8,7 +8,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -71,11 +71,11 @@
                     </form>
                 </li>
                 <li>
-                    <c:if test="${!empty student}">
-                        <a class="profile-pic" href="#">用户：${student.sname}</a>
+                    <c:if test="${!empty showExperiment}">
+                        <a class="profile-pic" href="#">用户：${showExperiment.student.sname}</a>
                     </c:if>
-                    <c:if test="${empty student}">
-                        请先<a class="profile-pic" href="../login"> 登录 </a>
+                    <c:if test="${empty showExperiment}">
+                        请先<a class="profile-pic" href="../to/login"> 登录 </a>
                     </c:if>
                 </li>
             </ul>
@@ -112,7 +112,7 @@
                 </li>
             </ul>
             <div class="center p-20">
-                <a href="../login" class="btn btn-danger btn-block waves-effect waves-light" aria-hidden="true">登录</a>
+                <a href="../logout" class="btn btn-danger btn-block waves-effect waves-light" aria-hidden="true">登出</a>
             </div>
         </div>
     </div>

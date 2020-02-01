@@ -1,5 +1,6 @@
 package com.course_selection.controller;
 
+import com.course_selection.pojo.ShowExperiment;
 import com.course_selection.pojo.Student;
 import com.course_selection.service.CourseService;
 import com.course_selection.service.StudentService;
@@ -54,7 +55,8 @@ public class ExperimentController {
                          @Param("eid") Integer eid) {
         String result = null;
         System.out.println(eid);
-        Student student = (Student) request.getSession().getAttribute("student");
+        ShowExperiment showExperiment=(ShowExperiment) request.getSession().getAttribute("showExperiment");
+        Student student = showExperiment.getStudent();
         if (null == student) {
             return "登录信息已过期，请重新登陆。";
         }

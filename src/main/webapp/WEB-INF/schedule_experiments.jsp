@@ -73,11 +73,11 @@
 					</form>
 				</li>
 				<li>
-					<c:if test="${!empty student}">
-						<a class="profile-pic" href="#">用户：${student.sname}</a>
+					<c:if test="${!empty showExperiment}">
+						<a class="profile-pic" href="#">用户：${showExperiment.student.sname}</a>
 					</c:if>
-					<c:if test="${empty student}">
-						请先<a class="profile-pic" href="../login"> 登录 </a>
+					<c:if test="${empty showExperiment}">
+						请先<a class="profile-pic" href="../to/login"> 登录 </a>
 					</c:if>
 				</li>
 			</ul>
@@ -122,7 +122,7 @@
 				</li>
 			</ul>
 			<div class="center p-20">
-				<a href="../login" class="btn btn-danger btn-block waves-effect waves-light" aria-hidden="true">登录</a>
+				<a href="../logout" class="btn btn-danger btn-block waves-effect waves-light" aria-hidden="true">登出</a>
 			</div>
 		</div>
 	</div>
@@ -155,14 +155,14 @@
 						<div class="table-responsive">
 
 							<table class="table">
-								<tr>${student.sname}你好
-									<c:if test="${student.password==student.initial_password}">
+								<tr>${showExperiment.student.sname}你好
+									<c:if test="${showExperiment.student.password==showExperiment.student.initial_password}">
 										,请修改密码
 									</c:if>
 								</tr>
 								<br/>
 								<tr>
-									你已经选了${student.selected_num}个实验，还要选${(student.total_num)-(student.selected_num)}个实验，否则无期末成绩
+									你已经选了${showExperiment.student.selected_num}个实验，还要选${(showExperiment.student.total_num)-(showExperiment.student.selected_num)}个实验，否则无期末成绩
 								</tr>
 							</table>
 
@@ -186,12 +186,12 @@
 								<tr>
 									<td>3</td>
 									<td><a class="register-link"
-									       href="/student/updateStudent?id=${student.id}">修改个人密码</a>[Change Password]
+									       href="updateStudent">修改个人密码</a>[Change Password]
 									</td>
 								</tr>
 								</tbody>
 							</table>
-							<h5>完成操作后，请注意<a href="../login">登出</a></h5>
+							<h5>完成操作后，请注意<a href="../logout">登出</a></h5>
 						</div>
 					</div>
 				</div>

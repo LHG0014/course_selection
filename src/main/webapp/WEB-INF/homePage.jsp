@@ -2,6 +2,8 @@
 <%@ page import="java.util.Calendar" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.util.GregorianCalendar" %>
+<%@ page import="org.springframework.beans.factory.annotation.Autowired" %>
+<%@ page import="com.course_selection.mapper.ExperimentMapper" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" deferredSyntaxAllowedAsLiteral="true" %>
 
@@ -77,11 +79,11 @@
 					</form>
 				</li>
 				<li>
-					<c:if test="${!empty student}">
-						<a class="profile-pic" href="#">用户：${student.sname}</a>
+					<c:if test="${!empty showExperiment}">
+						<a class="profile-pic" href="#">用户：${showExperiment.student.sname}</a>
 					</c:if>
-					<c:if test="${empty student}">
-						请先<a class="profile-pic" href="../login"> 登录 </a>
+					<c:if test="${empty showExperiment}">
+						请先<a class="profile-pic" href="../to/login"> 登出 </a>
 					</c:if>
 				</li>
 			</ul>
@@ -99,7 +101,7 @@
 					<a href="homepage" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>主页[Home]</a>
 				</li>
 				<li>
-					<a href="experiments" class="waves-effect"><i class="fa fa-table fa-fw"
+					<a href="../experiments" class="waves-effect"><i class="fa fa-table fa-fw"
 					                                              aria-hidden="true"></i>实验预约<br/>[Experiment
 						Appointment]</a>
 				</li>
@@ -126,7 +128,7 @@
 				</li>
 			</ul>
 			<div class="center p-20">
-				<a href="../login" class="btn btn-danger btn-block waves-effect waves-light" aria-hidden="true">登录</a>
+				<a href="../logout" class="btn btn-danger btn-block waves-effect waves-light" aria-hidden="true">登出</a>
 			</div>
 		</div>
 	</div>
@@ -214,7 +216,7 @@
 								</tr>
 								</thead>
 								<tbody>
-								<c:forEach items="${experiments}" var="c" varStatus="st">
+								<c:forEach items="${showExperiment.experimentList}" var="c" varStatus="st">
 									<tr>
 										<td>${c.eid}</td>
 										<td>${c.ename}</td>

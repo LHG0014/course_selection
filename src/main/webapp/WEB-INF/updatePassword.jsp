@@ -21,17 +21,17 @@
 			<div class="lowin-box-inner">
 
 
-				<form class="form form-horizontal" method="post" action="changePassword?id=${student.id}">
+				<form class="form form-horizontal" method="post" action="changePassword">
 					<p>修改密码</p>
 					<div class="lowin-group">
 						<label>请确认你的学号</label>
-						<input type="text" name="sid" class="lowin-input" readonly="readonly" value="${student.sid}">
+						<input type="text" name="sid" class="lowin-input" readonly="readonly" value="${showExperiment.student.sid}">
 					</div>
 					<div class="lowin-group">
 						<label>请确认你的姓名</label>
-						<input type="text" name="sname" class="lowin-input" readonly="readonly"
-						       value="${student.sname}">
+						<input type="text" name="sname" class="lowin-input" readonly="readonly" value="${showExperiment.student.sname}">
 					</div>
+
 					<div class="lowin-group">
 						<label>请输入您当前密码</label>
 						<input type="password" name="password" class="lowin-input">
@@ -44,9 +44,9 @@
 						确定
 					</button>
 
-					<div class="text-foot">
-						Already have an account? <a href="" class="login-link">Login</a>
-					</div>
+					<%--<div class="text-foot">--%>
+						<%--Already have an account? <a href="" class="login-link">Login</a>--%>
+					<%--</div>--%>
 				</form>
 
 
