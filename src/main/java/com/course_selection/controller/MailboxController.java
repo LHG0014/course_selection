@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.TimeZone;
 
 @Controller
@@ -34,7 +35,7 @@ public class MailboxController {
     @RequestMapping("/addMail")
     public String addMail(HttpServletRequest request, HttpServletResponse response, Mailbox c,
                           @Param("sid") Integer sid, @Param("sname") String sname, @Param("title") String title,
-                          @Param("content") String content, @Param("time") Date date
+                          @Param("content") String content, @Param("time") String time
     ) throws Exception {
         Student student = (Student) request.getSession().getAttribute("student");
         if (null == student) {
@@ -46,13 +47,11 @@ public class MailboxController {
         title=c.getTitle();
         content=c.getContent();
         Date d = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss ");
+        time=sdf.format(d);
         sdf.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
-        String time=sdf.format(d);
-        date =  sdf.parse(time);
-        mailboxMapper.save(sid,sname,title,content,date);
+        mailboxMapper.save(sid,sname,title,content,time);
         return "redirect:mailbox";
-
     }
 
 }
