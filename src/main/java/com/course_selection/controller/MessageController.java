@@ -24,24 +24,26 @@ public class MessageController {
     //cx-edit
     @RequestMapping("/addMessage")
     public String addDiary(HttpServletRequest request, HttpServletResponse response,Message c,
-                           @Param("sid") Integer sid, @Param("sname") String sname,@Param("time") String time,
+                           @Param("sid") Integer sid, @Param("sname") String sname,
+//                           @Param("time") String time,
+                           @Param("time") Date date,
                            @Param("to") String to,@Param("content") String content
     ) throws Exception {
         Student student = (Student) request.getSession().getAttribute("student");
         if (null == student) {
             return "login";
         }
-
         HttpSession session = request.getSession();//获取session内容
         sid=((Student)session.getAttribute("student")).getSid();
         sname=((Student)session.getAttribute("student")).getSname();
         Date d = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss ");
-        time=sdf.format(d);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String time=sdf.format(d);
+        date =  sdf.parse(time);
         to=c.getTo();
         content=c.getContent();
         sdf.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
-        messageMapper.save(sid,sname,time,to,content);
+        messageMapper.save(sid,sname,date,to,content);
         return "redirect:message";
     }
 }

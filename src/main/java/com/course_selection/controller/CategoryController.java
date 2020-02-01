@@ -29,9 +29,9 @@ public class CategoryController {
     @Autowired
     private CourseService courseService;
     @Autowired
-    MailboxMapper mailboxMapper;
+    private MailboxMapper mailboxMapper;
     @Autowired
-    MessageMapper messageMapper;
+    private MessageMapper messageMapper;
 
     @RequestMapping("/lostfound")
     public String lostfound(Model m,
