@@ -50,21 +50,6 @@
         </footer>
     </div>
 </div>
-<%--<script type="text/javascript">--%>
-<%--function fun() {--%>
-    <%--$.ajax({--%>
-        <%--url:"/to/login",--%>
-        <%--type:"POST",--%>
-        <%--timeout:10000,--%>
-        <%--//dataType:"json",--%>
-        <%--data:{},--%>
-        <%--success:function (data) {--%>
-
-                <%--alert("${errorMeg}");--%>
-        <%--}--%>
-    <%--});--%>
-<%--}--%>
-<%--</script>--%>
 <script type="text/javascript">
     var timeout;
     onclick =function (){
@@ -86,3 +71,18 @@
 </script>
 </body>
 </html>
+<%--<script type="text/javascript">--%>
+<%--function fun() {--%>
+<%--$.ajax({--%>
+<%--url:"/to/login",--%>
+<%--type:"POST",--%>
+<%--timeout:10000,--%>
+<%--//dataType:"json",--%>
+<%--data:{},--%>
+<%--success:function (data) {--%>
+
+<%--alert("${errorMeg}");--%>
+<%--}--%>
+<%--});--%>
+<%--}--%>
+<%--</script>--%>
