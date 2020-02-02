@@ -8,7 +8,6 @@ import com.course_selection.pojo.*;
 import com.course_selection.service.CourseService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -93,7 +92,7 @@ public class CategoryController {
         return "search_operating";
     }
 
-    @RequestMapping("/homepage")
+    @RequestMapping({"/homepage","/"})
     public String homepage(HttpServletRequest request, HttpServletResponse response) {
         List<Experiment> experiments = experimentMapper.findAllE();
         request.setAttribute("experiments", experiments);
