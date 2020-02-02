@@ -1,5 +1,7 @@
 package com.course_selection.pojo;
 
+import java.util.Date;
+
 public class Lost_Found {
     private int id;
     private String type;
@@ -7,7 +9,7 @@ public class Lost_Found {
     private String content;
     private String place;
     private int number;
-    private String time;
+    private Date time;
 
     @Override
     public String toString() {
@@ -70,11 +72,11 @@ public class Lost_Found {
         this.number = number;
     }
 
-    public String getTime() {
+    public Date getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(Date time) {
         this.time = time;
     }
 }

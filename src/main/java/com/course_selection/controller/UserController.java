@@ -2,10 +2,7 @@ package com.course_selection.controller;
 
 import com.course_selection.mapper.ExperimentMapper;
 import com.course_selection.mapper.StudentMapper;
-
-import com.course_selection.pojo.ShowExperiment;
 import com.course_selection.pojo.Student;
-
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.DisabledAccountException;
@@ -13,12 +10,11 @@ import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.crypto.hash.Md5Hash;
-import org.springframework.core.env.Environment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
-
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,9 +24,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.HashMap;
-import java.util.Map;
 
 @Controller
 public class UserController extends HttpServlet {
@@ -93,10 +86,8 @@ public class UserController extends HttpServlet {
             modelMap.addAttribute("errorMeg",errorMeg);
 
             Student student=studentMapper.findBySid(sid);
-            ShowExperiment showExperiment=new ShowExperiment();
-            showExperiment.setExperimentList(experimentMapper.findAllE());
-            showExperiment.setStudent(student);
-            request.getSession(false).setAttribute("showExperiment", showExperiment);
+
+            request.getSession(false).setAttribute("student", student);
             return "homePage";
         }else{
             modelMap.addAttribute("errorMeg",errorMeg);
@@ -106,11 +97,13 @@ public class UserController extends HttpServlet {
 
     @RequestMapping(value = {"/updateStudent"})
     public String changePassword(HttpServletRequest request, HttpServletResponse response){
-        ShowExperiment showExperiment=(ShowExperiment) request.getSession().getAttribute("showExperiment");
-        if(showExperiment==null){
-            return "experiments";
+
+        Student student=(Student) request.getSession().getAttribute("student");
+        if(student==null){
+            return "homePage";
         }
-        request.getSession(false).setAttribute("showExperiment", showExperiment);
+        request.getSession(false).setAttribute("student", student);
+
         return "updatePassword";
     }
 
@@ -121,16 +114,16 @@ public class UserController extends HttpServlet {
                                  @RequestParam("password") String password,
                                  @RequestParam("password_new") String password_new) {
         String newPwd=new Md5Hash(password,environment.getProperty("shiro.encrypt.password.salt")).toString();
-        ShowExperiment showExperiment=(ShowExperiment) request.getSession().getAttribute("showExperiment");
-        Student student = studentMapper.findById(showExperiment.getStudent().getId());
+
+        Student student=(Student) request.getSession().getAttribute("student");
 
         if (student.getPassword().equals(newPwd) && student.getSname().equals(sname)) {
-            System.out.println(showExperiment.getStudent().toString());
+            System.out.println(student.toString());
             String salt="92dd90534a404926b50a43c7a3c5b79e";
             password_new=new Md5Hash(password_new,salt).toString();
             System.out.println(password_new);
             System.out.println(password_new+"NNNNNNNNNNNNNNN");
-            studentMapper.changePassword(sid, password, password_new, showExperiment.getStudent().getId());
+            studentMapper.changePassword(sid, password, password_new, student.getId());
             return "redirect:experiments";
         }
         return "homePage";

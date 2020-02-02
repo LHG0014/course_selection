@@ -24,8 +24,8 @@
                 <form class="form form-horizontal" method="post" action="${ctx}/login" id="form_01">
 
                     <p>用户登录</p>
-                    <div class="lowin-group">
-                        <p style="float: left">提示：请正确输入用户名和密码进行登录！</p>
+                    <div class="lowin-group" style="margin: 2% auto;">
+                        <p style="text-align: center">请正确输入用户名和密码进行登录！</p>
                     </div>
                     <div class="lowin-group">
                         <input name="sid" type="text" placeholder="学号" class="lowin-input" value="${sid}" >
@@ -34,15 +34,15 @@
                         <input name="password" type="password" placeholder="密码" class="lowin-input" >
                     </div>
                     <c:if test="${errorMeg!=null}">
-                        <div class="lowin-group">
-                            <input type="text" placeholder="${errorMeg}" class="lowin-input" readonly="readonly"/>
-                        </div>
+                        <p style="color: #FF4500;">${errorMeg}</p>
                     </c:if>
 
                     <button type="submit" class="lowin-btn" id="login_button_01" onclick="fun()">登陆</button>
                 </form>
                 <%--<h2 align="center" hidden id="message">${sid}${errorMeg}</h2>--%>
-
+                <div class="text-foot">
+                    <a href="/homepage" class="login-link">返回主页</a>
+                </div>
             </div>
         </div>
         <footer class="lowin-footer">
@@ -50,25 +50,7 @@
         </footer>
     </div>
 </div>
-<script type="text/javascript">
-    var timeout;
-    onclick =function (){
-        clearTimeout(timeout);
-        timeout=setTimeout(function fun() {
-            $.ajax({
-                url:"/login",
-                type:"POST",
-                //dataType:"json",
-                data:{},
-                success:function () {
-                    <c:if test="${errorMeg!=null}">
-                        alert("${errorMeg}");
-                    </c:if>
-                }
-            });
-        },3000);
-    }
-</script>
+
 </body>
 </html>
 <%--<script type="text/javascript">--%>

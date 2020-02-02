@@ -27,9 +27,6 @@ public interface StudentMapper {
     @Update("update student set password=#{password_new} where sid = #{sid} and id=#{id}")
     public void changePassword(@Param("sid") Integer sid, @Param("password") String password, @Param("password_new") String password_new, @Param("id") Integer id);
 
-    @Select("select * from student where sid=#{sid} and password=#{password}")
-    public Student findOne(@Param("sid") Integer sid, @Param("password") String password, @Param("sname") String sname);
-
     @Select("select * from student where id=#{id}")
     public Student findById(@Param("id") Integer id);
 

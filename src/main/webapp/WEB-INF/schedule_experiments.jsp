@@ -72,13 +72,25 @@
 						</a>
 					</form>
 				</li>
-				<li>
-					<c:if test="${!empty showExperiment}">
-						<a class="profile-pic" href="#">用户：${showExperiment.student.sname}</a>
-					</c:if>
-					<c:if test="${empty showExperiment}">
-						请先<a class="profile-pic" href="../to/login"> 登录 </a>
-					</c:if>
+
+				<c:if test="${!empty student}">
+					<li>
+						<a class="profile-pic" href="#">用户：${student.sname}</a>
+					</li>
+				</c:if>
+
+				<c:if test="${!empty student}">
+					<li>
+						<a class="profile-pic" href="../to/login"> 登出 </a>
+					</li>
+				</c:if>
+
+				<c:if test="${empty student}">
+					<li>
+						<a class="profile-pic" href="../to/login"> 登陆 </a>
+					</li>
+				</c:if>
+
 				</li>
 			</ul>
 		</div>
@@ -122,7 +134,14 @@
 				</li>
 			</ul>
 			<div class="center p-20">
-				<a href="../logout" class="btn btn-danger btn-block waves-effect waves-light" aria-hidden="true">登出</a>
+				<c:if test="${empty student}">
+					<a href="../to/login" class="btn btn-danger btn-block waves-effect waves-light"
+					   aria-hidden="true">登录</a>
+				</c:if>
+				<c:if test="${!empty student}">
+					<a href="../logout" class="btn btn-danger btn-block waves-effect waves-light"
+					   aria-hidden="true">登出</a>
+				</c:if>
 			</div>
 		</div>
 	</div>
@@ -153,10 +172,8 @@
 						<h3 class="box-title">实验预约 [目录]</h3>
 						<p class="text-muted"></p>
 						<div class="table-responsive">
-
-							<table class="table">
-								<tr>${showExperiment.student.sname}你好
-									<c:if test="${showExperiment.student.password==showExperiment.student.initial_password}">
+								<tr><span style="font-size: 120%; ">${student.sname}</span>你好
+									<c:if test="${student.password==student.initial_password}">
 										,请修改密码
 									</c:if>
 								</tr>

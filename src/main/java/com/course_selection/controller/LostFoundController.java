@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 @Controller
 public class LostFoundController {
@@ -21,7 +22,7 @@ public class LostFoundController {
     public String lost(HttpServletRequest request, HttpServletResponse response,
                        @Param("type") String type, @Param("title") String title,
                        @Param("content") String content, @Param("place") String place,
-                       @Param("number") String number, @Param("time") Date time,
+                       @Param("number") String number, @Param("time") String time,
                        @Param("sid") Integer sid) {
         type = request.getParameter("type");
         title = request.getParameter("title");
@@ -30,7 +31,9 @@ public class LostFoundController {
         sid = ((Student) session.getAttribute("student")).getSid();
         number = String.valueOf(sid.intValue());
         place = lostfoundMapper.findastudent(sid).getSname();
-        time = new java.sql.Date(new java.util.Date().getTime());
+        java.util.Date d = new java.util.Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        time=sdf.format(d);
         lostfoundMapper.addlostfound(type, title, content, place, number, time);
         return "redirect:lostfound";
     }

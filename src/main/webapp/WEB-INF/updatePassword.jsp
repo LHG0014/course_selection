@@ -43,10 +43,9 @@
 					<button class="lowin-btn" type="submit">
 						确定
 					</button>
-
-					<%--<div class="text-foot">--%>
-						<%--Already have an account? <a href="" class="login-link">Login</a>--%>
-					<%--</div>--%>
+					<div class="text-foot">
+						<a href="/homepage" class="login-link">返回主页</a>
+					</div>
 				</form>
 
 
