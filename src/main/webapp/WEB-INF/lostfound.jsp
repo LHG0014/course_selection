@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
-<%@ page isELIgnored="false" %>
-
+         pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix='fmt' %>
 <html>
 
 <head>
@@ -137,14 +136,14 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="white-box">
-						<h2 class="box-title">寻物启事</h2>
+						<h2 class="box-title"><a href="#box1">我要发布</a></h2>
 						<c:forEach items="${page.list}" var="c">
-							<div style="border:3px solid RGB(237,241,245)">
-								<table class="table">
+							<div style="border:1px solid black;width: 100%;">
+								<table class="table" style="word-break:break-all; word-wrap:break-all;">
 									<tr>
-										<th>${c.id}&nbsp;&nbsp;&nbsp;${c.type}</th>
-										<th>${c.title}</th>
-										<th></th>
+										<th style="width:10%">${c.id}&nbsp;&nbsp;&nbsp;${c.type}</th>
+										<th style="width:70%">摘要：${c.title}</th>
+										<th style="width:30%"></th>
 									</tr>
 									<tr>
 										<td></td>
@@ -154,9 +153,8 @@
 									<tr>
 										<td></td>
 										<td></td>
-										<td>${c.place}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${c.time}</td>
+										<td>${c.place}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<fmt:formatDate value="${c.time}" pattern="yyyy-MM-dd HH:mm"/></td>
 									</tr>
-
 									<br>
 								</table>
 							</div>
@@ -170,7 +168,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="white-box" style="float:left;width:46%;margin:2%;">
+				<div id="box1" class="white-box" style="float:left;width:46%;margin:2%;">
 					<p>发布启事</p>
 					<form method="post" action="/laf">
 						<div class="form-group">
