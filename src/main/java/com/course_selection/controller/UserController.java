@@ -86,7 +86,7 @@ public class UserController extends HttpServlet {
             modelMap.addAttribute("errorMeg",errorMeg);
 
             Student student=studentMapper.findBySid(sid);
-            request.getSession(false).setAttribute("student", student);
+            request.getSession(true).setAttribute("student", student);
             return "homePage";
         }else{
             modelMap.addAttribute("errorMeg",errorMeg);

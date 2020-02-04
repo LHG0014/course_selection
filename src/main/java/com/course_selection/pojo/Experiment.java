@@ -1,6 +1,8 @@
 package com.course_selection.pojo;
 
-public class Experiment {
+import java.io.Serializable;
+
+public class Experiment implements Serializable {
     private Integer id;
     private Integer eid;
     private String ename;
