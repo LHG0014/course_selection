@@ -56,7 +56,9 @@ public class CourseServiceImpl implements CourseService {
             return result;
         }
         Experiment experiment = experimentMapper.findE(eid);
-
+        if(!(week >= experiment.getOne_start() && week<= experiment.getOne_end())||(week>=experiment.getOne_start()&&week<=experiment.getTwo_end())) {
+            return "该周次无此课程";
+        }
         List<Selection_Information> sis = (List<Selection_Information>) redisTemplate.opsForValue().get("es"+eid+week+day+section);
         if (sis == null) {
             synchronized (this){
