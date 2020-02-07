@@ -32,7 +32,7 @@ public class LostFoundController {
         number = String.valueOf(sid.intValue());
         place = lostfoundMapper.findastudent(sid).getSname();
         java.util.Date d = new java.util.Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss ");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         time=sdf.format(d);
         lostfoundMapper.addlostfound(type, title, content, place, number, time);
         return "redirect:lostfound";

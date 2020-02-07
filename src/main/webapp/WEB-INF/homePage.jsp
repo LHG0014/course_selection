@@ -15,6 +15,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="">
+	<link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
 	<%--<link rel="icon" type="image/png" sizes="16x16" href="img/favicon.png">--%>
 	<title>大学物理实验系统</title>
 	<!-- Bootstrap Core CSS -->
@@ -76,15 +77,27 @@
 						</a>
 					</form>
 				</li>
-				<li>
-					<c:if test="${!empty student}">
+
+				<c:if test="${!empty student}">
+					<li>
 						<a class="profile-pic" href="#">用户：${student.sname}</a>
-					</c:if>
-					<c:if test="${empty student}">
-						请先<a class="profile-pic" href="../login"> 登录 </a>
-					</c:if>
+					</li>
+				</c:if>
+
+				<c:if test="${!empty student}">
+					<li>
+						<a class="profile-pic" href="../to/login"> 登出 </a>
+					</li>
+				</c:if>
+
+				<c:if test="${empty student}">
+					<li>
+						<a class="profile-pic" href="../to/login"> 登陆 </a>
+					</li>
+				</c:if>
 				</li>
 			</ul>
+
 		</div>
 
 	</nav>
@@ -126,7 +139,14 @@
 				</li>
 			</ul>
 			<div class="center p-20">
-				<a href="../login" class="btn btn-danger btn-block waves-effect waves-light" aria-hidden="true">登录</a>
+				<c:if test="${empty student}">
+					<a href="../to/login" class="btn btn-danger btn-block waves-effect waves-light"
+					   aria-hidden="true">登录</a>
+				</c:if>
+				<c:if test="${!empty student}">
+					<a href="../logout" class="btn btn-danger btn-block waves-effect waves-light"
+					   aria-hidden="true">登出</a>
+				</c:if>
 			</div>
 		</div>
 	</div>
@@ -271,7 +291,7 @@
 <script src="../bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="../js/custom.min.js"></script>
-<script src="../js/dashboard1.js"></script>
+
 <script src="../bower_components/toast-master/js/jquery.toast.js"></script>
 </body>
 
