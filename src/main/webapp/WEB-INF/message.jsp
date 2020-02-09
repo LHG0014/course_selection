@@ -122,7 +122,7 @@
 					                                          aria-hidden="true"></i>投诉信箱<br/>[Complaint Mailbox]</a>
 				</li>
 				<li>
-					<a href="#" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>教师通道<br/>[Teacher
+					<a href="teacher_channel" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>教师通道<br/>[Teacher
 						Channel]</a>
 				</li>
 			</ul>
@@ -183,7 +183,7 @@
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12">
-								<button class="btn btn-success" type="submit" style="width: 50%;margin:0 10% 0 25%">提交</button>
+								<button class="btn btn-success" type="submit" style="width: 50%;margin:0 10% 0 25%">确认留言</button>
 							</div>
 						</div>
 					</form>
