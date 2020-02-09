@@ -2,14 +2,16 @@ package com.course_selection.controller;
 
 import com.course_selection.mapper.ExperimentMapper;
 import com.course_selection.mapper.LostFoundMapper;
-import com.course_selection.pojo.Experiment;
-import com.course_selection.pojo.Lost_Found;
-import com.course_selection.pojo.Selection_Information;
-import com.course_selection.pojo.Student;
-import com.course_selection.service.CourseService;
+import com.course_selection.mapper.MailboxMapper;
+import com.course_selection.mapper.MessageMapper;
+import com.course_selection.pojo.*;
+import com.course_selection.service.impl.CourseServiceImpl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.RedisSerializer;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,17 +19,24 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
 public class CategoryController {
+
+    @Autowired
+    private RedisTemplate<Object,Object> redisTemplate;
     @Autowired
     private LostFoundMapper lostfoundMapper;
     @Autowired
     private ExperimentMapper experimentMapper;
     @Autowired
-    private CourseService courseService;
-
+    private CourseServiceImpl courseService;
+    @Autowired
+    private MailboxMapper mailboxMapper;
+    @Autowired
+    private MessageMapper messageMapper;
 
     @RequestMapping("/lostfound")
     public String lostfound(Model m,
@@ -42,12 +51,20 @@ public class CategoryController {
     }
 
     @RequestMapping("/mailbox")
-    public String mailbox() {
+    public String mailbox(HttpServletRequest request, HttpServletResponse response
+    ) throws  Exception{
+        Student student = (Student) request.getSession().getAttribute("student");
+        HttpSession session = request.getSession();//获取session内容
+        Integer sid=((Student)session.getAttribute("student")).getSid();
+        List<Mailbox> mail= mailboxMapper.findMail(sid);
+        request.getSession(false).setAttribute("mail",mail);
         return "mailbox";
     }
 
     @RequestMapping("/message")
-    public String message() {
+    public String message(  HttpServletRequest request, HttpServletResponse response) throws  Exception{
+        List<Message> messages= messageMapper.findMessage();
+        request.getSession(false).setAttribute("mes",messages);
         return "message";
     }
 
@@ -59,26 +76,36 @@ public class CategoryController {
     @RequestMapping("/operating")
     public String operating(HttpServletResponse response, HttpServletRequest request) {
         Student student = (Student) request.getSession().getAttribute("student");
-        if (null == student) {
-            return "login";
-        }
         return "schedule_operating";
     }
 
     @RequestMapping("/search")
     public String search(HttpServletResponse response, HttpServletRequest request) {
         Student student = (Student) request.getSession().getAttribute("student");
-        if (null == student) {
-            return "login";
-        }
         List<Selection_Information> sis = courseService.selected(student.getSid());
         request.setAttribute("sis", sis);
         return "search_operating";
     }
 
-    @RequestMapping("/homepage")
+    @RequestMapping({"/homepage","/"})
     public String homepage(HttpServletRequest request, HttpServletResponse response) {
-        List<Experiment> experiments = experimentMapper.findAllE();
+        RedisSerializer redisSerializer = new StringRedisSerializer();
+        redisTemplate.setKeySerializer(redisSerializer);
+        List<Experiment> experiments = (List<Experiment>) redisTemplate.opsForValue().get("experiments");
+        if (experiments == null) {
+            synchronized (this){
+                experiments = (List<Experiment>) redisTemplate.opsForValue().get("experiments");
+                if (experiments == null) {
+                    System.out.println("查询数据库");
+                    experiments = experimentMapper.findAllE();
+                    redisTemplate.opsForValue().set("experiments",experiments);
+                }else {
+                    System.out.println("查询Redis");
+                }
+            }
+        }else{
+            System.out.println("查询Redis");
+        }
         request.setAttribute("experiments", experiments);
         return "homePage";
     }

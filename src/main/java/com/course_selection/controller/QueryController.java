@@ -1,6 +1,6 @@
 package com.course_selection.controller;
 
-import com.course_selection.service.QueryService;
+import com.course_selection.service.impl.QueryServiceImpl;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 public class QueryController {
 
     @Autowired
-    private QueryService queryService;
+    private QueryServiceImpl queryService;
 
     @RequestMapping("/queryT")
     public String findT(HttpServletRequest request, HttpServletResponse response,

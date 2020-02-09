@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix='fmt'  %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,13 +67,23 @@
 						</a>
 					</form>
 				</li>
-				<li>
-					<c:if test="${!empty student}">
+				<c:if test="${!empty student}">
+					<li>
 						<a class="profile-pic" href="#">用户：${student.sname}</a>
-					</c:if>
-					<c:if test="${empty student}">
-						请先<a class="profile-pic" href="../login"> 登录 </a>
-					</c:if>
+					</li>
+				</c:if>
+
+				<c:if test="${!empty student}">
+					<li>
+						<a class="profile-pic" href="../to/login"> 登出 </a>
+					</li>
+				</c:if>
+
+				<c:if test="${empty student}">
+					<li>
+						<a class="profile-pic" href="../to/login"> 登陆 </a>
+					</li>
+				</c:if>
 				</li>
 			</ul>
 		</div>
@@ -116,7 +127,14 @@
 				</li>
 			</ul>
 			<div class="center p-20">
-				<a href="../login" class="btn btn-danger btn-block waves-effect waves-light" aria-hidden="true">登录</a>
+				<c:if test="${empty student}">
+					<a href="../to/login" class="btn btn-danger btn-block waves-effect waves-light"
+					   aria-hidden="true">登录</a>
+				</c:if>
+				<c:if test="${!empty student}">
+					<a href="../logout" class="btn btn-danger btn-block waves-effect waves-light"
+					   aria-hidden="true">登出</a>
+				</c:if>
 			</div>
 		</div>
 	</div>
@@ -143,7 +161,7 @@
 			<div class="row">
 				<div class="white-box" style="width:46%;margin: 2% auto;">
 					<p>我要留言</p>
-					<form class="form-horizontal form-material" action="student/addMessage" method="post">
+					<form class="form-horizontal form-material" action="addMessage" method="post">
 						<div class="form-group">
 							<label class="col-md-12">姓名：</label>
 							<div class="col-md-12">
@@ -172,7 +190,7 @@
 				</div>
 				<div class="col-md-12">
 					<div class="white-box">
-						<h3 class="box-title">我的历史留言</h3>
+						<h3 class="box-title">留言板</h3>
 						<div style="border:3px solid RGB(237,241,245)">
 							<c:forEach items="${mes}" var="c" varStatus="st">
 
@@ -182,7 +200,7 @@
 									<td style="background-color:RGB(237,241,245);color: black;text-align: center">编号：</td>
 									<td>${c.id}</td>
 									<td style="background-color:RGB(237,241,245);color: black;text-align: center">留言时间：</td>
-									<td>${c.time}</td>
+									<td><fmt:formatDate value="${c.time}" pattern="yyyy-MM-dd HH:mm"/></td>
 								</tr>
 								<tr>
 									<td style="background-color:RGB(237,241,245);color: black;text-align: center">姓名：</td>

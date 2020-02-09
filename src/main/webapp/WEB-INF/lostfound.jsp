@@ -11,7 +11,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
-	<title>Ample Admin Template - The Ultimate Multipurpose admin template</title>
+	<title>大学物理实验系统</title>
 	<!-- Bootstrap Core CSS -->
 	<link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Menu CSS -->
@@ -60,13 +60,23 @@
 						</a>
 					</form>
 				</li>
-				<li>
-					<c:if test="${!empty student}">
+				<c:if test="${!empty student}">
+					<li>
 						<a class="profile-pic" href="#">用户：${student.sname}</a>
-					</c:if>
-					<c:if test="${empty student}">
-						请先<a class="profile-pic" href="../login"> 登录 </a>
-					</c:if>
+					</li>
+				</c:if>
+
+				<c:if test="${!empty student}">
+					<li>
+						<a class="profile-pic" href="../to/login"> 登出 </a>
+					</li>
+				</c:if>
+
+				<c:if test="${empty student}">
+					<li>
+						<a class="profile-pic" href="../to/login"> 登陆 </a>
+					</li>
+				</c:if>
 				</li>
 			</ul>
 		</div>
@@ -110,7 +120,14 @@
 				</li>
 			</ul>
 			<div class="center p-20">
-				<a href="../login" class="btn btn-danger btn-block waves-effect waves-light" aria-hidden="true">登录</a>
+				<c:if test="${empty student}">
+					<a href="../to/login" class="btn btn-danger btn-block waves-effect waves-light"
+					   aria-hidden="true">登录</a>
+				</c:if>
+				<c:if test="${!empty student}">
+					<a href="../logout" class="btn btn-danger btn-block waves-effect waves-light"
+					   aria-hidden="true">登出</a>
+				</c:if>
 			</div>
 		</div>
 	</div>
@@ -139,7 +156,7 @@
 						<h2 class="box-title"><a href="#box1">我要发布</a></h2>
 						<c:forEach items="${page.list}" var="c">
 							<div style="border:1px solid black;width: 100%;">
-								<table class="table" style="word-break:break-all; word-wrap:break-all;">
+								<table class="table" style="word-break:break-all;">
 									<tr>
 										<th style="width:10%">${c.id}&nbsp;&nbsp;&nbsp;${c.type}</th>
 										<th style="width:70%">摘要：${c.title}</th>
@@ -160,7 +177,7 @@
 							</div>
 							<br><br><br>
 						</c:forEach>
-						<div>
+						<div style="height:20px;widht:100px;margin: 0 auto;text-align: center">
 							<a href="?start=1">[首 页]</a>
 							<a href="?start=${page.pageNum-1}">[上一页]</a>
 							<a href="?start=${page.pageNum+1}">[下一页]</a>
@@ -168,24 +185,24 @@
 						</div>
 					</div>
 				</div>
-				<div id="box1" class="white-box" style="float:left;width:46%;margin:2%;">
+				<div id="box1" class="white-box" style="float:left;width:70%;margin:2% auto;">
 					<p>发布启事</p>
 					<form method="post" action="/laf">
-						<div class="form-group">
+						<div class="form-group" style="margin: 5%;">
 							<label class="col-md-12">信息主题：</label>
 							<div class="col-md-12">
 								<input type="text" name="title" required="required"
-								       class="form-control form-control-line"></div>
+								       class="form-control form-control-line" style="margin: 2%;"></div>
 						</div>
-						<div class="form-group">
+						<div class="form-group" style="margin: 5%;">
 							<label class="col-md-12">详细信息：</label>
 							<div class="col-md-12">
                                 <textarea rows="5" class="form-control form-control-line" required="required"
-                                          name="content" style="resize: none"></textarea>
+                                          name="content" style="resize: none; margin: 0%;"></textarea>
 							</div>
 						</div>
-						<div class="form-group">
-							<label class="col-sm-12">选择类型：</label>
+						<div class="form-group" style="margin: 5%;">
+							<label class="col-sm-12" style="margin: 2%;">选择类型：</label>
 							<div class="col-sm-12">
 								<select class="form-control form-control-line" name="type">
 									<option value="招领">招领</option>
@@ -193,9 +210,9 @@
 								</select>
 							</div>
 						</div>
-						<div class="form-group">
-							<div class="col-sm-12">
-								<input type="submit" class="btn btn-success" value="提交"/>
+						<div class="form-group" style="margin: 5%;">
+							<div class="col-sm-12" >
+								<input type="submit" class="btn btn-success" value="提交" style="width:125px;margin: 5%; float: right;"/>
 							</div>
 						</div>
 					</form>

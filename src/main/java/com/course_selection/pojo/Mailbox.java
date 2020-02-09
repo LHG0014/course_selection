@@ -1,12 +1,14 @@
 package com.course_selection.pojo;
 
+import java.util.Date;
+
 public class Mailbox {
     private int id;
     private int sid;
     private String sname;
     private String title;
     private String content;
-    private String time;
+    private Date time;
     private String reply;
     private String reply_timel;
 
@@ -64,13 +66,20 @@ public class Mailbox {
         this.content = content;
     }
 
-    public String getTime() {
+    public Date getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(Date time) {
         this.time = time;
     }
+//    public String getTime() {
+//        return time;
+//    }
+//
+//    public void setTime(String time) {
+//        this.time = time;
+//    }
 
     public String getReply() {
         return reply;
