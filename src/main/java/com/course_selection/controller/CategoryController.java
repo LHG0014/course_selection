@@ -115,4 +115,60 @@ public class CategoryController {
         return "query_teacher";
     }
 
+//    cx-edit
+
+//    教师通道
+    @RequestMapping("/teacher_channel")
+    public String teacher_channel() {
+        return "teacher_channel";
+    }
+
+//    发布注意事项
+    @RequestMapping("/post_notes")
+    public String post_notes() {
+        return "post_notes";
+    }
+
+//    发布信息主目录
+    @RequestMapping("/post_content")
+    public String post_content() {
+        return "post_content";
+    }
+
+//    发布通知
+    @RequestMapping("/post_notice")
+    public String post_notice() {
+        return "post_notice";
+    }
+
+//    发布实验室守则
+    @RequestMapping("/post_rules")
+    public String post_rules() {
+        return "post_rules";
+    }
+
+    //    发布实验室开放信息
+    @RequestMapping("/post_openInfo")
+    public String post_openInfo() {
+        return "post_openInfo";
+    }
+
+    //回复留言
+    @RequestMapping("/reply_message")
+    public String reply_message() {
+        return "reply_message";
+    }
+
+    //重置密码
+    @RequestMapping("/reset_password")
+    public String reset_password() {
+        return "reset_password";
+    }
+
+    //设置开学日期
+    @RequestMapping("/set_startDate")
+    public String set_startDate() {
+        return "set_startDate";
+    }
+
 }
