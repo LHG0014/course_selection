@@ -234,7 +234,7 @@
 								</tr>
 								</thead>
 								<tbody>
-								<c:forEach items="${showExperiment.experimentList}" var="c" varStatus="st">
+								<c:forEach items="${experimentList}" var="c" varStatus="st">
 									<tr>
 										<td>${c.eid}</td>
 										<td>${c.ename}</td>

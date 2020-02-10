@@ -179,7 +179,7 @@
 								</tr>
 								<br/>
 								<tr>
-									你已经选了${showExperiment.student.selected_num}个实验，还要选${(showExperiment.student.total_num)-(showExperiment.student.selected_num)}个实验，否则无期末成绩
+									你已经选了${student.selected_num}个实验，还要选${(student.total_num)-(student.selected_num)}个实验，否则无期末成绩
 								</tr>
 							</table>
 
@@ -233,6 +233,7 @@
 <script src="/js/waves.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="/js/custom.min.js"></script>
+
 </body>
 
 </html>

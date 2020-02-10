@@ -76,8 +76,9 @@ public class CategoryController {
 
     @RequestMapping("/operating")
     public String operating(HttpServletResponse response, HttpServletRequest request) {
-        ShowExperiment showExperiment=(ShowExperiment) request.getSession().getAttribute("showExperiment");
-        Student student = showExperiment.getStudent();
+        //ShowExperiment showExperiment=(ShowExperiment) request.getSession().getAttribute("showExperiment");
+       // Student student = showExperiment.getStudent();
+        Student student=(Student) request.getSession().getAttribute("student");
         if (null == student) {
             return "login";
         }
@@ -86,8 +87,7 @@ public class CategoryController {
 
     @RequestMapping("/search")
     public String search(HttpServletResponse response, HttpServletRequest request) {
-        ShowExperiment showExperiment=(ShowExperiment) request.getSession().getAttribute("showExperiment");
-        Student student = showExperiment.getStudent();
+        Student student=(Student) request.getSession().getAttribute("student");
         if (null == student) {
             return "login";
         }
