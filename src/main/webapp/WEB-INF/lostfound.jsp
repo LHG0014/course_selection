@@ -60,6 +60,7 @@
 						</a>
 					</form>
 				</li>
+
 				<c:if test="${!empty student}">
 					<li>
 						<a class="profile-pic" href="#">用户：${student.sname}</a>
@@ -77,6 +78,7 @@
 						<a class="profile-pic" href="../to/login"> 登陆 </a>
 					</li>
 				</c:if>
+
 				</li>
 			</ul>
 		</div>

@@ -72,6 +72,7 @@
 						</a>
 					</form>
 				</li>
+
 				<c:if test="${!empty student}">
 					<li>
 						<a class="profile-pic" href="#">用户：${student.sname}</a>
@@ -89,6 +90,7 @@
 						<a class="profile-pic" href="../to/login"> 登陆 </a>
 					</li>
 				</c:if>
+
 				</li>
 			</ul>
 		</div>
@@ -170,8 +172,6 @@
 						<h3 class="box-title">实验预约 [目录]</h3>
 						<p class="text-muted"></p>
 						<div class="table-responsive">
-
-							<table class="table">
 								<tr><span style="font-size: 120%; ">${student.sname}</span>你好
 									<c:if test="${student.password==student.initial_password}">
 										,请修改密码
@@ -233,6 +233,7 @@
 <script src="/js/waves.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="/js/custom.min.js"></script>
+
 </body>
 
 </html>

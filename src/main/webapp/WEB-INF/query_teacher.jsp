@@ -77,6 +77,7 @@
 						</a>
 					</form>
 				</li>
+
 				<c:if test="${!empty student}">
 					<li>
 						<a class="profile-pic" href="#">用户：${student.sname}</a>
@@ -94,6 +95,7 @@
 						<a class="profile-pic" href="../to/login"> 登陆 </a>
 					</li>
 				</c:if>
+
 				</li>
 			</ul>
 		</div>
@@ -129,6 +131,7 @@
 				</li>
 			</ul>
 			<div class="center p-20">
+
 				<c:if test="${empty student}">
 					<a href="../to/login" class="btn btn-danger btn-block waves-effect waves-light"
 					   aria-hidden="true">登录</a>
@@ -137,6 +140,7 @@
 					<a href="../logout" class="btn btn-danger btn-block waves-effect waves-light"
 					   aria-hidden="true">登出</a>
 				</c:if>
+
 			</div>
 		</div>
 	</div>

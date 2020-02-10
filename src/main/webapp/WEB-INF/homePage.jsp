@@ -2,6 +2,8 @@
 <%@ page import="java.util.Calendar" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.util.GregorianCalendar" %>
+<%@ page import="org.springframework.beans.factory.annotation.Autowired" %>
+<%@ page import="com.course_selection.mapper.ExperimentMapper" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" deferredSyntaxAllowedAsLiteral="true" %>
 
@@ -77,7 +79,6 @@
 						</a>
 					</form>
 				</li>
-
 				<c:if test="${!empty student}">
 					<li>
 						<a class="profile-pic" href="#">用户：${student.sname}</a>
@@ -112,7 +113,7 @@
 					<a href="homepage" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>主页[Home]</a>
 				</li>
 				<li>
-					<a href="experiments" class="waves-effect"><i class="fa fa-table fa-fw"
+					<a href="../experiments" class="waves-effect"><i class="fa fa-table fa-fw"
 					                                              aria-hidden="true"></i>实验预约<br/>[Experiment
 						Appointment]</a>
 				</li>
@@ -234,7 +235,7 @@
 								</tr>
 								</thead>
 								<tbody>
-								<c:forEach items="${experiments}" var="c" varStatus="st">
+								<c:forEach items="${experimentList}" var="c" varStatus="st">
 									<tr>
 										<td>${c.eid}</td>
 										<td>${c.ename}</td>

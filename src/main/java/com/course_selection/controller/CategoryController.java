@@ -2,8 +2,10 @@ package com.course_selection.controller;
 
 import com.course_selection.mapper.ExperimentMapper;
 import com.course_selection.mapper.LostFoundMapper;
+
 import com.course_selection.mapper.MailboxMapper;
 import com.course_selection.mapper.MessageMapper;
+
 import com.course_selection.pojo.*;
 import com.course_selection.service.impl.CourseServiceImpl;
 import com.github.pagehelper.PageHelper;
@@ -75,13 +77,19 @@ public class CategoryController {
 
     @RequestMapping("/operating")
     public String operating(HttpServletResponse response, HttpServletRequest request) {
-        Student student = (Student) request.getSession().getAttribute("student");
-        return "schedule_operating";
+    Student student=(Student) request.getSession().getAttribute("student");
+    if (null == student) {
+        return "login";
+    }
+    return "schedule_operating";
     }
 
     @RequestMapping("/search")
     public String search(HttpServletResponse response, HttpServletRequest request) {
-        Student student = (Student) request.getSession().getAttribute("student");
+        Student student=(Student) request.getSession().getAttribute("student");
+        if (null == student) {
+            return "login";
+        }
         List<Selection_Information> sis = courseService.selected(student.getSid());
         request.setAttribute("sis", sis);
         return "search_operating";

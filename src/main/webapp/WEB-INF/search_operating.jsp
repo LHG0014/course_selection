@@ -8,7 +8,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -166,6 +166,7 @@
                                     <th>序号</th>
                                     <th>实验名称</th>
                                     <th>周次</th>
+                                    <th>节次</th>
                                     <th>实验室号</th>
                                     <th>座位号</th>
                                     <th></th>
@@ -177,6 +178,7 @@
                                     <td>${st.count}</td>
                                     <td>${si.ename}</td>
                                     <td>${si.weeknum}</td>
+                                    <td><c:if test="${si.section==1}">1-4</c:if><c:if test="${si.section==2}">5-8</c:if></td>
                                     <td>${si.lab}</td>
                                     <td>${si.seat}</td>
                                     <td><button class="btn btn-danger btn-block waves-effect waves-light" eid="${si.eid}" onclick="a(this)">取消预约</button></td>
