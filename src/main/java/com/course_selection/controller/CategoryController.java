@@ -7,10 +7,13 @@ import com.course_selection.mapper.MailboxMapper;
 import com.course_selection.mapper.MessageMapper;
 
 import com.course_selection.pojo.*;
-import com.course_selection.service.CourseService;
+import com.course_selection.service.impl.CourseServiceImpl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.RedisSerializer;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,12 +26,15 @@ import java.util.List;
 
 @Controller
 public class CategoryController {
+
+    @Autowired
+    private RedisTemplate<Object,Object> redisTemplate;
     @Autowired
     private LostFoundMapper lostfoundMapper;
     @Autowired
     private ExperimentMapper experimentMapper;
     @Autowired
-    private CourseService courseService;
+    private CourseServiceImpl courseService;
     @Autowired
     private MailboxMapper mailboxMapper;
     @Autowired
@@ -50,9 +56,6 @@ public class CategoryController {
     public String mailbox(HttpServletRequest request, HttpServletResponse response
     ) throws  Exception{
         Student student = (Student) request.getSession().getAttribute("student");
-        if (null == student) {
-            return "login";
-        }
         HttpSession session = request.getSession();//获取session内容
         Integer sid=((Student)session.getAttribute("student")).getSid();
         List<Mailbox> mail= mailboxMapper.findMail(sid);
@@ -61,9 +64,7 @@ public class CategoryController {
     }
 
     @RequestMapping("/message")
-    public String message(  HttpServletRequest request, HttpServletResponse response
-//                            @Param("sid") Integer sid
-    ) throws  Exception{
+    public String message(  HttpServletRequest request, HttpServletResponse response) throws  Exception{
         List<Message> messages= messageMapper.findMessage();
         request.getSession(false).setAttribute("mes",messages);
         return "message";
@@ -76,13 +77,11 @@ public class CategoryController {
 
     @RequestMapping("/operating")
     public String operating(HttpServletResponse response, HttpServletRequest request) {
-        //ShowExperiment showExperiment=(ShowExperiment) request.getSession().getAttribute("showExperiment");
-       // Student student = showExperiment.getStudent();
-        Student student=(Student) request.getSession().getAttribute("student");
-        if (null == student) {
-            return "login";
-        }
-        return "schedule_operating";
+    Student student=(Student) request.getSession().getAttribute("student");
+    if (null == student) {
+        return "login";
+    }
+    return "schedule_operating";
     }
 
     @RequestMapping("/search")
@@ -98,7 +97,23 @@ public class CategoryController {
 
     @RequestMapping({"/homepage","/"})
     public String homepage(HttpServletRequest request, HttpServletResponse response) {
-        List<Experiment> experiments = experimentMapper.findAllE();
+        RedisSerializer redisSerializer = new StringRedisSerializer();
+        redisTemplate.setKeySerializer(redisSerializer);
+        List<Experiment> experiments = (List<Experiment>) redisTemplate.opsForValue().get("experiments");
+        if (experiments == null) {
+            synchronized (this){
+                experiments = (List<Experiment>) redisTemplate.opsForValue().get("experiments");
+                if (experiments == null) {
+                    System.out.println("查询数据库");
+                    experiments = experimentMapper.findAllE();
+                    redisTemplate.opsForValue().set("experiments",experiments);
+                }else {
+                    System.out.println("查询Redis");
+                }
+            }
+        }else{
+            System.out.println("查询Redis");
+        }
         request.setAttribute("experiments", experiments);
         return "homePage";
     }
@@ -106,6 +121,62 @@ public class CategoryController {
     @RequestMapping("/query_teacher")
     public String query_teacher() {
         return "query_teacher";
+    }
+
+//    cx-edit
+
+//    教师通道
+    @RequestMapping("/teacher_channel")
+    public String teacher_channel() {
+        return "teacher_channel";
+    }
+
+//    发布注意事项
+    @RequestMapping("/post_notes")
+    public String post_notes() {
+        return "post_notes";
+    }
+
+//    发布信息主目录
+    @RequestMapping("/post_content")
+    public String post_content() {
+        return "post_content";
+    }
+
+//    发布通知
+    @RequestMapping("/post_notice")
+    public String post_notice() {
+        return "post_notice";
+    }
+
+//    发布实验室守则
+    @RequestMapping("/post_rules")
+    public String post_rules() {
+        return "post_rules";
+    }
+
+    //    发布实验室开放信息
+    @RequestMapping("/post_openInfo")
+    public String post_openInfo() {
+        return "post_openInfo";
+    }
+
+    //回复留言
+    @RequestMapping("/reply_message")
+    public String reply_message() {
+        return "reply_message";
+    }
+
+    //重置密码
+    @RequestMapping("/reset_password")
+    public String reset_password() {
+        return "reset_password";
+    }
+
+    //设置开学日期
+    @RequestMapping("/set_startDate")
+    public String set_startDate() {
+        return "set_startDate";
     }
 
 }

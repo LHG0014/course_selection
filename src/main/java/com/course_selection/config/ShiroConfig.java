@@ -42,6 +42,11 @@ public class ShiroConfig {
         Map<String, String> filterChainDefinitionMap=new HashMap<>();
         filterChainDefinitionMap.put("/to/login","anon");
         filterChainDefinitionMap.put("/**","anon");
+        filterChainDefinitionMap.put("/operating","authc");
+        filterChainDefinitionMap.put("/search","authc");
+        filterChainDefinitionMap.put("/mailbox","authc");
+        filterChainDefinitionMap.put("/experiments","authc");
+        filterChainDefinitionMap.put("/logout", "logout");
 //        filterChainDefinitionMap.put("/*","authc");//访问该链接需要授权
 
         bean.setFilterChainDefinitionMap(filterChainDefinitionMap);

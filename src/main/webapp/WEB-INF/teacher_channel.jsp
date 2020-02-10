@@ -1,14 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+         pageEncoding="UTF-8" deferredSyntaxAllowedAsLiteral="true" %>
 
-<%--实验预约状态查询页面--%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<%--教师通道目录--%>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -39,7 +40,7 @@
 <!-- ============================================================== -->
 <div class="preloader">
     <svg class="circular" viewBox="25 25 50 50">
-        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
     </svg>
 </div>
 <!-- ============================================================== -->
@@ -60,7 +61,8 @@
             <!-- /Logo -->
             <ul class="nav navbar-top-links navbar-right pull-right">
                 <li>
-                    <a class="nav-toggler open-close waves-effect waves-light hidden-md hidden-lg" href="javascript:void(0)"><i class="fa fa-bars"></i></a>
+                    <a class="nav-toggler open-close waves-effect waves-light hidden-md hidden-lg"
+                       href="javascript:void(0)"><i class="fa fa-bars"></i></a>
                 </li>
                 <li>
                     <form role="search" class="app-search hidden-sm hidden-xs m-r-10">
@@ -103,22 +105,28 @@
                     <a href="homepage" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>主页[Home]</a>
                 </li>
                 <li>
-                    <a href="experiments" class="waves-effect"><i class="fa fa-table fa-fw" aria-hidden="true"></i>实验预约<br/>[Experiment Appointment]</a>
+                    <a href="experiments" class="waves-effect"><i class="fa fa-table fa-fw" aria-hidden="true"></i>实验预约<br/>[Experiment
+                        Appointment]</a>
                 </li>
                 <li>
-                    <a href="query_teacher" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>任课教师查询<br/>[Query Teacher]</a>
+                    <a href="query_teacher" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>任课教师查询<br/>[Query
+                        Teacher]</a>
                 </li>
                 <li>
-                    <a href="message" class="waves-effect"><i class="fa fa-font fa-fw" aria-hidden="true"></i>留言板<br/>[Message Board]</a>
+                    <a href="message" class="waves-effect"><i class="fa fa-font fa-fw" aria-hidden="true"></i>留言板<br/>[Message
+                        Board]</a>
                 </li>
                 <li>
-                    <a href="lostfound" class="waves-effect"><i class="fa fa-globe fa-fw" aria-hidden="true"></i>失物招领<br/>[Lost and Found]</a>
+                    <a href="lostfound" class="waves-effect"><i class="fa fa-globe fa-fw"
+                                                                aria-hidden="true"></i>失物招领<br/>[Lost and Found]</a>
                 </li>
                 <li>
-                    <a href="mailbox" class="waves-effect"><i class="fa fa-columns fa-fw" aria-hidden="true"></i>投诉信箱<br/>[Complaint Mailbox]</a>
+                    <a href="mailbox" class="waves-effect"><i class="fa fa-columns fa-fw"
+                                                              aria-hidden="true"></i>投诉信箱<br/>[Complaint Mailbox]</a>
                 </li>
                 <li>
-                    <a href="query_student_subscribe" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>教师通道<br/>[Teacher Channel]</a>
+                    <a href="#" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>教师通道<br/>[Teacher
+                        Channel]</a>
                 </li>
             </ul>
             <div class="center p-20">
@@ -143,49 +151,64 @@
         <div class="container-fluid">
             <div class="row bg-title">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h1 class="page-title">实验预约</h1>
+                    <h1 class="page-title">教师通道</h1>
                 </div>
                 <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                     <ol class="breadcrumb">
                         <li><a href="homepage">主页</a></li>
-                        <li class="active">实验预约</li>
+                        <li class="active">教师通道</li>
                     </ol>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
+
             <!-- /row -->
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="white-box">
-                        <h3 class="box-title">当前预约实验</h3>
+                    <div class="white-box" style="margin:2% 0 0 0;">
+                        <h3 class="box-title">[操作目录]</h3>
                         <p class="text-muted"></p>
                         <div class="table-responsive">
+
                             <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>序号</th>
-                                    <th>实验名称</th>
-                                    <th>周次</th>
-                                    <th>节次</th>
-                                    <th>实验室号</th>
-                                    <th>座位号</th>
-                                    <th></th>
+                                <tr><span style="font-size: 120%; ">${student.sname}</span>老师，您好！
+                                    <c:if test="${student.password==student.initial_password}">
+                                        请修改密码
+                                    </c:if>
                                 </tr>
-                                </thead>
+                                <br/>
+                            </table>
+
+                            <table class="table">
                                 <tbody>
-                                <c:forEach items="${sis}" var="si" varStatus="st">
                                 <tr>
-                                    <td>${st.count}</td>
-                                    <td>${si.ename}</td>
-                                    <td>${si.weeknum}</td>
-                                    <td><c:if test="${si.section==1}">1-4</c:if><c:if test="${si.section==2}">5-8</c:if></td>
-                                    <td>${si.lab}</td>
-                                    <td>${si.seat}</td>
-                                    <td><button class="btn btn-danger btn-block waves-effect waves-light" eid="${si.eid}" onclick="a(this)">取消预约</button></td>
+                                    <td>1</td>
+                                    <td class="txt-oflo"><a href="post_content">发布通知、注意事项、实验室守则、实验室开放信息 &nbsp; [I want to post notices, notes, lab rules]</a></td>
                                 </tr>
-                                </c:forEach>
+                                <tr>
+                                    <td>2</td>
+                                    <td class="txt-oflo"><a href="#">查询实验名单 &nbsp; [I want to query the list of experiments]</a></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td class="txt-oflo"><a href="#">查询任课教师 &nbsp; [I want to inquire about the teacher]</a></td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td class="txt-oflo"><a href="reply_message">回复留言板 &nbsp; [I want to reply to student messages]</a></td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td class="txt-oflo"><a href="reset_password">重置学生密码 &nbsp; [I want to reset the student's password]</a></td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td class="txt-oflo"><a href="set_startDate">设置开学日期 &nbsp; [I want to set a student's start date]</a></td>
+                                </tr>
+
                                 </tbody>
                             </table>
+                            <h5>完成操作后，请注意<a href="../logout">登出</a></h5>
                         </div>
                     </div>
                 </div>
@@ -210,25 +233,19 @@
 <script src="/js/waves.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="/js/custom.min.js"></script>
-<script type="text/javascript">
-    function a(e){
-        var eid = $(e).attr("eid");
-        console.log(eid);
-        $.ajax({
-            type: "post",
-            url: "/cancel",
-            data: {
-                "eid":eid
-            },
-            success: function(result,status) {
-                console.log(result);
-                console.log(status);
-                alert(result);
-                window.location.reload();
-            }
-        });
-    }
-</script>
+
+<!--Counter js -->
+<script src="/plugins/bower_components/waypoints/lib/jquery.waypoints.js"></script>
+<script src="/plugins/bower_components/counterup/jquery.counterup.min.js"></script>
+<!-- chartist chart -->
+<script src="/plugins/bower_components/chartist-js/dist/chartist.min.js"></script>
+<script src="/plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
+<!-- Sparkline chart JavaScript -->
+<script src="/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
+<!-- Custom Theme JavaScript -->
+<script src="/js/custom.min.js"></script>
+<script src="/js/dashboard1.js"></script>
+<script src="/plugins/bower_components/toast-master/js/jquery.toast.js"></script>
 </body>
 
 </html>
