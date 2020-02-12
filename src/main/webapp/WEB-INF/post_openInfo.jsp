@@ -172,8 +172,8 @@
                                 <th>第一轮实验结束周</th>
                                 <th>第二轮实验起始周</th>
                                 <th>第二轮实验结束周</th>
-                                <th> &nbsp; 实验室房间号<br/>（如：730）</th>
-                                <th> &nbsp; 实验室座位数量<br/>（如：30）</th>
+                                <th> &nbsp; 实验室房间号</th>
+                                <th> &nbsp; 实验室座位数量</th>
                                 <th> &nbsp; 备注</th>
                                 <th> &nbsp; 发布</th>
                                 </thead>

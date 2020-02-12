@@ -183,27 +183,27 @@
                                 <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td class="txt-oflo"><a href="post_content">发布通知、注意事项、实验室守则、实验室开放信息 &nbsp; [I want to post notices, notes, lab rules]</a></td>
+                                    <td class="txt-oflo"><a href="post_content">发布通知、注意事项、实验室守则、实验室开放信息 &nbsp; [Post notices, attentions, lab rules]</a></td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
-                                    <td class="txt-oflo"><a href="#">查询实验名单 &nbsp; [I want to query the list of experiments]</a></td>
+                                    <td class="txt-oflo"><a href="/query_student_subscribe">查询实验名单 &nbsp; [Query the list of experiments]</a></td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
-                                    <td class="txt-oflo"><a href="#">查询任课教师 &nbsp; [I want to inquire about the teacher]</a></td>
+                                    <td class="txt-oflo"><a href="/query_teacher_teacher">查询任课教师 &nbsp; [Inquire about the teacher]</a></td>
                                 </tr>
                                 <tr>
                                     <td>4</td>
-                                    <td class="txt-oflo"><a href="reply_message">回复留言板 &nbsp; [I want to reply to student messages]</a></td>
+                                    <td class="txt-oflo"><a href="reply_message">回复留言板 &nbsp; [Reply to student messages]</a></td>
                                 </tr>
                                 <tr>
                                     <td>5</td>
-                                    <td class="txt-oflo"><a href="reset_password">重置学生密码 &nbsp; [I want to reset the student's password]</a></td>
+                                    <td class="txt-oflo"><a href="reset_password">重置学生密码 &nbsp; [Reset the student's password]</a></td>
                                 </tr>
                                 <tr>
                                     <td>6</td>
-                                    <td class="txt-oflo"><a href="set_startDate">设置开学日期 &nbsp; [I want to set a student's start date]</a></td>
+                                    <td class="txt-oflo"><a href="set_startDate">设置开学日期 &nbsp; [Set start date]</a></td>
                                 </tr>
 
                                 </tbody>

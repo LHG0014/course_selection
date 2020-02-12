@@ -135,7 +135,7 @@
 					                                          aria-hidden="true"></i>投诉信箱<br/>[Complaint Mailbox]</a>
 				</li>
 				<li>
-					<a href="query_student_subscribe" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>教师通道<br/>[Teacher
+					<a href="/teacher_channel" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>教师通道<br/>[Teacher
 						Channel]</a>
 				</li>
 			</ul>
@@ -229,13 +229,13 @@
 								<tr>
 									<th>实验号</th>
 									<th>实验题目</th>
-									<th>房间号</th>
+									<th>房间号</th>s
 									<th>开设周次</th>
 									<th>备注</th>
 								</tr>
 								</thead>
 								<tbody>
-								<c:forEach items="${experimentList}" var="c" varStatus="st">
+								<c:forEach items="${experiments}" var="c" varStatus="st">
 									<tr>
 										<td>${c.eid}</td>
 										<td>${c.ename}</td>
