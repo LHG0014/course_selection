@@ -9,7 +9,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +16,6 @@
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="/plugins/images/favicon.png">
     <title>大学物理实验系统</title>
-    <script type="text/javascript" src="/js/jquery.min.js"></script>
     <!-- Bootstrap Core CSS -->
     <link href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
@@ -31,13 +29,9 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-
     <![endif]-->
-
-
 </head>
 
 <body class="fix-header">
@@ -46,7 +40,7 @@
 <!-- ============================================================== -->
 <div class="preloader">
     <svg class="circular" viewBox="25 25 50 50">
-        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
     </svg>
 </div>
 <!-- ============================================================== -->
@@ -67,7 +61,8 @@
             <!-- /Logo -->
             <ul class="nav navbar-top-links navbar-right pull-right">
                 <li>
-                    <a class="nav-toggler open-close waves-effect waves-light hidden-md hidden-lg" href="javascript:void(0)"><i class="fa fa-bars"></i></a>
+                    <a class="nav-toggler open-close waves-effect waves-light hidden-md hidden-lg"
+                       href="javascript:void(0)"><i class="fa fa-bars"></i></a>
                 </li>
                 <li>
                     <form role="search" class="app-search hidden-sm hidden-xs m-r-10">
@@ -77,13 +72,23 @@
                         </a>
                     </form>
                 </li>
-                <li>
-                    <c:if test="${!empty student}">
+                <c:if test="${!empty student}">
+                    <li>
                         <a class="profile-pic" href="#">用户：${student.sname}</a>
-                    </c:if>
-                    <c:if test="${empty student}">
-                        请先<a class="profile-pic" href="../login"> 登录 </a>
-                    </c:if>
+                    </li>
+                </c:if>
+
+                <c:if test="${!empty student}">
+                    <li>
+                        <a class="profile-pic" href="../to/login"> 登出 </a>
+                    </li>
+                </c:if>
+
+                <c:if test="${empty student}">
+                    <li>
+                        <a class="profile-pic" href="../to/login"> 登陆 </a>
+                    </li>
+                </c:if>
                 </li>
             </ul>
         </div>
@@ -91,20 +96,49 @@
     </nav>
     <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav slimscrollsidebar">
+            <div class="sidebar-head">
+                <h3><span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span> <span
+                        class="hide-menu">Navigation</span></h3>
+            </div>
             <ul class="nav" id="side-menu">
                 <li style="padding: 70px 0 0;">
                     <a href="homepage" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>主页[Home]</a>
                 </li>
                 <li>
-                    <a href="query_student_subscribe" class="waves-effect"><i class="fa fa-table fa-fw"
-                                                                              aria-hidden="true"></i>查询学生预约情况<br/>[give marks]</a>
+                    <a href="experiments" class="waves-effect"><i class="fa fa-table fa-fw" aria-hidden="true"></i>实验预约<br/>[Experiment
+                        Appointment]</a>
                 </li>
                 <li>
-                    <a href="query_teacher_teacher" class="waves-effect"><i class="fa fa-info-circle fa-fw"
-                                                                    aria-hidden="true"></i>任课教师查询<br/>[Query
+                    <a href="query_teacher" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>任课教师查询<br/>[Query
                         Teacher]</a>
                 </li>
+                <li>
+                    <a href="message" class="waves-effect"><i class="fa fa-font fa-fw" aria-hidden="true"></i>留言板<br/>[Message
+                        Board]</a>
+                </li>
+                <li>
+                    <a href="lostfound" class="waves-effect"><i class="fa fa-globe fa-fw"
+                                                                aria-hidden="true"></i>失物招领<br/>[Lost and Found]</a>
+                </li>
+                <li>
+                    <a href="mailbox" class="waves-effect"><i class="fa fa-columns fa-fw"
+                                                              aria-hidden="true"></i>投诉信箱<br/>[Complaint Mailbox]</a>
+                </li>
+                <li>
+                    <a href="#" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>教师通道<br/>[Teacher
+                        Channel]</a>
+                </li>
             </ul>
+            <div class="center p-20">
+                <c:if test="${empty student}">
+                    <a href="../to/login" class="btn btn-danger btn-block waves-effect waves-light"
+                       aria-hidden="true">登录</a>
+                </c:if>
+                <c:if test="${!empty student}">
+                    <a href="../logout" class="btn btn-danger btn-block waves-effect waves-light"
+                       aria-hidden="true">登出</a>
+                </c:if>
+            </div>
         </div>
     </div>
     <div id="page-wrapper">
@@ -116,6 +150,7 @@
                 <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                     <ol class="breadcrumb">查看学生预约情况
                         <li><a href="homepage">主页</a></li>
+                        <li><a href="teacher_channel">教师通道</a></li>
                         <li class="active">查询学生预约情况</li>
                     </ol>
                 </div>

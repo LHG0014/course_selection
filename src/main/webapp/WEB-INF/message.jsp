@@ -122,11 +122,12 @@
 					                                          aria-hidden="true"></i>投诉信箱<br/>[Complaint Mailbox]</a>
 				</li>
 				<li>
-					<a href="query_student_subscribe" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>教师通道<br/>[Teacher
+					<a href="/teacher_channel" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>教师通道<br/>[Teacher
 						Channel]</a>
 				</li>
 			</ul>
 			<div class="center p-20">
+
 				<c:if test="${empty student}">
 					<a href="../to/login" class="btn btn-danger btn-block waves-effect waves-light"
 					   aria-hidden="true">登录</a>
@@ -135,6 +136,7 @@
 					<a href="../logout" class="btn btn-danger btn-block waves-effect waves-light"
 					   aria-hidden="true">登出</a>
 				</c:if>
+
 			</div>
 		</div>
 	</div>

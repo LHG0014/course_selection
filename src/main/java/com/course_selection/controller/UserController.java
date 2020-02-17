@@ -19,11 +19,14 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class UserController extends HttpServlet {
@@ -32,6 +35,11 @@ public class UserController extends HttpServlet {
     @RequestMapping(value = {"/to/login","/unauth"})
     public String toLogin(){
         return "login";
+    }
+
+    @RequestMapping(value = {"/teacher/login_teacher","/unauth"})
+    public String toLogin_teacher(){
+        return "login_teacher";
     }
 
     @Autowired
@@ -44,14 +52,15 @@ public class UserController extends HttpServlet {
     private Environment environment;
 
     /**
-     * 登陆真证
+     * 学生登陆真证
      * @param sid
      * @param password
      * @param modelMap
      * @return
      */
     @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public String login(@RequestParam Integer sid, @RequestParam String password, ModelMap modelMap, HttpServletRequest request, HttpServletResponse response ) throws IOException, InterruptedException {
+    public String login(@RequestParam Integer sid, @RequestParam String password, ModelMap modelMap, HttpServletRequest request, HttpServletResponse response )
+            throws IOException, InterruptedException {
         String errorMeg="";
         try{
             if(!SecurityUtils.getSubject().isAuthenticated()){
@@ -86,7 +95,7 @@ public class UserController extends HttpServlet {
             modelMap.addAttribute("errorMeg",errorMeg);
 
             Student student=studentMapper.findBySid(sid);
-            request.getSession(true).setAttribute("student", student);
+            request.getSession(false).setAttribute("student", student);
             return "homePage";
         }else{
             modelMap.addAttribute("errorMeg",errorMeg);
@@ -94,35 +103,59 @@ public class UserController extends HttpServlet {
         }
     }
 
+    /**
+     * 教师登陆真证
+     * @param
+     * @param
+     * @param
+     * @return
+     */
+    @RequestMapping(value = "/login_teacher",method = RequestMethod.POST)
+    public String loginTeacher(ModelMap modelMap, HttpServletRequest request, HttpServletResponse response ) {
+        return "login_teacher";
+
+    }
+
+
     @RequestMapping(value = {"/updateStudent"})
     public String changePassword(HttpServletRequest request, HttpServletResponse response){
+
         Student student=(Student) request.getSession().getAttribute("student");
         if(student==null){
             return "homePage";
         }
         request.getSession(false).setAttribute("student", student);
+
         return "updatePassword";
     }
 
-    @RequestMapping(value = {"changePassword"})
-    public String changePassword(HttpServletRequest request, HttpServletResponse response,
-                                 @RequestParam("sid") Integer sid,
-                                 @RequestParam("sname") String sname,
-                                 @RequestParam("password") String password,
-                                 @RequestParam("password_new") String password_new) {
-        String newPwd=new Md5Hash(password,environment.getProperty("shiro.encrypt.password.salt")).toString();
-        Student student=(Student) request.getSession().getAttribute("student");
+    @RequestMapping(value = {"changePassword"},method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, String> changePassword(HttpServletRequest request, HttpServletResponse response,
+                                              @RequestParam("sid") Integer sid,
+                                              @RequestParam("sname") String sname,
+                                              @RequestParam("password") String password,
+                                              @RequestParam("password_new") String password_new) {
+        Map<String, String> ret = new HashMap<String, String>();
+        if(password_new!=""){
+            String newPwd=new Md5Hash(password,environment.getProperty("shiro.encrypt.password.salt")).toString();
 
-        if (student.getPassword().equals(newPwd) && student.getSname().equals(sname)) {
-            System.out.println(student.toString());
-            String salt="92dd90534a404926b50a43c7a3c5b79e";
-            password_new=new Md5Hash(password_new,salt).toString();
-            System.out.println(password_new);
-            System.out.println(password_new+"NNNNNNNNNNNNNNN");
-            studentMapper.changePassword(sid, password, password_new, student.getId());
-            return "redirect:experiments";
+            Student student=(Student) request.getSession().getAttribute("student");
+            System.out.println(student.getPassword());
+            System.out.println(newPwd);
+            //cdcec07ef9f12801cb8c9cf328340397
+            if (student.getPassword().equals(newPwd)) {
+                String salt="92dd90534a404926b50a43c7a3c5b79e";
+                password_new=new Md5Hash(password_new,salt).toString();
+                studentMapper.changePassword(sid, password, password_new, student.getId());
+                ret.put("type", "success");
+                ret.put("msg", "修改密码成功!");
+                return ret;
+            }
         }
-        return "homePage";
+        ret.put("type", "error");
+        ret.put("msg", "更改密码失败!");
+        return ret;
     }
 
     @RequestMapping(value = {"/logout"})

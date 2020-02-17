@@ -184,19 +184,19 @@
                                 <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td class="txt-oflo"><a href="post_notice">发布通知 &nbsp; [I want to post notices]</a></td>
+                                    <td class="txt-oflo"><a href="post_notice">发布通知 &nbsp; [Post notices]</a></td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
-                                    <td class="txt-oflo"><a href="post_notes">发布实验室注意事项 &nbsp; [I want to post notes]</a></td>
+                                    <td class="txt-oflo"><a href="post_notes">发布实验室注意事项 &nbsp; [Post attentions]</a></td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
-                                    <td class="txt-oflo"><a href="post_rules">发布实验室守则 &nbsp; [I want to post lab rules]</a></td>
+                                    <td class="txt-oflo"><a href="post_rules">发布实验室守则 &nbsp; [Post lab rules]</a></td>
                                 </tr>
                                 <tr>
                                     <td>4</td>
-                                    <td class="txt-oflo"><a href="post_openInfo">发布实验室开放信息 &nbsp; [I want to post lab open messages]</a></td>
+                                    <td class="txt-oflo"><a href="post_openInfo">发布实验室开放信息 &nbsp; [Post lab open messages]</a></td>
                                 </tr>
                                 </tbody>
                             </table>

@@ -15,14 +15,15 @@
 <body>
 <div class="lowin lowin-blue">
     <div class="lowin-brand">
-        <img src="/img/kodinger.jpg" alt="logo">
+        <img src="/img/hljLogo.jpg" alt="logo">
     </div>
 
     <div class="lowin-wrapper">
         <div class="lowin-box lowin-login">
             <div class="lowin-box-inner">
                 <form class="form form-horizontal" method="post" action="${ctx}/login" id="form_01">
-                    <p>用户登录</p>
+
+                    <p style="font-size: 30px;margin-top: -20px">学生登录</p>
                     <div class="lowin-group" style="margin: 2% auto;">
                         <p style="text-align: center">请正确输入用户名和密码进行登录！</p>
                     </div>
@@ -52,18 +53,9 @@
 
 </body>
 </html>
-<%--<script type="text/javascript">--%>
-<%--function fun() {--%>
-<%--$.ajax({--%>
-<%--url:"/to/login",--%>
-<%--type:"POST",--%>
-<%--timeout:10000,--%>
-<%--//dataType:"json",--%>
-<%--data:{},--%>
-<%--success:function (data) {--%>
 
-<%--alert("${errorMeg}");--%>
-<%--}--%>
-<%--});--%>
-<%--}--%>
-<%--</script>--%>
+
+
+
+
+
