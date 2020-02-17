@@ -59,9 +59,8 @@
 			<div class="top-left-part">
 				<!-- Logo -->
 				<a class="logo">
-
                     <span class="hidden-xs">
-                        <img src="../img/headlogo.png" alt="home" class="light-logo" width="100%" height="100%"/>
+                        <img src="../img/headlogo.png" alt="home" class="light-logo" width="100%" height="100%" />
                         </span>
 				</a>
 			</div>
