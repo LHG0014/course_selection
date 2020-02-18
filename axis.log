@@ -1,0 +1,372 @@
+2020-02-09 22:05:32,647 0      [nio-8080-exec-1] DEBUG           druid.sql.Connection  - {conn-10001,procId-71} connected
+2020-02-09 22:05:32,658 11     [nio-8080-exec-1] DEBUG           druid.sql.Connection  - {conn-10002,procId-72} connected
+2020-02-09 22:05:32,665 18     [nio-8080-exec-1] DEBUG           druid.sql.Connection  - {conn-10003,procId-73} connected
+2020-02-09 22:05:32,670 23     [nio-8080-exec-1] DEBUG           druid.sql.Connection  - {conn-10004,procId-74} connected
+2020-02-09 22:05:32,684 37     [nio-8080-exec-1] DEBUG           druid.sql.Connection  - {conn-10005,procId-75} connected
+2020-02-09 22:05:32,688 41     [nio-8080-exec-1] DEBUG           druid.sql.Connection  - {conn-10005} pool-connect
+2020-02-09 22:05:32,689 42     [nio-8080-exec-1] DEBUG           druid.sql.Connection  - {conn-10005} pool-recycle
+2020-02-09 22:05:32,740 93     [nio-8080-exec-1] DEBUG           druid.sql.Connection  - {conn-10005} pool-connect
+2020-02-09 22:05:32,849 202    [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} created. SELECT count(0) FROM lost_found
+2020-02-09 22:05:32,858 211    [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} Parameters : []
+2020-02-09 22:05:32,858 211    [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} Types : []
+2020-02-09 22:05:32,875 228    [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} executed. 19.626138 millis. SELECT count(0) FROM lost_found
+2020-02-09 22:05:32,880 233    [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50000} open
+2020-02-09 22:05:32,881 234    [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50000} Header: [count(0)]
+2020-02-09 22:05:32,885 238    [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50000} Result: [18]
+2020-02-09 22:05:32,886 239    [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50000} closed
+2020-02-09 22:05:32,887 240    [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} clearParameters. 
+2020-02-09 22:05:32,897 250    [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} created. SELECT * FROM lost_found order by id desc limit ?,?
+2020-02-09 22:05:32,898 251    [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} Parameters : [0, 5]
+2020-02-09 22:05:32,898 251    [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} Types : [INTEGER, INTEGER]
+2020-02-09 22:05:32,900 253    [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} executed. 2.09889 millis. SELECT * FROM lost_found order by id desc limit ?,?
+2020-02-09 22:05:32,900 253    [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50001} open
+2020-02-09 22:05:32,900 253    [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50001} Header: [id, type, title, content, place, number, time]
+2020-02-09 22:05:32,901 254    [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50001} Result: [18, 招领, 大物书丢了, aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa, 焦荟蓉, 20183124, 2020-02-01 22:21:34.0]
+2020-02-09 22:05:32,902 255    [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50001} Result: [17, 招领, 大物书丢了, sdfdf, 焦荟蓉, 20183124, 2020-02-01 22:21:20.0]
+2020-02-09 22:05:32,903 256    [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50001} Result: [16, 招领, 主题测试, 详细信息, 焦荟蓉, 20183124, 2020-01-31 23:46:02.0]
+2020-02-09 22:05:32,903 256    [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50001} Result: [15, 招领, 找到一本大物书, sdfadzbvfv, 焦荟蓉, 20183124, 2020-01-31 23:37:33.0]
+2020-02-09 22:05:32,903 256    [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50001} Result: [14, 遗失, 0, 1, 1, 20183124, 2020-02-28 00:00:00.0]
+2020-02-09 22:05:32,904 257    [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50001} closed
+2020-02-09 22:05:32,904 257    [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} clearParameters. 
+2020-02-09 22:05:32,904 257    [nio-8080-exec-1] DEBUG           druid.sql.Connection  - {conn-10005} pool-recycle
+2020-02-09 22:05:39,059 6412   [nio-8080-exec-5] DEBUG           druid.sql.Connection  - {conn-10005} pool-connect
+2020-02-09 22:05:39,060 6413   [nio-8080-exec-5] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20002} created. select * from experiment
+2020-02-09 22:05:39,060 6413   [nio-8080-exec-5] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20002} Parameters : []
+2020-02-09 22:05:39,060 6413   [nio-8080-exec-5] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20002} Types : []
+2020-02-09 22:05:39,061 6414   [nio-8080-exec-5] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20002} executed. 0.813236 millis. select * from experiment
+2020-02-09 22:05:39,061 6414   [nio-8080-exec-5] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20002, rs-50002} open
+2020-02-09 22:05:39,061 6414   [nio-8080-exec-5] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20002, rs-50002} Header: [id, eid, ename, one_start, one_end, two_start, two_end, lab, seat_num, remark]
+2020-02-09 22:05:39,062 6415   [nio-8080-exec-5] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20002, rs-50002} closed
+2020-02-09 22:05:39,062 6415   [nio-8080-exec-5] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20002} clearParameters. 
+2020-02-09 22:05:39,062 6415   [nio-8080-exec-5] DEBUG           druid.sql.Connection  - {conn-10005} pool-recycle
+2020-02-09 22:05:49,005 16358  [nio-8080-exec-2] DEBUG           druid.sql.Connection  - {conn-10005} pool-connect
+2020-02-09 22:05:49,032 16385  [nio-8080-exec-2] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} created. select * from student where sid=?
+2020-02-09 22:05:49,032 16385  [nio-8080-exec-2] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} Parameters : [20183124]
+2020-02-09 22:05:49,032 16385  [nio-8080-exec-2] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} Types : [INTEGER]
+2020-02-09 22:05:49,036 16389  [nio-8080-exec-2] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} executed. 3.846679 millis. select * from student where sid=?
+2020-02-09 22:05:49,036 16389  [nio-8080-exec-2] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50003} open
+2020-02-09 22:05:49,036 16389  [nio-8080-exec-2] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50003} Header: [id, sid, sname, password, initial_password, total_num, selected_num]
+2020-02-09 22:05:49,037 16390  [nio-8080-exec-2] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50003} Result: [1, 20183124, 焦荟蓉, 292023, 292023, 9, 1]
+2020-02-09 22:05:49,039 16392  [nio-8080-exec-2] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50003} closed
+2020-02-09 22:05:49,039 16392  [nio-8080-exec-2] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} clearParameters. 
+2020-02-09 22:05:49,039 16392  [nio-8080-exec-2] DEBUG           druid.sql.Connection  - {conn-10005} pool-recycle
+2020-02-09 22:05:57,359 24712  [nio-8080-exec-9] DEBUG           druid.sql.Connection  - {conn-10005} pool-connect
+2020-02-09 22:05:57,359 24712  [nio-8080-exec-9] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} Parameters : [20183124]
+2020-02-09 22:05:57,359 24712  [nio-8080-exec-9] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} Types : [INTEGER]
+2020-02-09 22:05:57,360 24713  [nio-8080-exec-9] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} executed. 0.608642 millis. select * from student where sid=?
+2020-02-09 22:05:57,360 24713  [nio-8080-exec-9] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50004} open
+2020-02-09 22:05:57,360 24713  [nio-8080-exec-9] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50004} Header: [id, sid, sname, password, initial_password, total_num, selected_num]
+2020-02-09 22:05:57,360 24713  [nio-8080-exec-9] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50004} Result: [1, 20183124, 焦荟蓉, 292023, 292023, 9, 1]
+2020-02-09 22:05:57,362 24715  [nio-8080-exec-9] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50004} closed
+2020-02-09 22:05:57,362 24715  [nio-8080-exec-9] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} clearParameters. 
+2020-02-09 22:05:57,363 24716  [nio-8080-exec-9] DEBUG           druid.sql.Connection  - {conn-10005} pool-recycle
+2020-02-09 22:06:01,163 28516  [nio-8080-exec-1] DEBUG           druid.sql.Connection  - {conn-10005} pool-connect
+2020-02-09 22:06:01,165 28518  [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20004} created. select * from message order by id desc
+2020-02-09 22:06:01,165 28518  [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20004} Parameters : []
+2020-02-09 22:06:01,165 28518  [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20004} Types : []
+2020-02-09 22:06:01,186 28539  [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20004} executed. 20.999695 millis. select * from message order by id desc
+2020-02-09 22:06:01,186 28539  [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20004, rs-50005} open
+2020-02-09 22:06:01,187 28540  [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20004, rs-50005} Header: [id, sid, sname, time, to, content, reply, reply_time]
+2020-02-09 22:06:01,187 28540  [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20004, rs-50005} closed
+2020-02-09 22:06:01,187 28540  [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20004} clearParameters. 
+2020-02-09 22:06:01,187 28540  [nio-8080-exec-1] DEBUG           druid.sql.Connection  - {conn-10005} pool-recycle
+2020-02-09 22:06:07,073 34426  [io-8080-exec-10] DEBUG           druid.sql.Connection  - {conn-10005} pool-connect
+2020-02-09 22:06:07,073 34426  [io-8080-exec-10] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} Parameters : []
+2020-02-09 22:06:07,073 34426  [io-8080-exec-10] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} Types : []
+2020-02-09 22:06:07,073 34426  [io-8080-exec-10] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} executed. 0.426666 millis. SELECT count(0) FROM lost_found
+2020-02-09 22:06:07,073 34426  [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50006} open
+2020-02-09 22:06:07,073 34426  [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50006} Header: [count(0)]
+2020-02-09 22:06:07,074 34427  [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50006} Result: [18]
+2020-02-09 22:06:07,074 34427  [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50006} closed
+2020-02-09 22:06:07,074 34427  [io-8080-exec-10] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} clearParameters. 
+2020-02-09 22:06:07,074 34427  [io-8080-exec-10] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} Parameters : [0, 5]
+2020-02-09 22:06:07,074 34427  [io-8080-exec-10] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} Types : [INTEGER, INTEGER]
+2020-02-09 22:06:07,075 34428  [io-8080-exec-10] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} executed. 0.480642 millis. SELECT * FROM lost_found order by id desc limit ?,?
+2020-02-09 22:06:07,075 34428  [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50007} open
+2020-02-09 22:06:07,075 34428  [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50007} Header: [id, type, title, content, place, number, time]
+2020-02-09 22:06:07,075 34428  [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50007} Result: [18, 招领, 大物书丢了, aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa, 焦荟蓉, 20183124, 2020-02-01 22:21:34.0]
+2020-02-09 22:06:07,076 34429  [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50007} Result: [17, 招领, 大物书丢了, sdfdf, 焦荟蓉, 20183124, 2020-02-01 22:21:20.0]
+2020-02-09 22:06:07,076 34429  [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50007} Result: [16, 招领, 主题测试, 详细信息, 焦荟蓉, 20183124, 2020-01-31 23:46:02.0]
+2020-02-09 22:06:07,077 34430  [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50007} Result: [15, 招领, 找到一本大物书, sdfadzbvfv, 焦荟蓉, 20183124, 2020-01-31 23:37:33.0]
+2020-02-09 22:06:07,077 34430  [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50007} Result: [14, 遗失, 0, 1, 1, 20183124, 2020-02-28 00:00:00.0]
+2020-02-09 22:06:07,078 34431  [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50007} closed
+2020-02-09 22:06:07,078 34431  [io-8080-exec-10] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} clearParameters. 
+2020-02-09 22:06:07,078 34431  [io-8080-exec-10] DEBUG           druid.sql.Connection  - {conn-10005} pool-recycle
+2020-02-09 22:07:07,220 94573  [nio-8080-exec-8] DEBUG           druid.sql.Connection  - {conn-10005} pool-connect
+2020-02-09 22:07:07,220 94573  [nio-8080-exec-8] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} Parameters : []
+2020-02-09 22:07:07,220 94573  [nio-8080-exec-8] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} Types : []
+2020-02-09 22:07:07,221 94574  [nio-8080-exec-8] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} executed. 1.134007 millis. SELECT count(0) FROM lost_found
+2020-02-09 22:07:07,222 94575  [nio-8080-exec-8] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50008} open
+2020-02-09 22:07:07,222 94575  [nio-8080-exec-8] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50008} Header: [count(0)]
+2020-02-09 22:07:07,223 94576  [nio-8080-exec-8] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50008} Result: [18]
+2020-02-09 22:07:07,223 94576  [nio-8080-exec-8] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50008} closed
+2020-02-09 22:07:07,223 94576  [nio-8080-exec-8] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} clearParameters. 
+2020-02-09 22:07:07,224 94577  [nio-8080-exec-8] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} Parameters : [0, 5]
+2020-02-09 22:07:07,224 94577  [nio-8080-exec-8] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} Types : [INTEGER, INTEGER]
+2020-02-09 22:07:07,225 94578  [nio-8080-exec-8] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} executed. 0.668786 millis. SELECT * FROM lost_found order by id desc limit ?,?
+2020-02-09 22:07:07,225 94578  [nio-8080-exec-8] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50009} open
+2020-02-09 22:07:07,225 94578  [nio-8080-exec-8] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50009} Header: [id, type, title, content, place, number, time]
+2020-02-09 22:07:07,225 94578  [nio-8080-exec-8] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50009} Result: [18, 招领, 大物书丢了, aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa, 焦荟蓉, 20183124, 2020-02-01 22:21:34.0]
+2020-02-09 22:07:07,226 94579  [nio-8080-exec-8] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50009} Result: [17, 招领, 大物书丢了, sdfdf, 焦荟蓉, 20183124, 2020-02-01 22:21:20.0]
+2020-02-09 22:07:07,226 94579  [nio-8080-exec-8] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50009} Result: [16, 招领, 主题测试, 详细信息, 焦荟蓉, 20183124, 2020-01-31 23:46:02.0]
+2020-02-09 22:07:07,226 94579  [nio-8080-exec-8] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50009} Result: [15, 招领, 找到一本大物书, sdfadzbvfv, 焦荟蓉, 20183124, 2020-01-31 23:37:33.0]
+2020-02-09 22:07:07,227 94580  [nio-8080-exec-8] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50009} Result: [14, 遗失, 0, 1, 1, 20183124, 2020-02-28 00:00:00.0]
+2020-02-09 22:07:07,227 94580  [nio-8080-exec-8] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50009} closed
+2020-02-09 22:07:07,227 94580  [nio-8080-exec-8] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} clearParameters. 
+2020-02-09 22:07:07,227 94580  [nio-8080-exec-8] DEBUG           druid.sql.Connection  - {conn-10005} pool-recycle
+2020-02-09 22:07:12,131 99484  [io-8080-exec-10] DEBUG           druid.sql.Connection  - {conn-10005} pool-connect
+2020-02-09 22:07:12,131 99484  [io-8080-exec-10] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} Parameters : []
+2020-02-09 22:07:12,131 99484  [io-8080-exec-10] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} Types : []
+2020-02-09 22:07:12,131 99484  [io-8080-exec-10] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} executed. 0.562891 millis. SELECT count(0) FROM lost_found
+2020-02-09 22:07:12,132 99485  [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50010} open
+2020-02-09 22:07:12,132 99485  [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50010} Header: [count(0)]
+2020-02-09 22:07:12,132 99485  [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50010} Result: [18]
+2020-02-09 22:07:12,132 99485  [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50010} closed
+2020-02-09 22:07:12,132 99485  [io-8080-exec-10] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} clearParameters. 
+2020-02-09 22:07:12,133 99486  [io-8080-exec-10] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} Parameters : [5, 5]
+2020-02-09 22:07:12,133 99486  [io-8080-exec-10] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} Types : [INTEGER, INTEGER]
+2020-02-09 22:07:12,134 99487  [io-8080-exec-10] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} executed. 0.582939 millis. SELECT * FROM lost_found order by id desc limit ?,?
+2020-02-09 22:07:12,134 99487  [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50011} open
+2020-02-09 22:07:12,134 99487  [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50011} Header: [id, type, title, content, place, number, time]
+2020-02-09 22:07:12,134 99487  [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50011} Result: [13, 招领, 大物书丢了, 12313151213, 焦荟蓉, 20183124, 2020-01-31 00:00:00.0]
+2020-02-09 22:07:12,138 99491  [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50011} Result: [12, 遗失, 大物书丢了, asd, 焦荟蓉, 20183124, 2020-01-31 00:00:00.0]
+2020-02-09 22:07:12,139 99492  [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50011} Result: [11, 遗失, 我的信息主体, 详细信息, 焦荟蓉, 20183124, 2020-01-31 00:00:00.0]
+2020-02-09 22:07:12,139 99492  [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50011} Result: [10, 遗失, asdasd, sdfsdfsdf, 焦荟蓉, 20183124, 2020-01-31 00:00:00.0]
+2020-02-09 22:07:12,139 99492  [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50011} Result: [9, 招领, 大物书丢了, asd, 焦荟蓉, 20183124, 2020-01-31 00:00:00.0]
+2020-02-09 22:07:12,139 99492  [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50011} closed
+2020-02-09 22:07:12,140 99493  [io-8080-exec-10] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} clearParameters. 
+2020-02-09 22:07:12,140 99493  [io-8080-exec-10] DEBUG           druid.sql.Connection  - {conn-10005} pool-recycle
+2020-02-09 22:07:14,594 101947 [nio-8080-exec-8] DEBUG           druid.sql.Connection  - {conn-10005} pool-connect
+2020-02-09 22:07:14,594 101947 [nio-8080-exec-8] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} Parameters : []
+2020-02-09 22:07:14,594 101947 [nio-8080-exec-8] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} Types : []
+2020-02-09 22:07:14,594 101947 [nio-8080-exec-8] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} executed. 0.363437 millis. SELECT count(0) FROM lost_found
+2020-02-09 22:07:14,594 101947 [nio-8080-exec-8] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50012} open
+2020-02-09 22:07:14,594 101947 [nio-8080-exec-8] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50012} Header: [count(0)]
+2020-02-09 22:07:14,595 101948 [nio-8080-exec-8] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50012} Result: [18]
+2020-02-09 22:07:14,595 101948 [nio-8080-exec-8] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50012} closed
+2020-02-09 22:07:14,595 101948 [nio-8080-exec-8] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} clearParameters. 
+2020-02-09 22:07:14,595 101948 [nio-8080-exec-8] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} Parameters : [10, 5]
+2020-02-09 22:07:14,595 101948 [nio-8080-exec-8] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} Types : [INTEGER, INTEGER]
+2020-02-09 22:07:14,596 101949 [nio-8080-exec-8] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} executed. 0.641027 millis. SELECT * FROM lost_found order by id desc limit ?,?
+2020-02-09 22:07:14,596 101949 [nio-8080-exec-8] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50013} open
+2020-02-09 22:07:14,596 101949 [nio-8080-exec-8] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50013} Header: [id, type, title, content, place, number, time]
+2020-02-09 22:07:14,597 101950 [nio-8080-exec-8] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50013} Result: [8, 遗失, asd, asd, 焦荟蓉, 20183124, 2020-01-23 00:00:00.0]
+2020-02-09 22:07:14,598 101951 [nio-8080-exec-8] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50013} Result: [7, 招领, 找到一本大物书, asdasdasdasd, 焦荟蓉, 20183124, 2020-01-23 00:00:00.0]
+2020-02-09 22:07:14,599 101952 [nio-8080-exec-8] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50013} Result: [6, null, null, null, 焦荟蓉, 20183124, 2020-01-23 00:00:00.0]
+2020-02-09 22:07:14,601 101954 [nio-8080-exec-8] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50013} Result: [5, null, null, null, 焦荟蓉, 20183124, 2020-01-23 00:00:00.0]
+2020-02-09 22:07:14,601 101954 [nio-8080-exec-8] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50013} Result: [4, null, null, null, 焦荟蓉, 20183124, 2020-01-23 00:00:00.0]
+2020-02-09 22:07:14,602 101955 [nio-8080-exec-8] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50013} closed
+2020-02-09 22:07:14,602 101955 [nio-8080-exec-8] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} clearParameters. 
+2020-02-09 22:07:14,602 101955 [nio-8080-exec-8] DEBUG           druid.sql.Connection  - {conn-10005} pool-recycle
+2020-02-09 22:09:02,054 209407 [nio-8080-exec-7] DEBUG           druid.sql.Connection  - {conn-10005} pool-connect
+2020-02-09 22:09:02,055 209408 [nio-8080-exec-7] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} Parameters : [20183124]
+2020-02-09 22:09:02,055 209408 [nio-8080-exec-7] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} Types : [INTEGER]
+2020-02-09 22:09:02,056 209409 [nio-8080-exec-7] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} executed. 1.749332 millis. select * from student where sid=?
+2020-02-09 22:09:02,056 209409 [nio-8080-exec-7] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50014} open
+2020-02-09 22:09:02,056 209409 [nio-8080-exec-7] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50014} Header: [id, sid, sname, password, initial_password, total_num, selected_num]
+2020-02-09 22:09:02,057 209410 [nio-8080-exec-7] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50014} Result: [1, 20183124, 焦荟蓉, 292023, 292023, 9, 1]
+2020-02-09 22:09:02,057 209410 [nio-8080-exec-7] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50014} closed
+2020-02-09 22:09:02,057 209410 [nio-8080-exec-7] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} clearParameters. 
+2020-02-09 22:09:02,058 209411 [nio-8080-exec-7] DEBUG           druid.sql.Connection  - {conn-10005} pool-recycle
+2020-02-09 22:09:03,967 211320 [nio-8080-exec-5] DEBUG           druid.sql.Connection  - {conn-10005} pool-connect
+2020-02-09 22:09:03,967 211320 [nio-8080-exec-5] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} Parameters : [20183124]
+2020-02-09 22:09:03,967 211320 [nio-8080-exec-5] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} Types : [INTEGER]
+2020-02-09 22:09:03,968 211321 [nio-8080-exec-5] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} executed. 0.75926 millis. select * from student where sid=?
+2020-02-09 22:09:03,968 211321 [nio-8080-exec-5] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50015} open
+2020-02-09 22:09:03,968 211321 [nio-8080-exec-5] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50015} Header: [id, sid, sname, password, initial_password, total_num, selected_num]
+2020-02-09 22:09:03,969 211322 [nio-8080-exec-5] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50015} Result: [1, 20183124, 焦荟蓉, 292023, 292023, 9, 1]
+2020-02-09 22:09:03,970 211323 [nio-8080-exec-5] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50015} closed
+2020-02-09 22:09:03,970 211323 [nio-8080-exec-5] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} clearParameters. 
+2020-02-09 22:09:03,970 211323 [nio-8080-exec-5] DEBUG           druid.sql.Connection  - {conn-10005} pool-recycle
+2020-02-09 22:09:26,171 233524 [nio-8080-exec-7] DEBUG           druid.sql.Connection  - {conn-10005} pool-connect
+2020-02-09 22:09:26,172 233525 [nio-8080-exec-7] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} Parameters : [20183124]
+2020-02-09 22:09:26,172 233525 [nio-8080-exec-7] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} Types : [INTEGER]
+2020-02-09 22:09:26,172 233525 [nio-8080-exec-7] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} executed. 0.618923 millis. select * from student where sid=?
+2020-02-09 22:09:26,172 233525 [nio-8080-exec-7] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50016} open
+2020-02-09 22:09:26,172 233525 [nio-8080-exec-7] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50016} Header: [id, sid, sname, password, initial_password, total_num, selected_num]
+2020-02-09 22:09:26,173 233526 [nio-8080-exec-7] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50016} Result: [1, 20183124, 焦荟蓉, 292023, 292023, 9, 1]
+2020-02-09 22:09:26,173 233526 [nio-8080-exec-7] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50016} closed
+2020-02-09 22:09:26,173 233526 [nio-8080-exec-7] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} clearParameters. 
+2020-02-09 22:09:26,174 233527 [nio-8080-exec-7] DEBUG           druid.sql.Connection  - {conn-10005} pool-recycle
+2020-02-09 22:09:46,538 253891 [nio-8080-exec-5] DEBUG           druid.sql.Connection  - {conn-10005} pool-connect
+2020-02-09 22:09:46,539 253892 [nio-8080-exec-5] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} Parameters : [20183124]
+2020-02-09 22:09:46,539 253892 [nio-8080-exec-5] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} Types : [INTEGER]
+2020-02-09 22:09:46,540 253893 [nio-8080-exec-5] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} executed. 0.742296 millis. select * from student where sid=?
+2020-02-09 22:09:46,540 253893 [nio-8080-exec-5] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50017} open
+2020-02-09 22:09:46,540 253893 [nio-8080-exec-5] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50017} Header: [id, sid, sname, password, initial_password, total_num, selected_num]
+2020-02-09 22:09:46,540 253893 [nio-8080-exec-5] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50017} Result: [1, 20183124, 焦荟蓉, 292023, 292023, 9, 1]
+2020-02-09 22:09:46,541 253894 [nio-8080-exec-5] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50017} closed
+2020-02-09 22:09:46,541 253894 [nio-8080-exec-5] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} clearParameters. 
+2020-02-09 22:09:46,541 253894 [nio-8080-exec-5] DEBUG           druid.sql.Connection  - {conn-10005} pool-recycle
+2020-02-09 22:13:01,534 448887 [nio-8080-exec-1] DEBUG           druid.sql.Connection  - {conn-10005} pool-connect
+2020-02-09 22:13:01,534 448887 [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} Parameters : [20183124]
+2020-02-09 22:13:01,534 448887 [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} Types : [INTEGER]
+2020-02-09 22:13:01,534 448887 [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} executed. 0.436948 millis. select * from student where sid=?
+2020-02-09 22:13:01,534 448887 [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50018} open
+2020-02-09 22:13:01,535 448888 [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50018} Header: [id, sid, sname, password, initial_password, total_num, selected_num]
+2020-02-09 22:13:01,535 448888 [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50018} Result: [1, 20183124, 焦荟蓉, fd5f80e889efcebaf959fcf5353ee2de, 292023, 9, 1]
+2020-02-09 22:13:01,535 448888 [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50018} closed
+2020-02-09 22:13:01,535 448888 [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} clearParameters. 
+2020-02-09 22:13:01,535 448888 [nio-8080-exec-1] DEBUG           druid.sql.Connection  - {conn-10005} pool-recycle
+2020-02-09 22:13:04,393 451746 [nio-8080-exec-7] DEBUG           druid.sql.Connection  - {conn-10005} pool-connect
+2020-02-09 22:13:04,393 451746 [nio-8080-exec-7] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} Parameters : [20183124]
+2020-02-09 22:13:04,393 451746 [nio-8080-exec-7] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} Types : [INTEGER]
+2020-02-09 22:13:04,394 451747 [nio-8080-exec-7] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} executed. 0.558779 millis. select * from student where sid=?
+2020-02-09 22:13:04,394 451747 [nio-8080-exec-7] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50019} open
+2020-02-09 22:13:04,394 451747 [nio-8080-exec-7] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50019} Header: [id, sid, sname, password, initial_password, total_num, selected_num]
+2020-02-09 22:13:04,394 451747 [nio-8080-exec-7] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50019} Result: [1, 20183124, 焦荟蓉, fd5f80e889efcebaf959fcf5353ee2de, 292023, 9, 1]
+2020-02-09 22:13:04,394 451747 [nio-8080-exec-7] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50019} closed
+2020-02-09 22:13:04,395 451748 [nio-8080-exec-7] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} clearParameters. 
+2020-02-09 22:13:04,395 451748 [nio-8080-exec-7] DEBUG           druid.sql.Connection  - {conn-10005} pool-recycle
+2020-02-09 22:13:09,769 457122 [nio-8080-exec-6] DEBUG           druid.sql.Connection  - {conn-10005} pool-connect
+2020-02-09 22:13:09,769 457122 [nio-8080-exec-6] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} Parameters : [20183124]
+2020-02-09 22:13:09,769 457122 [nio-8080-exec-6] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} Types : [INTEGER]
+2020-02-09 22:13:09,770 457123 [nio-8080-exec-6] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} executed. 0.453911 millis. select * from student where sid=?
+2020-02-09 22:13:09,770 457123 [nio-8080-exec-6] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50020} open
+2020-02-09 22:13:09,770 457123 [nio-8080-exec-6] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50020} Header: [id, sid, sname, password, initial_password, total_num, selected_num]
+2020-02-09 22:13:09,770 457123 [nio-8080-exec-6] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50020} Result: [1, 20183124, 焦荟蓉, fd5f80e889efcebaf959fcf5353ee2de, 292023, 9, 1]
+2020-02-09 22:13:09,770 457123 [nio-8080-exec-6] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50020} closed
+2020-02-09 22:13:09,770 457123 [nio-8080-exec-6] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} clearParameters. 
+2020-02-09 22:13:09,771 457124 [nio-8080-exec-6] DEBUG           druid.sql.Connection  - {conn-10005} pool-recycle
+2020-02-09 22:13:09,777 457130 [nio-8080-exec-6] DEBUG           druid.sql.Connection  - {conn-10005} pool-connect
+2020-02-09 22:13:09,777 457130 [nio-8080-exec-6] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} Parameters : [20183124]
+2020-02-09 22:13:09,777 457130 [nio-8080-exec-6] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} Types : [INTEGER]
+2020-02-09 22:13:09,778 457131 [nio-8080-exec-6] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} executed. 0.687807 millis. select * from student where sid=?
+2020-02-09 22:13:09,778 457131 [nio-8080-exec-6] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50021} open
+2020-02-09 22:13:09,778 457131 [nio-8080-exec-6] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50021} Header: [id, sid, sname, password, initial_password, total_num, selected_num]
+2020-02-09 22:13:09,779 457132 [nio-8080-exec-6] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50021} Result: [1, 20183124, 焦荟蓉, fd5f80e889efcebaf959fcf5353ee2de, 292023, 9, 1]
+2020-02-09 22:13:09,779 457132 [nio-8080-exec-6] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20003, rs-50021} closed
+2020-02-09 22:13:09,779 457132 [nio-8080-exec-6] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20003} clearParameters. 
+2020-02-09 22:13:09,779 457132 [nio-8080-exec-6] DEBUG           druid.sql.Connection  - {conn-10005} pool-recycle
+2020-02-09 22:13:11,970 459323 [nio-8080-exec-5] DEBUG           druid.sql.Connection  - {conn-10005} pool-connect
+2020-02-09 22:13:11,970 459323 [nio-8080-exec-5] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20004} Parameters : []
+2020-02-09 22:13:11,970 459323 [nio-8080-exec-5] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20004} Types : []
+2020-02-09 22:13:11,971 459324 [nio-8080-exec-5] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20004} executed. 0.593735 millis. select * from message order by id desc
+2020-02-09 22:13:11,971 459324 [nio-8080-exec-5] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20004, rs-50022} open
+2020-02-09 22:13:11,971 459324 [nio-8080-exec-5] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20004, rs-50022} Header: [id, sid, sname, time, to, content, reply, reply_time]
+2020-02-09 22:13:11,971 459324 [nio-8080-exec-5] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20004, rs-50022} closed
+2020-02-09 22:13:11,972 459325 [nio-8080-exec-5] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20004} clearParameters. 
+2020-02-09 22:13:11,972 459325 [nio-8080-exec-5] DEBUG           druid.sql.Connection  - {conn-10005} pool-recycle
+2020-02-09 22:13:14,932 462285 [io-8080-exec-10] DEBUG           druid.sql.Connection  - {conn-10005} pool-connect
+2020-02-09 22:13:14,932 462285 [io-8080-exec-10] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} Parameters : []
+2020-02-09 22:13:14,932 462285 [io-8080-exec-10] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} Types : []
+2020-02-09 22:13:14,932 462285 [io-8080-exec-10] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} executed. 0.412787 millis. SELECT count(0) FROM lost_found
+2020-02-09 22:13:14,932 462285 [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50023} open
+2020-02-09 22:13:14,933 462286 [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50023} Header: [count(0)]
+2020-02-09 22:13:14,933 462286 [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50023} Result: [18]
+2020-02-09 22:13:14,933 462286 [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50023} closed
+2020-02-09 22:13:14,933 462286 [io-8080-exec-10] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} clearParameters. 
+2020-02-09 22:13:14,934 462287 [io-8080-exec-10] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} Parameters : [0, 5]
+2020-02-09 22:13:14,934 462287 [io-8080-exec-10] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} Types : [INTEGER, INTEGER]
+2020-02-09 22:13:14,935 462288 [io-8080-exec-10] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} executed. 1.099051 millis. SELECT * FROM lost_found order by id desc limit ?,?
+2020-02-09 22:13:14,935 462288 [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50024} open
+2020-02-09 22:13:14,935 462288 [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50024} Header: [id, type, title, content, place, number, time]
+2020-02-09 22:13:14,936 462289 [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50024} Result: [18, 招领, 大物书丢了, aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa, 焦荟蓉, 20183124, 2020-02-01 22:21:34.0]
+2020-02-09 22:13:14,938 462291 [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50024} Result: [17, 招领, 大物书丢了, sdfdf, 焦荟蓉, 20183124, 2020-02-01 22:21:20.0]
+2020-02-09 22:13:14,939 462292 [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50024} Result: [16, 招领, 主题测试, 详细信息, 焦荟蓉, 20183124, 2020-01-31 23:46:02.0]
+2020-02-09 22:13:14,939 462292 [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50024} Result: [15, 招领, 找到一本大物书, sdfadzbvfv, 焦荟蓉, 20183124, 2020-01-31 23:37:33.0]
+2020-02-09 22:13:14,940 462293 [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50024} Result: [14, 遗失, 0, 1, 1, 20183124, 2020-02-28 00:00:00.0]
+2020-02-09 22:13:14,940 462293 [io-8080-exec-10] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50024} closed
+2020-02-09 22:13:14,940 462293 [io-8080-exec-10] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} clearParameters. 
+2020-02-09 22:13:14,940 462293 [io-8080-exec-10] DEBUG           druid.sql.Connection  - {conn-10005} pool-recycle
+2020-02-09 22:13:16,121 463474 [nio-8080-exec-3] DEBUG           druid.sql.Connection  - {conn-10005} pool-connect
+2020-02-09 22:13:16,121 463474 [nio-8080-exec-3] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20004} Parameters : []
+2020-02-09 22:13:16,121 463474 [nio-8080-exec-3] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20004} Types : []
+2020-02-09 22:13:16,122 463475 [nio-8080-exec-3] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20004} executed. 1.210602 millis. select * from message order by id desc
+2020-02-09 22:13:16,123 463476 [nio-8080-exec-3] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20004, rs-50025} open
+2020-02-09 22:13:16,123 463476 [nio-8080-exec-3] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20004, rs-50025} Header: [id, sid, sname, time, to, content, reply, reply_time]
+2020-02-09 22:13:16,124 463477 [nio-8080-exec-3] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20004, rs-50025} closed
+2020-02-09 22:13:16,124 463477 [nio-8080-exec-3] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20004} clearParameters. 
+2020-02-09 22:13:16,125 463478 [nio-8080-exec-3] DEBUG           druid.sql.Connection  - {conn-10005} pool-recycle
+2020-02-09 22:13:34,171 481524 [nio-8080-exec-1] DEBUG           druid.sql.Connection  - {conn-10005} pool-connect
+2020-02-09 22:13:34,172 481525 [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} Parameters : []
+2020-02-09 22:13:34,172 481525 [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} Types : []
+2020-02-09 22:13:34,173 481526 [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} executed. 0.79216 millis. SELECT count(0) FROM lost_found
+2020-02-09 22:13:34,173 481526 [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50026} open
+2020-02-09 22:13:34,173 481526 [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50026} Header: [count(0)]
+2020-02-09 22:13:34,173 481526 [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50026} Result: [18]
+2020-02-09 22:13:34,173 481526 [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50026} closed
+2020-02-09 22:13:34,173 481526 [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} clearParameters. 
+2020-02-09 22:13:34,174 481527 [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} Parameters : [0, 5]
+2020-02-09 22:13:34,174 481527 [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} Types : [INTEGER, INTEGER]
+2020-02-09 22:13:34,175 481528 [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} executed. 0.535132 millis. SELECT * FROM lost_found order by id desc limit ?,?
+2020-02-09 22:13:34,175 481528 [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50027} open
+2020-02-09 22:13:34,175 481528 [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50027} Header: [id, type, title, content, place, number, time]
+2020-02-09 22:13:34,175 481528 [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50027} Result: [18, 招领, 大物书丢了, aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa, 焦荟蓉, 20183124, 2020-02-01 22:21:34.0]
+2020-02-09 22:13:34,175 481528 [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50027} Result: [17, 招领, 大物书丢了, sdfdf, 焦荟蓉, 20183124, 2020-02-01 22:21:20.0]
+2020-02-09 22:13:34,176 481529 [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50027} Result: [16, 招领, 主题测试, 详细信息, 焦荟蓉, 20183124, 2020-01-31 23:46:02.0]
+2020-02-09 22:13:34,176 481529 [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50027} Result: [15, 招领, 找到一本大物书, sdfadzbvfv, 焦荟蓉, 20183124, 2020-01-31 23:37:33.0]
+2020-02-09 22:13:34,176 481529 [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50027} Result: [14, 遗失, 0, 1, 1, 20183124, 2020-02-28 00:00:00.0]
+2020-02-09 22:13:34,176 481529 [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50027} closed
+2020-02-09 22:13:34,176 481529 [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} clearParameters. 
+2020-02-09 22:13:34,177 481530 [nio-8080-exec-1] DEBUG           druid.sql.Connection  - {conn-10005} pool-recycle
+2020-02-09 22:13:42,368 489721 [nio-8080-exec-7] DEBUG           druid.sql.Connection  - {conn-10005} pool-connect
+2020-02-09 22:13:42,370 489723 [nio-8080-exec-7] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20005} created. select * from mailbox where sid=? order by id desc
+2020-02-09 22:13:42,372 489725 [nio-8080-exec-7] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20005} Parameters : [20183124]
+2020-02-09 22:13:42,372 489725 [nio-8080-exec-7] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20005} Types : [INTEGER]
+2020-02-09 22:13:42,373 489726 [nio-8080-exec-7] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20005} executed. 1.535484 millis. select * from mailbox where sid=? order by id desc
+2020-02-09 22:13:42,373 489726 [nio-8080-exec-7] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20005, rs-50028} open
+2020-02-09 22:13:42,373 489726 [nio-8080-exec-7] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20005, rs-50028} Header: [id, sid, sname, title, content, time, reply, reply_time]
+2020-02-09 22:13:42,374 489727 [nio-8080-exec-7] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20005, rs-50028} closed
+2020-02-09 22:13:42,374 489727 [nio-8080-exec-7] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20005} clearParameters. 
+2020-02-09 22:13:42,374 489727 [nio-8080-exec-7] DEBUG           druid.sql.Connection  - {conn-10005} pool-recycle
+2020-02-09 22:14:08,213 515566 [nio-8080-exec-1] DEBUG           druid.sql.Connection  - {conn-10005} pool-connect
+2020-02-09 22:14:08,214 515567 [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20006} created. select * from experiment where eid=?
+2020-02-09 22:14:08,214 515567 [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20006} Parameters : [2]
+2020-02-09 22:14:08,214 515567 [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20006} Types : [INTEGER]
+2020-02-09 22:14:08,214 515567 [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20006} executed. 0.535646 millis. select * from experiment where eid=?
+2020-02-09 22:14:08,214 515567 [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20006, rs-50029} open
+2020-02-09 22:14:08,214 515567 [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20006, rs-50029} Header: [id, eid, ename, one_start, one_end, two_start, two_end, lab, seat_num, remark]
+2020-02-09 22:14:08,215 515568 [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20006, rs-50029} closed
+2020-02-09 22:14:08,215 515568 [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20006} clearParameters. 
+2020-02-09 22:14:08,215 515568 [nio-8080-exec-1] DEBUG           druid.sql.Connection  - {conn-10005} pool-recycle
+2020-02-09 22:14:20,715 528068 [nio-8080-exec-8] DEBUG           druid.sql.Connection  - {conn-10005} pool-connect
+2020-02-09 22:14:20,716 528069 [nio-8080-exec-8] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20004} Parameters : []
+2020-02-09 22:14:20,716 528069 [nio-8080-exec-8] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20004} Types : []
+2020-02-09 22:14:20,718 528071 [nio-8080-exec-8] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20004} executed. 2.50705 millis. select * from message order by id desc
+2020-02-09 22:14:20,719 528072 [nio-8080-exec-8] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20004, rs-50030} open
+2020-02-09 22:14:20,719 528072 [nio-8080-exec-8] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20004, rs-50030} Header: [id, sid, sname, time, to, content, reply, reply_time]
+2020-02-09 22:14:20,719 528072 [nio-8080-exec-8] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20004, rs-50030} closed
+2020-02-09 22:14:20,719 528072 [nio-8080-exec-8] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20004} clearParameters. 
+2020-02-09 22:14:20,720 528073 [nio-8080-exec-8] DEBUG           druid.sql.Connection  - {conn-10005} pool-recycle
+2020-02-09 22:14:24,063 531416 [nio-8080-exec-3] DEBUG           druid.sql.Connection  - {conn-10005} pool-connect
+2020-02-09 22:14:24,064 531417 [nio-8080-exec-3] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20007} created. select * from selection_information where sid = ? order by weeknum asc
+2020-02-09 22:14:24,064 531417 [nio-8080-exec-3] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20007} Parameters : [20183124]
+2020-02-09 22:14:24,064 531417 [nio-8080-exec-3] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20007} Types : [INTEGER]
+2020-02-09 22:14:24,065 531418 [nio-8080-exec-3] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20007} executed. 0.535132 millis. select * from selection_information where sid = ? order by weeknum asc
+2020-02-09 22:14:24,065 531418 [nio-8080-exec-3] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20007, rs-50031} open
+2020-02-09 22:14:24,065 531418 [nio-8080-exec-3] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20007, rs-50031} Header: [id, sid, eid, ename, weeknum, section, lab, seat]
+2020-02-09 22:14:24,065 531418 [nio-8080-exec-3] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20007, rs-50031} closed
+2020-02-09 22:14:24,065 531418 [nio-8080-exec-3] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20007} clearParameters. 
+2020-02-09 22:14:24,065 531418 [nio-8080-exec-3] DEBUG           druid.sql.Connection  - {conn-10005} pool-recycle
+2020-02-09 22:53:24,155 0      [nio-8080-exec-1] DEBUG           druid.sql.Connection  - {conn-10001,procId-78} connected
+2020-02-09 22:53:24,164 9      [nio-8080-exec-1] DEBUG           druid.sql.Connection  - {conn-10002,procId-79} connected
+2020-02-09 22:53:24,169 14     [nio-8080-exec-1] DEBUG           druid.sql.Connection  - {conn-10003,procId-80} connected
+2020-02-09 22:53:24,173 18     [nio-8080-exec-1] DEBUG           druid.sql.Connection  - {conn-10004,procId-81} connected
+2020-02-09 22:53:24,184 29     [nio-8080-exec-1] DEBUG           druid.sql.Connection  - {conn-10005,procId-82} connected
+2020-02-09 22:53:24,188 33     [nio-8080-exec-1] DEBUG           druid.sql.Connection  - {conn-10005} pool-connect
+2020-02-09 22:53:24,189 34     [nio-8080-exec-1] DEBUG           druid.sql.Connection  - {conn-10005} pool-recycle
+2020-02-09 22:53:24,235 80     [nio-8080-exec-1] DEBUG           druid.sql.Connection  - {conn-10005} pool-connect
+2020-02-09 22:53:24,345 190    [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} created. SELECT count(0) FROM lost_found
+2020-02-09 22:53:24,353 198    [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} Parameters : []
+2020-02-09 22:53:24,353 198    [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} Types : []
+2020-02-09 22:53:24,354 199    [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} executed. 4.164366 millis. SELECT count(0) FROM lost_found
+2020-02-09 22:53:24,359 204    [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50000} open
+2020-02-09 22:53:24,360 205    [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50000} Header: [count(0)]
+2020-02-09 22:53:24,367 212    [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50000} Result: [18]
+2020-02-09 22:53:24,368 213    [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20000, rs-50000} closed
+2020-02-09 22:53:24,368 213    [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20000} clearParameters. 
+2020-02-09 22:53:24,373 218    [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} created. SELECT * FROM lost_found order by id desc limit ?,?
+2020-02-09 22:53:24,374 219    [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} Parameters : [0, 5]
+2020-02-09 22:53:24,374 219    [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} Types : [INTEGER, INTEGER]
+2020-02-09 22:53:24,374 219    [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} executed. 0.576771 millis. SELECT * FROM lost_found order by id desc limit ?,?
+2020-02-09 22:53:24,375 220    [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50001} open
+2020-02-09 22:53:24,375 220    [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50001} Header: [id, type, title, content, place, number, time]
+2020-02-09 22:53:24,375 220    [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50001} Result: [18, 招领, 大物书丢了, aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa, 焦荟蓉, 20183124, 2020-02-01 22:21:34.0]
+2020-02-09 22:53:24,378 223    [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50001} Result: [17, 招领, 大物书丢了, sdfdf, 焦荟蓉, 20183124, 2020-02-01 22:21:20.0]
+2020-02-09 22:53:24,379 224    [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50001} Result: [16, 招领, 主题测试, 详细信息, 焦荟蓉, 20183124, 2020-01-31 23:46:02.0]
+2020-02-09 22:53:24,380 225    [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50001} Result: [15, 招领, 找到一本大物书, sdfadzbvfv, 焦荟蓉, 20183124, 2020-01-31 23:37:33.0]
+2020-02-09 22:53:24,380 225    [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50001} Result: [14, 遗失, 0, 1, 1, 20183124, 2020-02-28 00:00:00.0]
+2020-02-09 22:53:24,381 226    [nio-8080-exec-1] DEBUG            druid.sql.ResultSet  - {conn-10005, pstmt-20001, rs-50001} closed
+2020-02-09 22:53:24,381 226    [nio-8080-exec-1] DEBUG            druid.sql.Statement  - {conn-10005, pstmt-20001} clearParameters. 
+2020-02-09 22:53:24,381 226    [nio-8080-exec-1] DEBUG           druid.sql.Connection  - {conn-10005} pool-recycle
