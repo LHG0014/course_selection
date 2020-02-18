@@ -3,14 +3,10 @@ package com.course_selection.controller;
 import com.course_selection.mapper.ResetMapper;
 import com.course_selection.pojo.SetDate;
 import com.course_selection.pojo.Student;
-import com.course_selection.pojo.Teacher;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 @Controller
 public class ResetController {
