@@ -25,10 +25,10 @@
 
                     <p style="font-size: 30px;margin-top: -20px">教师登录</p>
                     <div class="lowin-group" style="margin: 2% auto;">
-                        <p style="text-align: center">请正确输入用户名和密码进行登录！</p>
+                        <p style="text-align: center">请正确输入教工号和密码进行登录！</p>
                     </div>
                     <div class="lowin-group">
-                        <input name="sid" type="text" placeholder="学号" class="lowin-input" value="${sid}" >
+                        <input name="tid" type="text" placeholder="教工号" class="lowin-input" value="${tid}" >
                     </div>
                     <div class="lowin-group">
                         <input name="password" type="password" placeholder="密码" class="lowin-input" >
@@ -41,7 +41,7 @@
                 </form>
                 <%--<h2 align="center" hidden id="message">${sid}${errorMeg}</h2>--%>
                 <div class="text-foot">
-                    <a href="/homepage" class="login-link">返回主页</a>
+                    <a href="/homePage_teacher" class="login-link">返回主页</a>
                 </div>
             </div>
         </div>
