@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" deferredSyntaxAllowedAsLiteral="true"%>
+         pageEncoding="UTF-8" deferredSyntaxAllowedAsLiteral="true" isELIgnored="false"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
@@ -157,51 +157,59 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="white-box">
-                        <table class="table" style="text-align: center" >
-                            <thead>
-                            <tr>
-                                <th>节次</th>
-                                <th colspan="7" style="text-align: center">1-4节</th>
-                                <th colspan="7" style="text-align: center">5-8节</th>
-                            </tr>
-                            <tr>
-                                <th>周次</th>
-                                <th>周日</th>
-                                <th>周一</th>
-                                <th>周二</th>
-                                <th>周三</th>
-                                <th>周四</th>
-                                <th>周五</th>
-                                <th>周六</th>
-                                <th>周日</th>
-                                <th>周一</th>
-                                <th>周二</th>
-                                <th>周三</th>
-                                <th>周四</th>
-                                <th>周五</th>
-                                <th>周六</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th>2</th>
-                                <th><input style="width: 54px;" type="text" class="form-control form-control-line"></th>
-                                <th><input style="width: 54px;" type="text" class="form-control form-control-line"></th>
-                                <th><input style="width: 54px;" type="text" class="form-control form-control-line"></th>
-                                <th><input style="width: 54px;" type="text" class="form-control form-control-line"></th>
-                                <th><input style="width: 54px;" type="text" class="form-control form-control-line"></th>
-                                <th><input style="width: 54px;" type="text" class="form-control form-control-line"></th>
-                                <th><input style="width: 54px;" type="text" class="form-control form-control-line"></th>
-                                <th><input style="width: 54px;" type="text" class="form-control form-control-line"></th>
-                                <th><input style="width: 54px;" type="text" class="form-control form-control-line"></th>
-                                <th><input style="width: 54px;" type="text" class="form-control form-control-line"></th>
-                                <th><input style="width: 54px;" type="text" class="form-control form-control-line"></th>
-                                <th><input style="width: 54px;" type="text" class="form-control form-control-line"></th>
-                                <th><input style="width: 54px;" type="text" class="form-control form-control-line"></th>
-                                <th><input style="width: 54px;" type="text" class="form-control form-control-line"></th>
-                            </tr>
-                            </tbody>
-                        </table>
+                            <table class="table" style="text-align: center" >
+                                <thead>
+                                <tr>
+                                    <th>节次</th>
+                                    <th colspan="7" style="text-align: center">1-4节</th>
+                                    <th colspan="7" style="text-align: center">5-8节</th>
+                                </tr>
+                                <tr>
+                                    <th>周次</th>
+                                    <th>周日</th>
+                                    <th>周一</th>
+                                    <th>周二</th>
+                                    <th>周三</th>
+                                    <th>周四</th>
+                                    <th>周五</th>
+                                    <th>周六</th>
+                                    <th>周日</th>
+                                    <th>周一</th>
+                                    <th>周二</th>
+                                    <th>周三</th>
+                                    <th>周四</th>
+                                    <th>周五</th>
+                                    <th>周六</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <c:forEach items="${ta}" var="c">
+                                    <form action="/update">
+                                        <tr>
+                                            <th><input style="text-align:center;width: 54px;" type="text" name="week" value="${c.week}" class="form-control form-control-line" readonly unselectable="on"/></th>
+                                            <th><input style="width: 54px;" type="text" name="1" value="${c.sunday_1}" class="form-control form-control-line"/></th>
+                                            <th><input style="width: 54px;" type="text" name="3" class="form-control form-control-line" value="${c.monday_1}"/></th>
+                                            <th><input style="width: 54px;" type="text" name="5" class="form-control form-control-line" value="${c.tuesday_1}"/></th>
+                                            <th><input style="width: 54px;" type="text" name="7" class="form-control form-control-line" value="${c.wednesday_1}"/></th>
+                                            <th><input style="width: 54px;" type="text" name="9" class="form-control form-control-line" value="${c.thursday_1}"/></th>
+                                            <th><input style="width: 54px;" type="text" name="11" class="form-control form-control-line" value="${c.friday_1}"/></th>
+                                            <th><input style="width: 54px;" type="text" name="13" class="form-control form-control-line" value="${c.saturday_1}"/></th>
+                                            <th><input style="width: 54px;" type="text" name="2" class="form-control form-control-line" value="${c.sunday_2}"/></th>
+                                            <th><input style="width: 54px;" type="text" name="4" class="form-control form-control-line" value="${c.monday_2}"/></th>
+                                            <th><input style="width: 54px;" type="text" name="6" class="form-control form-control-line" value="${c.tuesday_2}"/></th>
+                                            <th><input style="width: 54px;" type="text" name="8" class="form-control form-control-line" value="${c.wednesday_2}"/></th>
+                                            <th><input style="width: 54px;" type="text" name="10" class="form-control form-control-line" value="${c.thursday_2}"/></th>
+                                            <th><input style="width: 54px;" type="text" name="12" class="form-control form-control-line" value="${c.friday_2}"/></th>
+                                            <th><input style="width: 54px;" type="text" name="14" class="form-control form-control-line" value="${c.saturday_2}"/></th>
+                                            <th>
+                                                <input type="submit" class="btn btn-success" id="edit" value="修改"></th>
+                                        </tr>
+                                    </form>
+                                </c:forEach>
+                                </tbody>
+                                <br>
+                                <p style="font-family: 幼圆;color:red;font-size:25px;">亲爱的教师，请您谨慎修改任课情况。如果您修改某周任课情况后，只需点某周后缀的按钮即可修改成功。</p>
+                            </table>
                     </div>
                 </div>
             </div>
@@ -212,6 +220,21 @@
     </div>
     <!-- /#page-wrapper -->
 </div>
+    <script type="text/javascript">
+        window.onload=function()
+        {
+            var update=document.getElementById("edit");
+            update.onclick=function()
+            {
+                if(confirm("确定要修改吗?您的修改将被记录"))
+                {
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+        }
+    </script>
 <!-- /#wrapper -->
 <!-- jQuery -->
 <script src="/plugins/bower_components/jquery/dist/jquery.min.js"></script>

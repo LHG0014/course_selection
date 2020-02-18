@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" deferredSyntaxAllowedAsLiteral="true"%>
+         pageEncoding="UTF-8" deferredSyntaxAllowedAsLiteral="true" isELIgnored="false"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
@@ -166,26 +166,14 @@
                                 <th>序号</th>
                                 <th>学号</th>
                                 <th>座位号</th>
-                                <th>成绩</th>
-                                <th>提交</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <%--写后台可以删掉这个tr留下面的el表达式 测试使用--%>
-                            <tr>
-                                <td>1</td>
-                                <td>20183124</td>
-                                <td>1</td>
-                                <td><input type="text" name="remark+${el表达式学号}"></td>
-                                <td><input class="btn btn-success" type="submit"></td>
-                            </tr>
-                            <c:forEach items="${el表达式集合}" var="c">
+                            <c:forEach items="${s}" var="c" varStatus="s">
                                 <tr>
-                                    <td>序号</td>
-                                    <td>el表达式学号</td>
-                                    <td>el表达式座位号</td>
-                                    <td><input type="text" name="remark+${el表达式学号}"></td>
-                                    <td><input type="submit"></td>
+                                    <td>${s.count}</td>
+                                    <td>${c.sid}</td>
+                                    <td>${c.seat}</td>
                                 </tr>
                             </c:forEach>
                             </tbody>

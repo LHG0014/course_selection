@@ -188,7 +188,7 @@
 								</select>
 								<br/>
 								周次：
-								<select id="week" name="week" class="form-control form-control-line">
+								<select id="week" name="weeknum" class="form-control form-control-line">
 									<option value ="1">1</option>
 									<option value ="2">2</option>
 									<option value ="3">3</option>
@@ -224,7 +224,7 @@
 								<select id="section" name="section" class="form-control form-control-line">
 									<option value ="1">1-4</option>
 									<option value ="2">5-8</option>
-								</select>
+								</select><br><br>
 								<input type="submit" class="btn btn-success" value="查询" />
 							</form>
 						</div>
