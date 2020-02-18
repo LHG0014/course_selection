@@ -160,11 +160,11 @@
             </div>
             <div class="row">
                 <div class="white-box" style="width:30%;margin: 5% auto;">
-                    <form class="form-horizontal form-material" action=" " method="post">
+                    <form class="form-horizontal form-material" action="reset_pa" method="post">
                         <div class="form-group">
                             <label class="col-md-12">请输入学生的学号：</label>
                             <div class="col-md-12">
-                                <input type="text" class="form-control form-control-line" id="sname" name="sname" value=" " style="border-bottom: 1px solid black">
+                                <input type="text" class="form-control form-control-line" id="sid" name="sid" value=" " style="border-bottom: 1px solid black">
                             </div>
                         </div>
                         <div class="form-group">

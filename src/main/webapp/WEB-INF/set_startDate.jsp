@@ -160,25 +160,25 @@
             </div>
             <div class="row">
                 <div class="white-box" style="width:35%;margin: 2% auto;">
-                    <form class="form-horizontal form-material" action="addMessage" method="post">
+                    <form class="form-horizontal form-material" action="set_day" method="post">
                         <div class="form-group">
                             <label class="col-md-12">请输入开学年份</label>
                             <div class="col-md-12">
-                                <input type="text" class="form-control form-control-line" name=" " value=" " style="margin: 0 auto;width: 30%;border-bottom: 1px solid black">
+                                <input type="text" class="form-control form-control-line" name="year" value=" " style="margin: 0 auto;width: 30%;border-bottom: 1px solid black">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-12">请选择开学月份</label>
-                            <select  name=" " class="form-control form-control-line" style="width: 30%;margin:0 auto;">
-                                <option value ="1">1</option>
-                                <option value ="2">2</option>
-                                <option value ="3">3</option>
-                                <option value ="4">4</option>
-                                <option value ="5">5</option>
-                                <option value ="6">6</option>
-                                <option value ="7">7</option>
-                                <option value ="8">8</option>
-                                <option value ="9">9</option>
+                            <select  name="month" class="form-control form-control-line" style="width: 30%;margin:0 auto;">
+                                <option value ="1">01</option>
+                                <option value ="2">02</option>
+                                <option value ="3">03</option>
+                                <option value ="4">04</option>
+                                <option value ="5">05</option>
+                                <option value ="6">06</option>
+                                <option value ="7">07</option>
+                                <option value ="8">08</option>
+                                <option value ="9">09</option>
                                 <option value ="10">10</option>
                                 <option value ="11">11</option>
                                 <option value ="12">12</option>
@@ -187,16 +187,16 @@
                         <div class="form-group">
                             <label class="col-md-12">请选择开学日期</label>
                             <div class="col-md-12" >
-                                <select  name=" " class="form-control form-control-line" style="width: 30%;margin:0 auto;">
-                                    <option value ="1">1</option>
-                                    <option value ="2">2</option>
-                                    <option value ="3">3</option>
-                                    <option value ="4">4</option>
-                                    <option value ="5">5</option>
-                                    <option value ="6">6</option>
-                                    <option value ="7">7</option>
-                                    <option value ="8">8</option>
-                                    <option value ="9">9</option>
+                                <select  name="day" class="form-control form-control-line" style="width: 30%;margin:0 auto;">
+                                    <option value ="1">01</option>
+                                    <option value ="2">02</option>
+                                    <option value ="3">03</option>
+                                    <option value ="4">04</option>
+                                    <option value ="5">05</option>
+                                    <option value ="6">06</option>
+                                    <option value ="7">07</option>
+                                    <option value ="8">08</option>
+                                    <option value ="9">09</option>
                                     <option value ="10">10</option>
                                     <option value ="11">11</option>
                                     <option value ="12">12</option>

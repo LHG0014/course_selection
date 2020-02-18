@@ -1,10 +1,6 @@
 package com.course_selection.controller;
 
-import com.course_selection.mapper.ExperimentMapper;
-import com.course_selection.mapper.LostFoundMapper;
-
-import com.course_selection.mapper.MailboxMapper;
-import com.course_selection.mapper.MessageMapper;
+import com.course_selection.mapper.*;
 
 import com.course_selection.pojo.*;
 import com.course_selection.service.impl.CourseServiceImpl;
@@ -39,6 +35,8 @@ public class CategoryController {
     private MailboxMapper mailboxMapper;
     @Autowired
     private MessageMapper messageMapper;
+    @Autowired
+    private PostMapper postMapper;
 
     @RequestMapping("/lostfound")
     public String lostfound(Model m,
@@ -64,7 +62,7 @@ public class CategoryController {
     }
 
     @RequestMapping("/message")
-    public String message(  HttpServletRequest request, HttpServletResponse response) throws  Exception{
+    public String message(  HttpServletRequest request) throws  Exception{
         List<Message> messages= messageMapper.findMessage();
         request.getSession(false).setAttribute("mes",messages);
         return "message";
@@ -145,7 +143,9 @@ public class CategoryController {
 
 //    发布通知
     @RequestMapping("/post_notice")
-    public String post_notice() {
+    public String post_notice( HttpServletRequest request) throws  Exception{
+        List<PostNote> posts= postMapper.findNotice();
+        request.getSession(false).setAttribute("notice",posts);
         return "post_notice";
     }
 
