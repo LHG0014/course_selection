@@ -226,7 +226,7 @@
             var update=document.getElementById("edit");
             update.onclick=function()
             {
-                if(confirm("确定要修改吗?您的修改将被记录"))
+                if(confirm("确定要修改吗?"))
                 {
                     return true;
                 }else{
