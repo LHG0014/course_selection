@@ -187,7 +187,7 @@
                                 </tr>
                                 <tr>
                                     <td>2</td>
-                                    <td class="txt-oflo"><a href="/query_student_subscribe">查询实验名单 &nbsp; [Query the list of experiments]</a></td>
+                                    <td class="txt-oflo"><a href="query_student_subscribe">查询实验名单 &nbsp; [Query the list of experiments]</a></td>
                                 </tr>
                                 <tr>
                                     <td>3</td>

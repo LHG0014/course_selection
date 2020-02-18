@@ -1,6 +1,5 @@
 package com.course_selection.controller;
 
-import com.course_selection.mapper.ExperimentMapper;
 import com.course_selection.mapper.StudentMapper;
 import com.course_selection.pojo.Student;
 import org.apache.commons.lang3.StringUtils;
@@ -37,16 +36,10 @@ public class UserController extends HttpServlet {
         return "login";
     }
 
-    @RequestMapping(value = {"/teacher/login_teacher","/unauth"})
-    public String toLogin_teacher(){
-        return "login_teacher";
-    }
 
     @Autowired
     private StudentMapper studentMapper;
 
-    @Autowired
-    private ExperimentMapper experimentMapper;
 
     @Autowired
     private Environment environment;
@@ -95,6 +88,7 @@ public class UserController extends HttpServlet {
             modelMap.addAttribute("errorMeg",errorMeg);
 
             Student student=studentMapper.findBySid(sid);
+
             request.getSession(false).setAttribute("student", student);
             return "homePage";
         }else{
@@ -103,18 +97,6 @@ public class UserController extends HttpServlet {
         }
     }
 
-    /**
-     * 教师登陆真证
-     * @param
-     * @param
-     * @param
-     * @return
-     */
-    @RequestMapping(value = "/login_teacher",method = RequestMethod.POST)
-    public String loginTeacher(ModelMap modelMap, HttpServletRequest request, HttpServletResponse response ) {
-        return "login_teacher";
-
-    }
 
 
     @RequestMapping(value = {"/updateStudent"})

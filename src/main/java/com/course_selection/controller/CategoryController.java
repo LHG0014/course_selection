@@ -122,6 +122,12 @@ public class CategoryController {
     public String query_teacher() {
         return "query_teacher";
     }
+//教师主页
+    @RequestMapping("/homePage_teacher")
+    public String homePage_teacher(){
+        return "homePage_teacher";
+    }
+
 
 //    cx-edit
 
@@ -163,7 +169,9 @@ public class CategoryController {
 
     //回复留言
     @RequestMapping("/reply_message")
-    public String reply_message() {
+    public String reply_message(HttpServletRequest request, HttpServletResponse response) {
+        List<Message> messages= messageMapper.findMessage();
+        request.getSession(false).setAttribute("mes",messages);
         return "reply_message";
     }
 
