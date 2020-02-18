@@ -4,10 +4,13 @@ public class Student {
     private int id;
     private Integer sid;
     private String sname;
+    private int day;
     private String password;
     private String initial_password;
     private int total_num;
     private int selected_num;
+
+    public Student(){}
 
     @Override
     public String toString() {
@@ -15,11 +18,23 @@ public class Student {
                 "id=" + id +
                 ", sid=" + sid +
                 ", sname='" + sname + '\'' +
+                ", day=" + day +
                 ", password='" + password + '\'' +
                 ", initial_password='" + initial_password + '\'' +
                 ", total_num=" + total_num +
                 ", selected_num=" + selected_num +
                 '}';
+    }
+
+    public Student(int id, Integer sid, String sname, int day, String password, String initial_password, int total_num, int selected_num) {
+        this.id = id;
+        this.sid = sid;
+        this.sname = sname;
+        this.day = day;
+        this.password = password;
+        this.initial_password = initial_password;
+        this.total_num = total_num;
+        this.selected_num = selected_num;
     }
 
     public int getId() {
@@ -86,13 +101,6 @@ public class Student {
         selected_num--;
     }
 
-    public Student(int id, Integer sid, String sname, String password, String initial_password, int total_num, int selected_num) {
-        this.id = id;
-        this.sid = sid;
-        this.sname = sname;
-        this.password = password;
-        this.initial_password = initial_password;
-        this.total_num = total_num;
-        this.selected_num = selected_num;
-    }
+
+
 }

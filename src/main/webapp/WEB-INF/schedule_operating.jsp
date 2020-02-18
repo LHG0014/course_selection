@@ -1,3 +1,7 @@
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.util.GregorianCalendar" %>
+<%@ page import="java.util.Calendar" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -117,7 +121,7 @@
                     <a href="mailbox" class="waves-effect"><i class="fa fa-columns fa-fw" aria-hidden="true"></i>投诉信箱<br/>[Complaint Mailbox]</a>
                 </li>
                 <li>
-                    <a href="query_student_subscribe" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>教师通道<br/>[Teacher Channel]</a>
+                    <a href="/teacher_channel" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>教师通道<br/>[Teacher Channel]</a>
                 </li>
             </ul>
             <div class="center p-20">
@@ -128,7 +132,8 @@
                 <c:if test="${!empty student}">
                     <a href="../logout" class="btn btn-danger btn-block waves-effect waves-light"
                        aria-hidden="true">登出</a>
-                </c:if>            </div>
+                </c:if>            
+          </div>
         </div>
     </div>
     <!-- ============================================================== -->
@@ -155,7 +160,19 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="white-box">
-                        <h3 class="box-title">预约实验 [本周是第xx周]</h3>
+                        <h3 class="box-title">预约实验 [本周是第<%
+                            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                            Date openDay = sdf.parse("2020-01-01 12:00:00");
+                            GregorianCalendar g = new GregorianCalendar();
+                            g.setTime(openDay);
+                            int num1 = g.get(Calendar.WEEK_OF_YEAR);//计算开学日期的周数
+                            Date nowdate = new Date();
+                            String s = sdf.format(nowdate);
+                            nowdate = sdf.parse(s);
+                            g.setTime(nowdate);
+                            int num2 = g.get(Calendar.WEEK_OF_YEAR);//计算当前日期的周数
+                            out.print(num2 - num1 + 1);
+                        %>周]</h3>
                         <p class="text-muted"></p>
                         <div class="table-responsive">
                             <table class="table">

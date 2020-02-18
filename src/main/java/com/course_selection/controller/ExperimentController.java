@@ -1,5 +1,6 @@
 package com.course_selection.controller;
 
+import com.course_selection.pojo.ShowExperiment;
 import com.course_selection.pojo.Student;
 import com.course_selection.service.impl.CourseServiceImpl;
 import com.course_selection.service.impl.StudentServiceImpl;

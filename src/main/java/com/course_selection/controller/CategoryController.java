@@ -2,8 +2,10 @@ package com.course_selection.controller;
 
 import com.course_selection.mapper.ExperimentMapper;
 import com.course_selection.mapper.LostFoundMapper;
+
 import com.course_selection.mapper.MailboxMapper;
 import com.course_selection.mapper.MessageMapper;
+
 import com.course_selection.pojo.*;
 import com.course_selection.service.impl.CourseServiceImpl;
 import com.github.pagehelper.PageHelper;
@@ -75,13 +77,19 @@ public class CategoryController {
 
     @RequestMapping("/operating")
     public String operating(HttpServletResponse response, HttpServletRequest request) {
-        Student student = (Student) request.getSession().getAttribute("student");
-        return "schedule_operating";
+    Student student=(Student) request.getSession().getAttribute("student");
+    if (null == student) {
+        return "login";
+    }
+    return "schedule_operating";
     }
 
     @RequestMapping("/search")
     public String search(HttpServletResponse response, HttpServletRequest request) {
-        Student student = (Student) request.getSession().getAttribute("student");
+        Student student=(Student) request.getSession().getAttribute("student");
+        if (null == student) {
+            return "login";
+        }
         List<Selection_Information> sis = courseService.selected(student.getSid());
         request.setAttribute("sis", sis);
         return "search_operating";
@@ -113,6 +121,70 @@ public class CategoryController {
     @RequestMapping("/query_teacher")
     public String query_teacher() {
         return "query_teacher";
+    }
+//教师主页
+    @RequestMapping("/homePage_teacher")
+    public String homePage_teacher(){
+        return "homePage_teacher";
+    }
+
+
+//    cx-edit
+
+//    教师通道
+    @RequestMapping("/teacher_channel")
+    public String teacher_channel() {
+        return "teacher_channel";
+    }
+
+//    发布注意事项
+    @RequestMapping("/post_notes")
+    public String post_notes() {
+        return "post_notes";
+    }
+
+//    发布信息主目录
+    @RequestMapping("/post_content")
+    public String post_content() {
+        return "post_content";
+    }
+
+//    发布通知
+    @RequestMapping("/post_notice")
+    public String post_notice() {
+        return "post_notice";
+    }
+
+//    发布实验室守则
+    @RequestMapping("/post_rules")
+    public String post_rules() {
+        return "post_rules";
+    }
+
+    //    发布实验室开放信息
+    @RequestMapping("/post_openInfo")
+    public String post_openInfo() {
+        return "post_openInfo";
+    }
+
+    //回复留言
+    @RequestMapping("/reply_message")
+    public String reply_message(HttpServletRequest request, HttpServletResponse response) {
+        List<Message> messages= messageMapper.findMessage();
+        request.getSession(false).setAttribute("mes",messages);
+        return "reply_message";
+    }
+
+    //重置密码
+    @RequestMapping("/reset_password")
+    public String reset_password() {
+        return "reset_password";
+    }
+
+    //设置开学日期
+    @RequestMapping("/set_startDate")
+    public String set_startDate() {
+        return "set_startDate";
     }
 
 }

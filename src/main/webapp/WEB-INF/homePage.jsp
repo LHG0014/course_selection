@@ -2,6 +2,8 @@
 <%@ page import="java.util.Calendar" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.util.GregorianCalendar" %>
+<%@ page import="org.springframework.beans.factory.annotation.Autowired" %>
+<%@ page import="com.course_selection.mapper.ExperimentMapper" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" deferredSyntaxAllowedAsLiteral="true" %>
 
@@ -57,9 +59,8 @@
 			<div class="top-left-part">
 				<!-- Logo -->
 				<a class="logo">
-
                     <span class="hidden-xs">
-                        <img src="../img/headlogo.png" alt="home" class="light-logo" width="100%" height="100%"/>
+                        <img src="../img/headlogo.png" alt="home" class="light-logo" width="100%" height="100%" />
                         </span>
 				</a>
 			</div>
@@ -77,7 +78,6 @@
 						</a>
 					</form>
 				</li>
-
 				<c:if test="${!empty student}">
 					<li>
 						<a class="profile-pic" href="#">用户：${student.sname}</a>
@@ -112,7 +112,7 @@
 					<a href="homepage" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>主页[Home]</a>
 				</li>
 				<li>
-					<a href="experiments" class="waves-effect"><i class="fa fa-table fa-fw"
+					<a href="../experiments" class="waves-effect"><i class="fa fa-table fa-fw"
 					                                              aria-hidden="true"></i>实验预约<br/>[Experiment
 						Appointment]</a>
 				</li>
@@ -134,7 +134,7 @@
 					                                          aria-hidden="true"></i>投诉信箱<br/>[Complaint Mailbox]</a>
 				</li>
 				<li>
-					<a href="query_student_subscribe" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>教师通道<br/>[Teacher
+					<a href="/teacher_channel" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>教师通道<br/>[Teacher
 						Channel]</a>
 				</li>
 			</ul>
@@ -228,7 +228,7 @@
 								<tr>
 									<th>实验号</th>
 									<th>实验题目</th>
-									<th>房间号</th>
+									<th>房间号</th>s
 									<th>开设周次</th>
 									<th>备注</th>
 								</tr>

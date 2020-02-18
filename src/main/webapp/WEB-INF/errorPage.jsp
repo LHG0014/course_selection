@@ -8,7 +8,7 @@
 	<br><br>
 	出现异常的地址是：
 	${url}
-	<form action="../homepage" method="post">
+	<form action="to/login" method="post">
 		<button type="submit">返回</button>
 	</form>
 </div>
