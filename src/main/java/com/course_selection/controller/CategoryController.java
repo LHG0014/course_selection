@@ -6,6 +6,7 @@ import com.course_selection.pojo.*;
 import com.course_selection.service.impl.CourseServiceImpl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.apache.ibatis.annotations.Insert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.RedisSerializer;
@@ -14,10 +15,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.apache.ibatis.annotations.Param;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -217,7 +221,10 @@ public class CategoryController {
 
     //回复留言
     @RequestMapping("/reply_message")
-    public String reply_message(HttpServletRequest request, HttpServletResponse response) {
+    public String reply_message(HttpServletRequest request, HttpServletResponse response, @Param("reply") String reply, @Param("id") Integer id) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        String reply_time=sdf.format(new Date());
+        messageMapper.addReply(reply,reply_time,id);
         List<Message> messages= messageMapper.findMessage();
         request.getSession(false).setAttribute("mes",messages);
         return "reply_message";
