@@ -98,6 +98,19 @@ public class CategoryController {
         RedisSerializer redisSerializer = new StringRedisSerializer();
         redisTemplate.setKeySerializer(redisSerializer);
         List<Experiment> experiments = (List<Experiment>) redisTemplate.opsForValue().get("experiments");
+//        cx-eidt
+        //实验室开放信息
+        List<Experiment> postso= postMapper.findOpenInfo();
+        request.getSession(false).setAttribute("open",postso);
+        //通知
+        List<PostNote> postsn= postMapper.findNotice();
+        request.getSession(false).setAttribute("notice",postsn);
+        //实验室守则
+        List<PostNote> postsr= postMapper.findRule();
+        request.getSession(false).setAttribute("rules",postsr);
+         //注意事项
+         List<PostNote> postsa= postMapper.findAttention();
+        request.getSession(false).setAttribute("attention",postsa);
         if (experiments == null) {
             synchronized (this){
                 experiments = (List<Experiment>) redisTemplate.opsForValue().get("experiments");
@@ -122,7 +135,20 @@ public class CategoryController {
     }
 //教师主页
     @RequestMapping("/homePage_teacher")
-    public String homePage_teacher(){
+    public String homePage_teacher(HttpServletRequest request){
+        //        cx-eidt
+        //实验室开放信息
+        List<Experiment> postso= postMapper.findOpenInfo();
+        request.getSession(false).setAttribute("open",postso);
+        //通知
+        List<PostNote> postsn= postMapper.findNotice();
+        request.getSession(false).setAttribute("notice",postsn);
+        //实验室守则
+        List<PostNote> postsr= postMapper.findRule();
+        request.getSession(false).setAttribute("rules",postsr);
+        //注意事项
+        List<PostNote> postsa= postMapper.findAttention();
+        request.getSession(false).setAttribute("attention",postsa);
         return "homePage_teacher";
     }
 
@@ -137,7 +163,13 @@ public class CategoryController {
 
 //    发布注意事项
     @RequestMapping("/post_notes")
-    public String post_notes() {
+    public String post_notes(HttpServletRequest request) throws Exception{
+        Teacher teacher = (Teacher) request.getSession().getAttribute("teacher");
+        if (null == teacher) {
+            return "login_teacher";
+        }
+        List<PostNote> posts= postMapper.findAttention();
+        request.getSession(false).setAttribute("attention",posts);
         return "post_notes";
     }
 
@@ -150,6 +182,10 @@ public class CategoryController {
 //    发布通知
     @RequestMapping("/post_notice")
     public String post_notice( HttpServletRequest request) throws  Exception{
+        Teacher teacher = (Teacher) request.getSession().getAttribute("teacher");
+        if (null == teacher) {
+            return "login_teacher";
+        }
         List<PostNote> posts= postMapper.findNotice();
         request.getSession(false).setAttribute("notice",posts);
         return "post_notice";
@@ -157,13 +193,25 @@ public class CategoryController {
 
 //    发布实验室守则
     @RequestMapping("/post_rules")
-    public String post_rules() {
+    public String post_rules(HttpServletRequest request) throws Exception{
+        Teacher teacher = (Teacher) request.getSession().getAttribute("teacher");
+        if (null == teacher) {
+            return "login_teacher";
+        }
+        List<PostNote> posts= postMapper.findRule();
+        request.getSession(false).setAttribute("rules",posts);
         return "post_rules";
     }
 
     //    发布实验室开放信息
     @RequestMapping("/post_openInfo")
-    public String post_openInfo() {
+    public String post_openInfo(HttpServletRequest request) {
+        Teacher teacher = (Teacher) request.getSession().getAttribute("teacher");
+        if (null == teacher) {
+            return "login_teacher";
+        }
+        List<Experiment> posts= postMapper.findOpenInfo();
+        request.getSession(false).setAttribute("open",posts);
         return "post_openInfo";
     }
 
@@ -177,13 +225,21 @@ public class CategoryController {
 
     //重置密码
     @RequestMapping("/reset_password")
-    public String reset_password() {
+    public String reset_password(HttpServletRequest request) {
+        Teacher teacher=(Teacher) request.getSession().getAttribute("teacher");
+        if (null == teacher) {
+            return "login_teacher";
+        }
         return "reset_password";
     }
 
     //设置开学日期
     @RequestMapping("/set_startDate")
-    public String set_startDate() {
+    public String set_startDate(HttpServletRequest request) {
+        Teacher teacher=(Teacher) request.getSession().getAttribute("teacher");
+        if (null == teacher) {
+            return "login_teacher";
+        }
         return "set_startDate";
     }
 

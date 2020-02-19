@@ -177,12 +177,12 @@
                             <div class="form-group">
                                 <label class="col-md-12">投诉主题：</label>
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control form-control-line"  name="title"> </div>
+                                    <input type="text"  required="required" class="form-control form-control-line"  name="title"> </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">投诉内容：</label>
                                 <div class="col-md-12">
-                                    <textarea rows="5" class="form-control form-control-line" style="resize: none" name="content"></textarea>
+                                    <textarea rows="5" required="required" class="form-control form-control-line" style="resize: none" name="content"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">

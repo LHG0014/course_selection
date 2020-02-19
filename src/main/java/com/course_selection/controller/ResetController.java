@@ -16,18 +16,18 @@ public class ResetController {
     //重置密码
     @RequestMapping("/reset_pa")
     public String reset(@Param ("sid") int sid,Student stu){
-        //需要加教师端登录判断
+        //教师端登录判断加在了页面跳转处
         sid=stu.getSid();
         resetMapper.reset_password(sid);
-        return "redirect:teacher_channel";
+        return "redirect:homePage_teacher";
     }
 
     //设置开学日期
     @RequestMapping("/set_day")
     public String set_day(@Param("date") String date, SetDate setDate){
-        //需要加教师端登录判断
+        //教师端登录判断加在了页面跳转处
         setDate.setDate(setDate.getYear()+"-"+setDate.getMonth()+"-"+setDate.getDay());
         resetMapper.set_day(setDate.getDate());
-        return "redirect:teacher_channel";
+        return "redirect:homePage_teacher";
     }
 }

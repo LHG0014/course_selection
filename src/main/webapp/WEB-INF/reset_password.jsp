@@ -155,18 +155,28 @@
             </div>
             <div class="row">
                 <div class="white-box" style="width:30%;margin: 5% auto;">
-                    <form class="form-horizontal form-material" action="reset_pa" method="post">
+                    <form class="form-horizontal form-material" action="reset_pa" method="post" onsubmit="return checkform()">
                         <div class="form-group">
                             <label class="col-md-12">请输入学生的学号：</label>
                             <div class="col-md-12">
-                                <input type="text" class="form-control form-control-line" id="sid" name="sid" value=" " style="border-bottom: 1px solid black">
+                                <input type="text" class="form-control form-control-line" required="required" id="sid" name="sid" value=" " style="border-bottom: 1px solid black" onfocus="javascript:this.value=' '">
                             </div>
                         </div>
+
                         <div class="form-group">
                             <div class="col-sm-12">
-                                <button class="btn btn-success" type="submit" style="width: 50%;margin:0 10% 0 25%">确认重置</button>
+                                <button class="btn btn-success" type="submit" id="btnreset" style="width: 50%;margin:0 10% 0 25%">确认重置</button>
                             </div>
                         </div>
+                        <script type="text/javascript">
+                            function checkform(){
+                                if(document.getElementById('sid').value==" "){
+                                    alert('请输入学生学号！');
+                                    document.getElementById('sid').focus();
+                                    return false;
+                                }
+                            }
+                        </script>
                     </form>
                 </div>
                 </div>
@@ -192,6 +202,7 @@
 <script src="js/waves.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="js/custom.min.js"></script>
+
 </body>
 
 </html>
