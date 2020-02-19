@@ -158,17 +158,17 @@
             <div class="row">
                 <div class="white-box" style="width:46%;margin: 2% auto;">
                     <p>发布通知</p>
-                    <form class="form-horizontal form-material" action="" method="post">
+                    <form class="form-horizontal form-material" action="/pnotice" method="post">
                         <div class="form-group">
                             <label class="col-md-12">通知发布者</label>
                             <div class="col-md-12">
-                                <input type="text" class="form-control form-control-line" id="sname" name="sname" value="${student.sname}">
+                                <input type="text" required="required" class="form-control form-control-line" id="sname" name="tname" value="${teacher.tname}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-12">新增通知内容：</label>
                             <div class="col-md-12">
-                                <textarea rows="5" class="form-control form-control-line" style="resize: none" name="content"></textarea>
+                                <textarea rows="5" class="form-control form-control-line" style="resize: none" name="comment" required="required"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
@@ -184,26 +184,26 @@
                 <div class="white-box"  style="margin:2% auto;">
                     <h3 class="box-title">历史通知</h3>
                     <div style="border:3px solid RGB(237,241,245)">
-                        <%--                        <c:forEach items="${mes}" var="c" varStatus="st">--%>
+                        <c:forEach items="${notice}" var="c" varStatus="st">
                         <table class="table">
                             <tr>
-                                <td style="background-color:RGB(237,241,245);color: black;text-align: center">发布时间：</td>
-                                <td> </td>
-                                <td style="background-color:RGB(237,241,245);color: black;text-align: center">发布者：</td>
-                                <td>name</td>
+                                <td style="background-color:RGB(237,241,245);color: black;text-align: center;width: 25%">发布时间：</td>
+                                <td> <fmt:formatDate value="${c.time}" pattern="yyyy-MM-dd"/></td>
+                                <td style="background-color:RGB(237,241,245);color: black;text-align: center;width: 25%">发布者：</td>
+                                <td>${c.publisher}</td>
                             </tr>
                             <tr>
-                                <td style="background-color:RGB(237,241,245);color: black;text-align: center">发布内容：</td>
-                                <td colspan="3">content</td>
+                                <td style="background-color:RGB(237,241,245);color: black;text-align: center;width: 25%">发布内容：</td>
+                                <td colspan="3">${c.comment}</td>
                             </tr>
                             <tr>
-                                <td style="background-color:RGB(237,241,245);color: black;text-align: center">编辑</td>
-                                <td style="margin:0 10% 0 10%;"> <a class="btn btn-success btn-block waves-effect waves-light" aria-hidden="true" href="#" > 编辑 </a></td>
-                                <td style="background-color:RGB(237,241,245);color: black;text-align: center">删除</td>
-                                <td style="margin:0 10% 0 10%;"> <button class="btn btn-danger btn-block waves-effect waves-light" aria-hidden="true"  >删除</button></td>
+                                <td style="background-color:RGB(237,241,245);color: black;text-align: center;width: 25%">删除</td>
+                                <form class="form-horizontal form-material" action="delete_notice" method="post">
+                                <td style="margin:0 10% 0 10%;"> <button class="btn btn-danger btn-block waves-effect waves-light" aria-hidden="true" id="${c.id}" value="${c.id}" name="id">删除</button></td>
+                                </form>
                             </tr>
                         </table>
-                        <%--                        </c:forEach>--%>
+                    </c:forEach>
                     </div>
                 </div>
             </div>

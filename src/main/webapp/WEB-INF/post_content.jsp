@@ -190,7 +190,7 @@
                                 </tr>
                                 <tr>
                                     <td>4</td>
-                                    <td class="txt-oflo"><a href="post_openInfo">发布实验室开放信息 &nbsp; [Post lab open messages]</a></td>
+                                    <td class="txt-oflo"><a href="post_openInfo">发布实验开放信息 &nbsp; [Post lab open messages]</a></td>
                                 </tr>
                                 </tbody>
                             </table>

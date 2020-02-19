@@ -148,21 +148,21 @@
         <div class="container-fluid">
             <div class="row bg-title">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h1 class="page-title">发布实验室开放通知</h1>
+                    <h1 class="page-title">发布实验开放通知</h1>
                 </div>
                 <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                     <ol class="breadcrumb">
                         <li><a href="homepage">主页</a></li>
                         <li><a href="teacher_channel">教师通道</a></li>
                         <li><a href="post_content">信息发布</a></li>
-                        <li class="active">发布实验室开放通知</li>
+                        <li class="active">发布实验开放信息</li>
                     </ol>
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="white-box"  style="margin:2% auto;">
-                    <p>发布实验室开放信息</p>
-                    <form class="form-horizontal form-material" action="" method="post">
+                    <p>发布实验开放信息</p>
+                    <form class="form-horizontal form-material" action="popenInfo" method="post"  onsubmit="return checkform()">
                         <div style="border:3px solid RGB(237,241,245)">
                             <table class="table" >
                                 <thead>
@@ -181,17 +181,17 @@
                                 <tr>
                                     <td>
                                         <div class="col-md-12">
-                                            <input type="text" class="form-control form-control-line"  name=" " value=" " style="border-bottom: 1px solid black;">
+                                            <input type="text" required="required" class="form-control form-control-line"  id="eid" name="eid" value=" " style="border-bottom: 1px solid black;" onfocus="javascript:this.value=' '">
                                         </div>
                                     </td>
                                     <td>
                                         <div class="col-md-12">
-                                            <textarea rows="3" class="form-control form-control-line" style="resize: none;border-bottom: 1px solid black;" name=" "></textarea>
+                                            <textarea rows="3"  required="required" class="form-control form-control-line"  id="ename" style="resize: none;border-bottom: 1px solid black;" name="ename"></textarea>
 <%--                                            <input type="text" class="form-control form-control-line"  name=" " value=" " style="border-bottom: 1px solid black;">--%>
                                         </div>
                                     </td>
                                     <td>
-                                        <select  name=" " class="form-control form-control-line">
+                                        <select  name="one_start" class="form-control form-control-line">
                                             <option value ="1">1</option>
                                             <option value ="2">2</option>
                                             <option value ="3">3</option>
@@ -213,7 +213,7 @@
                                         </select>
                                     </td>
                                     <td>
-                                        <select  name=" " class="form-control form-control-line">
+                                        <select  name="one_end" class="form-control form-control-line">
                                             <option value ="1">1</option>
                                             <option value ="2">2</option>
                                             <option value ="3">3</option>
@@ -235,7 +235,7 @@
                                         </select>
                                     </td>
                                     <td>
-                                        <select  name=" " class="form-control form-control-line">
+                                        <select  name="two_start" class="form-control form-control-line">
                                             <option value ="1">1</option>
                                             <option value ="2">2</option>
                                             <option value ="3">3</option>
@@ -256,7 +256,7 @@
                                             <option value ="18">18</option>
                                         </select>
                                     </td>
-                                    <td><select  name=" " class="form-control form-control-line">
+                                    <td><select  name="two_end" class="form-control form-control-line">
                                         <option value ="1">1</option>
                                         <option value ="2">2</option>
                                         <option value ="3">3</option>
@@ -278,17 +278,17 @@
                                     </select></td>
                                     <td>
                                         <div class="col-md-12">
-                                            <input type="text" class="form-control form-control-line"  name=" " value=" " style="border-bottom: 1px solid black;">
+                                            <input type="text" class="form-control form-control-line" required="required" id="lab" name="lab" value=" " style="border-bottom: 1px solid black;" onfocus="javascript:this.value=' '">
                                         </div>
                                     </td>
                                     <td>
                                         <div class="col-md-12">
-                                            <input type="text" class="form-control form-control-line"  name=" " value=" " style="border-bottom: 1px solid black;">
+                                            <input type="text" class="form-control form-control-line" required="required" id="seat"  name="seat_num" value=" " style="border-bottom: 1px solid black;" onfocus="javascript:this.value=' '">
                                         </div>
                                     </td>
                                     <td>
                                         <div class="col-md-12">
-                                            <input type="text" class="form-control form-control-line"  name=" " value=" " style="border-bottom: 1px solid black;">
+                                            <input type="text" class="form-control form-control-line"  name="remark" value=" " style="border-bottom: 1px solid black;">
                                         </div>
                                     </td>
                                     <td>
@@ -302,20 +302,32 @@
                                 </tbody>
                             </table>
                         </div>
-                    </form>
+                    </form><script type="text/javascript">
+                    function checkform(){
+                        if((document.getElementById('eid').value==" ")||(document.getElementById('ename').value==" ")||(document.getElementById('lab').value==" ")||(document.getElementById('seat').value==" ")){
+                            alert('实验课程号/名称/房间号/座位数量不能为空！');
+                            document.getElementById('eid').focus();
+                            document.getElementById('ename').focus();
+                            document.getElementById('lab').focus();
+                            document.getElementById('seat').focus();
+                            return false;
+                        }
+                    }
+                </script>
+
                     <h5>完成操作后，请注意<a href="../logout">登出</a></h5>
                 </div>
             </div>
 
             <div class="col-md-12">
                 <div class="white-box"  style="margin:2% auto;">
-                    <h3 class="box-title">实验室开放信息</h3>
+                    <h3 class="box-title">实验开放信息</h3>
                     <div style="border:3px solid RGB(237,241,245)">
+                        <c:forEach items="${open}" var="c" varStatus="st">
                         <table class="table">
                             <thead>
-                                <th>序号</th>
                                 <th>实验课程号</th>
-                                <th>实验名称</th>
+                                <th style="width: 20%;">实验名称</th>
                                 <th>第一轮实验开始周</th>
                                 <th>第一轮实验结束周</th>
                                 <th>第二轮实验开始周</th>
@@ -323,26 +335,26 @@
                                 <th>实验室房间号</th>
                                 <th>实验室座位数量</th>
                                 <th>备注</th>
-                                <th>编辑</th>
                                 <th>删除</th>
                             </thead>
                             <tbody>
                             <tr>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>落球法测量液体的粘滞系数</td>
-                                <td>2</td>
-                                <td>10</td>
-                                <td>14</td>
-                                <td>14</td>
-                                <td>730</td>
-                                <td>30</td>
-                                <td>慕课</td>
-                                <td style="margin:0 10% 0 10%;"> <a class="btn btn-success btn-block waves-effect waves-light" aria-hidden="true" href="#" > 编辑 </a></td>
-                                <td style="margin:0 10% 0 10%;"> <button class="btn btn-danger btn-block waves-effect waves-light" aria-hidden="true"  >删除</button></td>
+                                <td>${c.eid}</td>
+                                <td>${c.ename}</td>
+                                <td>${c.one_start}</td>
+                                <td>${c.one_end}</td>
+                                <td>${c.two_start}</td>
+                                <td>${c.two_end}</td>
+                                <td>${c.lab}</td>
+                                <td>${c.seat_num}</td>
+                                <td>${c.remark}</td>
+                                <form class="form-horizontal form-material" action="delete_openInfo" method="post">
+                                    <td style="margin:0 10% 0 10%;"> <button class="btn btn-danger btn-block waves-effect waves-light" aria-hidden="true" id="${c.id}" value="${c.id}" name="id">删除</button></td>
+                                </form>
                             </tr>
                             </tbody>
                         </table>
+                        </c:forEach>
                     </div>
                 </div>
             </div>
