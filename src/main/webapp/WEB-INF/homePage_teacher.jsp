@@ -2,8 +2,6 @@
 <%@ page import="java.util.Calendar" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.util.GregorianCalendar" %>
-<%@ page import="org.springframework.beans.factory.annotation.Autowired" %>
-<%@ page import="com.course_selection.mapper.ExperimentMapper" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" deferredSyntaxAllowedAsLiteral="true" %>
 
