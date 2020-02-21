@@ -59,14 +59,6 @@
 					<a class="nav-toggler open-close waves-effect waves-light hidden-md hidden-lg"
 					   href="javascript:void(0)"><i class="fa fa-bars"></i></a>
 				</li>
-				<li>
-					<form role="search" class="app-search hidden-sm hidden-xs m-r-10">
-						<input type="text" placeholder="Search..." class="form-control">
-						<a href="">
-							<i class="fa fa-search"></i>
-						</a>
-					</form>
-				</li>
 				<c:if test="${!empty student}">
 					<li>
 						<a class="profile-pic" href="#">用户：${student.sname}</a>
@@ -121,10 +113,7 @@
 					<a href="mailbox" class="waves-effect"><i class="fa fa-columns fa-fw"
 					                                          aria-hidden="true"></i>投诉信箱<br/>[Complaint Mailbox]</a>
 				</li>
-				<li>
-					<a href="/teacher_channel" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>教师通道<br/>[Teacher
-						Channel]</a>
-				</li>
+
 			</ul>
 			<div class="center p-20">
 
@@ -167,13 +156,13 @@
 						<div class="form-group">
 							<label class="col-md-12">姓名：</label>
 							<div class="col-md-12">
-								<input type="text" class="form-control form-control-line" id="sname" name="sname" value="${student.sname}">
+								<input type="text"required="required" class="form-control form-control-line" id="sname" name="sname" value="${student.sname}">
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-md-12">留言：</label>
 							<div class="col-md-12">
-								<textarea rows="5" class="form-control form-control-line" style="resize: none" name="content"></textarea>
+								<textarea rows="5" required="required" class="form-control form-control-line" style="resize: none" name="content"></textarea>
 							</div>
 						</div>
 						<div class="form-group">

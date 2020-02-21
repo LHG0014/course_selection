@@ -70,14 +70,7 @@
 					<a class="nav-toggler open-close waves-effect waves-light hidden-md hidden-lg"
 					   href="javascript:void(0)"><i class="fa fa-bars"></i></a>
 				</li>
-				<li>
-					<form role="search" class="app-search hidden-sm hidden-xs m-r-10">
-						<input type="text" placeholder="Search..." class="form-control">
-						<a href="">
-							<i class="fa fa-search"></i>
-						</a>
-					</form>
-				</li>
+
 				<c:if test="${!empty student}">
 					<li>
 						<a class="profile-pic" href="#">用户：${student.sname}</a>
@@ -133,10 +126,6 @@
 					<a href="mailbox" class="waves-effect"><i class="fa fa-columns fa-fw"
 					                                          aria-hidden="true"></i>投诉信箱<br/>[Complaint Mailbox]</a>
 				</li>
-				<li>
-					<a href="/teacher_channel" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>教师通道<br/>[Teacher
-						Channel]</a>
-				</li>
 			</ul>
 			<div class="center p-20">
 				<c:if test="${empty student}">
@@ -159,76 +148,40 @@
 				<div class="col-md-12 col-lg-12 col-sm-12">
 					<div class="white-box">
 
-						<h1 style="margin: 0px;padding: 0px">首页</h1>
-						<h4 style="margin: 0px;padding: 0px">&nbsp;-Index-</h4>
+						<h1 style="margin: 0px;padding: 0px;text-align: center">首页</h1>
+						<h4 style="margin: 0px;padding: 0px;text-align: center">&nbsp;-Index-</h4>
+						<p style="text-align: center">+-------------------------------------------------------------------+</p>
+						<br/>
+						<h2 style="color: red">本周是第${nowWeek}周</h2>
+						<h1 style="color: red;">通知</h1>
+						<c:forEach items="${notice}" var="c" varStatus="st">
+						<h4> <ul><li>
+								${c.comment}
+						</li></ul></h4>
+						</c:forEach>
+						<br/>
+						<h1 style="color: red">实验预约注意事项</h1>
+						<c:forEach items="${attentions}" var="c" varStatus="st">
+							<h4> <ul><li>
+									${c.comment}
+							</li></ul></h4>
+						</c:forEach>
+						<br/>
+						<h1 style="color: red">实验室守则</h1>
+						<c:forEach items="${rules}" var="c" varStatus="st">
+							<h4> <ul><li>
+									${c.comment}
+							</li></ul></h4>
+						</c:forEach>
 						<p>+-------------------------------------------------------------------+</p>
-						<br/>
-						<br/>
-						<br/>
-						<h2 style="color: red">本周是第
-							<%
-								SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-								Date openDay = sdf.parse("2020-01-01 12:00:00");
-								GregorianCalendar g = new GregorianCalendar();
-								g.setTime(openDay);
-								int num1 = g.get(Calendar.WEEK_OF_YEAR);//计算开学日期的周数
-								Date nowdate = new Date();
-								String s = sdf.format(nowdate);
-								nowdate = sdf.parse(s);
-								g.setTime(nowdate);
-								int num2 = g.get(Calendar.WEEK_OF_YEAR);//计算当前日期的周数
-								out.print(num2 - num1 + 1);
-							%>周</h2>
-						<h1 style="color: red">通知</h1>
-						<h4>12. 13通知:鉴于有同学要求多做实验，可以多选1个实验，选课方法见下面9.4通知。多选实验也是按
-							<br>平均分计期末成绩。没选够要求数目 (实验A是12个，实验B是8个)的同学期末成绩为0分。</h4>
-						<h4>9. 4通知:目前应届生和重修生都不限选课时间及类型(周-周三周四上、下午， 周二上午和周五下午
-							<br>的实验都可选)，每周可选多个实验。可点击“实验预约”页面的“实验空位表”查询所有实验所有
-							<br>时间的空位，表中数值不为0的就是有空位可选。选课方法:先选题目和周次，再选星期和节次。有问
-							<br>题请继续在留言板留言。</h4>
-						<h4>关于慕课：要求必须参加“大学物理实验”慕课学习，慕课占10%的期末成绩。要求做绪论测试;绪论
-							<br>部分未掌握的，要求再次进行绪论的慕课学习;要求看所有实验的慕课(每个实验至少看90%时长的视
-							<br>频)并做测试，不管是否选此实验。登陆方法: 1. 通过学校的应用门]户my. hl ju. edu. cn登录，然后
-							<br>选择自主学习平台; 2. 直接登录自主学习平台网站，网址是mooc. hlju. edu. cn; 3. 安装超星学习通
-							<br>APP,然后选择第三方账户登录，在单位一栏选黑龙江大学， 然后用学号，选课密码登录。</h4>
-						<h4>关于重修和慕课:未在学校选课的重修同学(无法登陆本站)请务必先在学校选课，然后在首页左侧
-							<br>“重修登记”，经实验室审核通过可选实验;若末在学校选课导致期末无法录入成绩，后果自
-							<br>负。“ 查询预约”列表里有“保留以前成绩”的重修同学不要求学习慕课，期末成绩按实验平均成绩
-							<br>计算，其他重修同学及应届生要求学习慕课。
-						</h4>
-						<br/>
-						<h3 style="color: red">实验预约注意事项</h3>
-						<ul>
-							<li>-周做一个实验，每个实验题目只能选一次。</li>
-							<li>需预约本学期的所有实验。</li>
-							<li>实验的当天不能预约实验，也不能取消预约。</li>
-							<li>如果已预约的实验不能来做，请提前一天（包括一天）取消预约</li>
-							<li>已预约的实验不来做，按旷课处理。</li>
-							<li>要求做满规定的题目数（大学物理实验A为12个，大学物理实验B为8个），否则期末无成绩。</li>
-						</ul>
-						<br/>
-						<h3 style="color: red">实验室守则</h3>
-						<ul>
-							<li>上实验课前必须作好实验预习，写好实验报告。无预习报告或预习不合格者不允许做实验。</li>
-							<li>按时上课，迟到十分钟以上（含十分钟），将取消该次实验资格。</li>
-							<li>上实验课必须携带：学生证，实验教材，预习报告及钢笔，铅笔，格尺，橡皮等用具。</li>
-							<li>进入实验室首先了解实验注意事项，熟悉实验装置，仪器结构，遵守仪器操作规程。如有电路连接，使用电源等，要经过教
-								<br>师检查，方可接通电源。
-							</li>
-							<li>替做实验者、实验数据不真实、伪造数据、带别人的实验数据进实验室者等，都按考试违纪处理。</li>
-							<li>期末成绩为应完成实验题目的平均成绩加慕课成绩，若未完成要求的题目数，期末成绩为0分。旷课记未完成一次实验。</li>
-							<li>爱护实验仪器设备及实验设施，如有操作粗鲁、不遵守操作规范而造成仪器设备及设施损坏的，按“黑龙江大学仪器设备
-								<br>损坏赔偿制度”执行。
-							</li>
-						</ul>
-						<p>+-------------------------------------------------------------------+</p>
+						<h1 style="color: red">实验开放信息</h1>
 						<div class="table-responsive">
 							<table class="table">
 								<thead>
 								<tr>
 									<th>实验号</th>
 									<th>实验题目</th>
-									<th>房间号</th>s
+									<th>房间号</th>
 									<th>开设周次</th>
 									<th>备注</th>
 								</tr>

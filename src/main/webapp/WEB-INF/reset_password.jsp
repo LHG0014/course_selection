@@ -59,14 +59,6 @@
                     <a class="nav-toggler open-close waves-effect waves-light hidden-md hidden-lg"
                        href="javascript:void(0)"><i class="fa fa-bars"></i></a>
                 </li>
-                <li>
-                    <form role="search" class="app-search hidden-sm hidden-xs m-r-10">
-                        <input type="text" placeholder="Search..." class="form-control">
-                        <a href="">
-                            <i class="fa fa-search"></i>
-                        </a>
-                    </form>
-                </li>
                 <c:if test="${!empty teacher}">
                     <li>
                         <a class="profile-pic" href="#">用户：${teacher.tname}</a>
@@ -97,7 +89,7 @@
             </div>
             <ul class="nav" id="side-menu">
                 <li style="padding: 70px 0 0;">
-                    <a href="homePage_teacher" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>主页[Home]</a>
+                    <a href="homepage_teacher" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>主页[Home]</a>
                 </li>
                 <li>
                     <a href="post_content" class="waves-effect"><i class="fa fa-table fa-fw"
@@ -113,6 +105,9 @@
                 </li>
                 <li>
                     <a href="reply_message" class="waves-effect"><i class="fa fa-globe fa-fw" aria-hidden="true"></i>回复留言板<br/>[Reply to student messages]</a>
+                </li>
+                <li>
+                    <a href="lostfound_teacher" class="waves-effect"><i class="fa fa-search"></i> 失物招领<br/>[Lost and Found]</a>
                 </li>
                 <li>
                     <a href="reset_password" class="waves-effect"><i class="fa fa-columns fa-fw"
@@ -148,25 +143,35 @@
                 </div>
                 <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                     <ol class="breadcrumb">
-                        <li><a href="homePage_teacher">主页</a></li>
+                        <li><a href="homepage_teacher">主页</a></li>
                         <li class="active">重置学生密码</li>
                     </ol>
                 </div>
             </div>
             <div class="row">
                 <div class="white-box" style="width:30%;margin: 5% auto;">
-                    <form class="form-horizontal form-material" action=" " method="post">
+                    <form class="form-horizontal form-material" action="reset_pa" method="post" onsubmit="return checkform()">
                         <div class="form-group">
                             <label class="col-md-12">请输入学生的学号：</label>
                             <div class="col-md-12">
-                                <input type="text" class="form-control form-control-line" id="sname" name="sname" value=" " style="border-bottom: 1px solid black">
+                                <input type="text" class="form-control form-control-line" required="required" id="sid" name="sid" value=" " style="border-bottom: 1px solid black" onfocus="javascript:this.value=' '">
                             </div>
                         </div>
+
                         <div class="form-group">
                             <div class="col-sm-12">
-                                <button class="btn btn-success" type="submit" style="width: 50%;margin:0 10% 0 25%">确认重置</button>
+                                <button class="btn btn-success" type="submit" id="btnreset" style="width: 50%;margin:0 10% 0 25%">确认重置</button>
                             </div>
                         </div>
+                        <script type="text/javascript">
+                            function checkform(){
+                                if(document.getElementById('sid').value==" "){
+                                    alert('请输入学生学号！');
+                                    document.getElementById('sid').focus();
+                                    return false;
+                                }
+                            }
+                        </script>
                     </form>
                 </div>
                 </div>
@@ -192,6 +197,7 @@
 <script src="js/waves.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="js/custom.min.js"></script>
+
 </body>
 
 </html>
