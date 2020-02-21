@@ -29,7 +29,7 @@ public class ResetController {
         //教师端登录判断加在了页面跳转处
         sid=stu.getSid();
         resetMapper.reset_password(sid);
-        return "redirect:homePage_teacher";
+        return "redirect:homepage_teacher";
     }
 
     //设置开学日期
@@ -40,6 +40,6 @@ public class ResetController {
         resetMapper.set_day(date);
         School_Hours school_hours = weekMapper.findDay();
         redisTemplate.opsForValue().set("school_hours", school_hours);
-        return "redirect:homePage_teacher";
+        return "redirect:homepage_teacher";
     }
 }

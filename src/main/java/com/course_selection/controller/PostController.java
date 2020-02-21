@@ -36,7 +36,7 @@ public class PostController {
     public String pnotice(HttpServletRequest request, HttpServletResponse response,
                           @Param("tname") String tname, @Param("comment") String comment, @Param("time") Date time, PostNote p) throws ParseException {
         setInformation("notice", request, tname, comment, time, p);
-        return "redirect:homePage_teacher";
+        return "redirect:homepage_teacher";
     }
 
     //删除通知
@@ -58,7 +58,7 @@ public class PostController {
     public String pattention(HttpServletRequest request, HttpServletResponse response,
                              @Param("tname") String tname, @Param("comment") String comment, @Param("time") Date time, PostNote p) throws ParseException {
         setInformation("attention", request, tname, comment, time, p);
-        return "redirect:homePage_teacher";
+        return "redirect:homepage_teacher";
     }
 
     //删除注意事项
@@ -79,7 +79,7 @@ public class PostController {
     public String prules(HttpServletRequest request, HttpServletResponse response,
                          @Param("tname") String tname, @Param("comment") String comment, @Param("time") Date time, PostNote p) throws ParseException {
         setInformation("rule", request, tname, comment, time, p);
-        return "redirect:homePage_teacher";
+        return "redirect:homepage_teacher";
     }
 
     //删除实验室守则
@@ -118,7 +118,7 @@ public class PostController {
         }
         experiments = experimentMapper.findAllE();
         redisTemplate.opsForValue().set("experiments", experiments);
-        return "redirect:homePage_teacher";
+        return "redirect:homepage_teacher";
     }
 
     //删除实验开放信息

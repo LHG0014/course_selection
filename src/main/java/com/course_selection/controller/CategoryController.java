@@ -116,7 +116,7 @@ public class CategoryController {
 
     //教师主页
     @RequestMapping({"/homepage_teacher", "/teacher_channel"})
-    public String homePage_teacher(HttpServletRequest request) {
+    public String homepage_teacher(HttpServletRequest request) {
         getInformation(request);
         return "homePage_teacher";
     }
