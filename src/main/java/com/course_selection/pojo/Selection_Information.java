@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class Selection_Information implements Serializable {
     private int id;
     private int sid;
+    private String sname;
     private int eid;
     private String ename;
     private int weeknum;
@@ -13,9 +14,18 @@ public class Selection_Information implements Serializable {
     private int lab;
     private int seat;
 
-    public Selection_Information(int id, int sid, int eid, String ename, int weeknum, int day, int section, int lab, int seat) {
+    public String getSname() {
+        return sname;
+    }
+
+    public void setSname(String sname) {
+        this.sname = sname;
+    }
+
+    public Selection_Information(int id, int sid, String sname, int eid, String ename, int weeknum, int day, int section, int lab, int seat) {
         this.id = id;
         this.sid = sid;
+        this.sname=sname;
         this.eid = eid;
         this.ename = ename;
         this.weeknum = weeknum;
