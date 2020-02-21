@@ -117,6 +117,9 @@
                     <a href="reply_message" class="waves-effect"><i class="fa fa-globe fa-fw" aria-hidden="true"></i>回复留言板<br/>[Reply to student messages]</a>
                 </li>
                 <li>
+                    <a href="lostfound_teacher" class="waves-effect"><i class="fa fa-search" aria-hidden="true"></i> 失物招领<br/>[Lost and Found]</a>
+                </li>
+                <li>
                     <a href="reset_password" class="waves-effect"><i class="fa fa-columns fa-fw"
                                                               aria-hidden="true"></i>重置学生密码<br/>[Reset the student's password]</a>
                 </li>

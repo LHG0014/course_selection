@@ -160,8 +160,8 @@
 									</tr>
 									<tr>
 										<td></td>
-										<td></td>
-										<td>${c.place}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<fmt:formatDate value="${c.time}" pattern="yyyy-MM-dd HH:mm"/></td>
+										<td>发布时间：<fmt:formatDate value="${c.time}" pattern="yyyy-MM-dd HH:mm"/></td>
+										<td>${c.place}&nbsp;(${c.number})&nbsp;</td>
 									</tr>
 									<br>
 								</table>

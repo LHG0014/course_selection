@@ -121,6 +121,22 @@ public class CategoryController {
         return "homePage_teacher";
     }
 
+    @RequestMapping("/lostfound_teacher")
+    public String lostfound_teacher(Model m,HttpServletRequest request,
+                            @RequestParam(value = "start", defaultValue = "0")
+                                    int start, @RequestParam(value = "size", defaultValue = "5")
+                                    int size) throws Exception {
+        Teacher teacher = (Teacher) request.getSession().getAttribute("teacher");
+        if (null == teacher) {
+            return "login_teacher";
+        }
+        PageHelper.startPage(start, size, "id desc");//根据start,size进行分页，并且设置id 倒排序
+        List<Lost_Found> lf = lostfoundMapper.findalllost_found();
+        PageInfo<Lost_Found> page = new PageInfo<>(lf);//根据返回的集合，创建PageInfo对象
+        m.addAttribute("page", page);
+        return "lostfound_teacher";
+    }
+
     //    发布注意事项
     @RequestMapping("/post_notes")
     public String post_notes(HttpServletRequest request) throws Exception {
