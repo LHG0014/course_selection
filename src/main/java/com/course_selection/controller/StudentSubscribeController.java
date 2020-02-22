@@ -1,5 +1,6 @@
 package com.course_selection.controller;
 
+import com.course_selection.mapper.LostFoundMapper;
 import com.course_selection.mapper.StudentSubcribeMapper;
 import com.course_selection.pojo.Selection_Information;
 import org.apache.ibatis.annotations.Param;
@@ -15,6 +16,8 @@ import java.util.List;
 public class StudentSubscribeController {
     @Autowired
     StudentSubcribeMapper studentSubcribeMapper;
+    @Autowired
+    LostFoundMapper lostFoundMapper;
     @RequestMapping("/student_subscribe_result")
     public String student_subscribe_result(Model m,
                                            @Param("weeknum")int weeknum,
@@ -29,5 +32,10 @@ public class StudentSubscribeController {
         List<Selection_Information> s=studentSubcribeMapper.findsome(eid,weeknum,day,section);
         m.addAttribute("s",s);
         return "student_subscribe_result";
+    }
+    @RequestMapping("/addgrade")
+    public String addgrade(HttpServletRequest req, @Param("sid")int sid,@Param("grade")int grade){
+        studentSubcribeMapper.addgrade(sid,grade);
+        return "success";
     }
 }
