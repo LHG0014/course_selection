@@ -3,6 +3,7 @@ package com.course_selection.controller;
 import com.course_selection.mapper.LostFoundMapper;
 import com.course_selection.mapper.StudentSubcribeMapper;
 import com.course_selection.pojo.Selection_Information;
+import com.course_selection.pojo.Teacher;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,10 @@ public class StudentSubscribeController {
                                            @Param("day")int day,
                                            @Param("section")int section,
                                            HttpServletRequest request){
+        Teacher teacher = (Teacher) request.getSession().getAttribute("teacher");
+        if (null == teacher) {
+            return "login_teacher";
+        }
         weeknum=Integer.parseInt(request.getParameter("weeknum"));
         eid=Integer.parseInt(request.getParameter("eid"));
         day=Integer.parseInt(request.getParameter("day"));

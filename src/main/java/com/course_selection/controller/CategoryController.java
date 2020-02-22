@@ -235,7 +235,11 @@ public class CategoryController {
     }
 
     @RequestMapping("/query_student_subscribe")
-    public String query_student(){
+    public String query_student(HttpServletRequest request){
+        Teacher teacher = (Teacher) request.getSession().getAttribute("teacher");
+        if (null == teacher) {
+            return "login_teacher";
+        }
         return "query_student_subscribe";
     }
     @RequestMapping("/query_teacher_teacher")

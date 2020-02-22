@@ -150,9 +150,10 @@
                             <thead>
                             <tr>
                                 <th>序号</th>
-                                <th>学号</th>
+                                <th  style="width:150px;">学号</th>
+	                            <th>姓名</th>
                                 <th>座位号</th>
-                                <th>成绩</th>
+                                <th  style="width:150px;">成绩</th>
                                 <th>提交</th>
                             </tr>
                             </thead>
@@ -161,6 +162,7 @@
                                     <tr>
                                         <td>${s.count}</td>
                                         <td><input class="form-control form-control-line" id="sid" name="sid" value="${c.sid}" readonly style="background-color: white"></td>
+	                                    <td>${c.sname}</td>
                                         <td><span id="seat">${c.seat}</span></td>
                                         <td><input class="form-control form-control-line" id="grade" name="grade" value="${c.grade}"></td>
                                         <td><input type="button" value="确定" class="btn btn-success"></td>

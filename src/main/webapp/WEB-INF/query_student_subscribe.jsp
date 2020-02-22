@@ -153,7 +153,7 @@
 				<div class="col-md-12">
 					<div class="white-box">
 						<div style="text-align: left; font-size: 150%;width: 500px;margin: 2% auto">
-							<form action="/student_subscribe_result">
+							<form action="/student_subscribe_result" method="post">
 								实验：
 								<select id="eid" name="eid" class="form-control form-control-line">
 									<option value ="0">--请选择--</option>
