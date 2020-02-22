@@ -145,23 +145,26 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="white-box">
-                        <table class="table">
+                        <p style="color: red;font-size: 25px;">在您全部打分完毕后，请点击刷新，查看是否全部打分成功!</p>
+                        <table class="table" id="data_table">
                             <thead>
                             <tr>
                                 <th>序号</th>
                                 <th>学号</th>
-                                <th>姓名</th>
                                 <th>座位号</th>
+                                <th>成绩</th>
+                                <th>提交</th>
                             </tr>
                             </thead>
                             <tbody>
                             <c:forEach items="${s}" var="c" varStatus="s">
-                                <tr>
-                                    <td>${s.count}</td>
-                                    <td>${c.sid}</td>
-                                    <td>${c.sname}</td>
-                                    <td>${c.seat}</td>
-                                </tr>
+                                    <tr>
+                                        <td>${s.count}</td>
+                                        <td><input class="form-control form-control-line" id="sid" name="sid" value="${c.sid}" readonly style="background-color: white"></td>
+                                        <td><span id="seat">${c.seat}</span></td>
+                                        <td><input class="form-control form-control-line" id="grade" name="grade" value="${c.grade}"></td>
+                                        <td><input type="button" value="确定" class="btn btn-success"></td>
+                                    </tr>
                             </c:forEach>
                             </tbody>
                         </table>
@@ -188,6 +191,37 @@
 <script src="/js/waves.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="/js/custom.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var TaskType = '';
+        $("#data_table tr:gt(0)").click(function () {
+            e = $(this).find("td").eq(4)[0].children[0].value;
+            if (e=="确定") {
+                a = $(this).find("td").eq(0).html();
+                b = $(this).find("td").eq(1)[0].children[0].value;
+                c = $(this).find("td").eq(2).html();
+                d =$(this).find("td").eq(3)[0].children[0].value;
+                var sid = b;
+                var grade =d;
+                $.ajax({
+                    type: "post",
+                    url: "/addgrade",
+                    data: {
+                        "sid": sid,
+                        "grade": grade
+                    },
+                    success: function (data, status) {
+                       // 千万不能写弹窗,点击一行触发事件才能传进来参数，如果写了会点一下就有弹窗
+                    },
+                    error: function () {
+                      //  千万不能写弹窗
+                    }
+                });
+            }
+        });
+    });
+
+</script>
 </body>
 
 </html>

@@ -57,7 +57,8 @@ public class ExperimentController {
         }
         int sid = student.getSid();
         String sname = student.getSname();
-        result = courseService.select_course(sid, sname, eid, week, day, section);
+        int grade=0;
+        result = courseService.select_course(sid, sname, eid, week, day, section,grade);
         student.selectCourse();
         student = studentService.addCourse(student);
         System.out.println(result);
